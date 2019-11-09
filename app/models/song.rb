@@ -7,13 +7,13 @@ class Song < ApplicationRecord
     through: :album, 
     source: :artist
 
-  has_many :playlist_songs
+  has_many :playlist_songs, dependent: :destroy
 
   has_many :playlists, 
     through: :playlist_songs, 
     source: :playlist
 
-  has_many :likes, as: :likeable
+  has_many :likes, as: :likeable, dependent: :destroy
 
   has_many :likers,
     through: :likes, 

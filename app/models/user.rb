@@ -7,15 +7,16 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
-  has_many :playlists
+  has_many :playlists, dependent: :destroy
 
   has_many :followed_accounts,
     foreign_key: :user_id, 
-    class_name: :Follow
+    class_name: :Follow,
+    dependent: :destroy
 
-  has_many :follows, as: :followable
+  has_many :follows, as: :followable, dependent: :destroy
 
-  has_many :likes
+  has_many :likes, dependent: :destroy
 
   has_many :followed_artists, 
     through: :followed_accounts, 
