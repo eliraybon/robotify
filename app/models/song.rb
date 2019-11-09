@@ -18,4 +18,9 @@ class Song < ApplicationRecord
   has_many :likers,
     through: :likes, 
     source: :user
+
+  def runtime_to_seconds
+    time = runtime.split(':').map(&:to_i)
+    time[0] * 60 + time[1]
+  end
 end
