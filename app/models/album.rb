@@ -1,14 +1,14 @@
 class Album < ApplicationRecord
   GENRES = [
-    'Alternative',
-    'Electronic',
+    'Vaporwave',
     'Synthwave',
     'Chillwave',
-    'Vaporwave',
     'Future Funk',
     'Lo-fi',
     'Punk',
     'New Wave',
+    'Alternative',
+    'Electronic',
     'Rock',
     'Pop'
   ].freeze
