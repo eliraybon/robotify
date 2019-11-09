@@ -5,7 +5,46 @@ class User < ApplicationRecord
 
   attr_reader :password
 
-  after_intialize :ensure_session_token
+  after_initialize :ensure_session_token
+
+  has_many :playlists
+
+  has_many :followed_accounts,
+    foreign_key: :user_id, 
+    class_name: :Follow
+
+  has_many :follows, as: :followable
+
+  has_many :likes
+
+  has_many :followed_artists, 
+    through: :followed_accounts, 
+    source: :followable, 
+    source_type: :Artist
+
+  has_many :followed_users, 
+    through: :followed_accounts, 
+    source: :followable, 
+    source_type: :User
+
+  has_many :liked_songs,
+    through: :likes, 
+    source: :likeable, 
+    source_type: :Song
+
+  has_many :liked_albums, 
+    through: :likes, 
+    source: :likeable, 
+    source_type: :Album
+
+  has_many :liked_playlists, 
+    through: :likes, 
+    source: :likeable, 
+    source_type: :Playlist
+
+  has_many :followers, 
+    through: :follows,
+    source: :user
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)

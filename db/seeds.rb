@@ -14,7 +14,7 @@ flaming_lips = Artist.create(name: 'The Flaming Lips')
 wilco = Artist.create(name: 'Wilco')
 
 yoshimi = flaming_lips.albums.create(
-  name: 'Yoshimi Battles the Pink Robots', 
+  title: 'Yoshimi Battles the Pink Robots', 
   release_date: '2002',
   genre: 'Alternative'
 )
@@ -48,7 +48,7 @@ beep = robotify.playlists.create(title: 'Beep Boop Bops')
 great_songs = eli.playlists.create(title: 'DB Test')
 
 phaedra.songs.each { |song| beep.songs.push(song) }
-yoshimi.songs.each { |song| beep.songs.push(songs) }
+yoshimi.songs.each { |song| beep.songs.push(song) }
 
 great_songs.songs << foxtrot.songs.last
 great_songs.songs << yoshimi.songs.first

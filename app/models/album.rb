@@ -16,4 +16,13 @@ class Album < ApplicationRecord
   validates :title, :release_date, presence: true
   validates :genre, inclusion: { in: GENRES }
 
+  belongs_to :artist
+
+  has_many :songs
+
+  has_many :likes, as: :likeable
+
+  has_many :likers, 
+    through: :likes, 
+    source: :user
 end
