@@ -25,4 +25,8 @@ class Album < ApplicationRecord
   has_many :likers, 
     through: :likes, 
     source: :user
+
+  def year
+    release_date[-4..-1]
+  end
 end
