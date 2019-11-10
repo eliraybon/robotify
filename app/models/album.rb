@@ -15,6 +15,7 @@ class Album < ApplicationRecord
 
   validates :title, :release_date, presence: true
   validates :genre, inclusion: { in: GENRES }
+  # validate :ensure_album_cover  
 
   has_one_attached :cover
 
@@ -27,6 +28,12 @@ class Album < ApplicationRecord
   has_many :likers, 
     through: :likes, 
     source: :user
+
+  # def ensure_album_cover
+  #   unless self.cover.attached?
+  #     errors[:cover] << "must exist"
+  #   end
+  # end
 
   def year
     release_date[-4..-1]
