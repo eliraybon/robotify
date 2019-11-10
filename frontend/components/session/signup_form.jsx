@@ -3,7 +3,13 @@ import React from 'react';
 export default class SignupForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { username: '', password: '' };
+    this.state = { 
+      email: '', 
+      confirmEmail: '', 
+      password: '',
+      year: '',
+      day: ''
+    };
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -30,20 +36,28 @@ export default class SignupForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>{this.props.formType}</h2>
-        {this.renderErrors()}
+      <div className="signup">
         <form onSubmit={this.handleSubmit}>
-          <label>Username
+          <button className="demo-button">Log In With Demo</button>
+          <div className="div-line">
+            <span className="or">or</span>
+          </div>
+          <div className="signup-prompt">Sign up with your email address</div>
+          <div className="signup-errors">{this.renderErrors()}</div>
+
+          <label>
             <input 
+              className="email-input"
               type="text"
-              value={ this.state.username }
-              onChange={ this.update('username') }
+              placeholder="Email"
+              value={ this.state.email }
+              onChange={ this.update('email') }
             />
           </label>
-          <label>Password
+          <label>
             <input
               type="password"
+              placeholder="Password"
               value={this.state.password}
               onChange={this.update('password')}
             />

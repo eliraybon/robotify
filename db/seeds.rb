@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-robotify = User.create(username: 'robotify', password:'beepboop')
-eli = User.create(username: 'eli', password:'fullstack')
+robotify = User.create(email: 'robotify', password:'beepboop')
+eli = User.create(email: 'eli', password:'fullstack')
 
 tangerine = Artist.create(name: 'Tangerine Dream')
 flaming_lips = Artist.create(name: 'The Flaming Lips')

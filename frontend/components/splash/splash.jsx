@@ -19,7 +19,7 @@ const Splash = ({currentUser, logout}) => {
   const welcomeMessage = () => {
     return (
       <section>
-        <p>Hello, { currentUser.username} </p>
+        <p>Hello, { currentUser.email} </p>
         <button onClick={ logout }>Logout</button>
       </section>
     )

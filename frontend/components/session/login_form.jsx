@@ -3,7 +3,7 @@ import React from 'react';
 export default class LoginForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { username: '', password: '' };
+    this.state = { email: '', password: '' };
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -34,11 +34,11 @@ export default class LoginForm extends React.Component {
         <h2>{this.props.formType}</h2>
         {this.renderErrors()}
         <form onSubmit={this.handleSubmit}>
-          <label>Username
+          <label>Email
             <input
               type="text"
-              value={this.state.username}
-              onChange={this.update('username')}
+              value={this.state.email}
+              onChange={this.update('email')}
             />
           </label>
           <label>Password
