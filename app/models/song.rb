@@ -1,6 +1,8 @@
 class Song < ApplicationRecord
   validates :title, :runtime, :play_count, presence: true
 
+  before_destroy :delete_track
+
   has_one_attached :track
 
   belongs_to :album
@@ -20,6 +22,10 @@ class Song < ApplicationRecord
   has_many :likers,
     through: :likes, 
     source: :user
+
+  def delete_track
+    self.track.purge
+  end
 
   def runtime_to_seconds
     time = runtime.split(':').map(&:to_i)

@@ -16,6 +16,7 @@ class Album < ApplicationRecord
   validates :title, :release_date, presence: true
   validates :genre, inclusion: { in: GENRES }
   # validate :ensure_album_cover  
+  before_destroy :delete_album_cover
 
   has_one_attached :cover
 
@@ -34,6 +35,10 @@ class Album < ApplicationRecord
   #     errors[:cover] << "must exist"
   #   end
   # end
+
+  def delete_album_cover
+    self.cover.purge
+  end
 
   def year
     release_date[-4..-1]
