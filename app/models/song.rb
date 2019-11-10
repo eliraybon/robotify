@@ -1,6 +1,8 @@
 class Song < ApplicationRecord
   validates :title, :runtime, :play_count, presence: true
 
+  has_one_attached :track
+
   belongs_to :album
 
   has_one :artist, 

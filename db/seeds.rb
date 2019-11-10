@@ -12,6 +12,7 @@ eli = User.create(username: 'eli', password:'fullstack')
 tangerine = Artist.create(name: 'Tangerine Dream')
 flaming_lips = Artist.create(name: 'The Flaming Lips')
 wilco = Artist.create(name: 'Wilco')
+eliraybon = Artist.create(name: 'Eli Raybon')
 
 yoshimi = flaming_lips.albums.create(
   title: 'Yoshimi Battles the Pink Robots', 
@@ -31,6 +32,15 @@ foxtrot = wilco.albums.create(
   genre: 'Rock'
 )
 
+supertoys = eliraybon.albums.create(
+  title: 'Supertoys',
+  release_date: '07/12/2019',
+  genre: 'Alternative'
+)
+
+supertoys_cover = File.open('/Users/eliraybon/app/robotify_assets/supertoys.jpg')
+supertoys.cover.attach(io: supertoys_cover, filename: 'supertoys.jpg')
+
 phaedra.songs.create(title: 'Phaedra', runtime: '17:32')
 phaedra.songs.create(title: 'Mysterious Semblance at the Strand of Nightmares', runtime: '9:41')
 phaedra.songs.create(title: 'Movements of a Visionary', runtime: '7:54')
@@ -43,6 +53,10 @@ yoshimi.songs.create(title: 'Yoshimi Battles the Pink Robots, Pt. 1', runtime: '
 foxtrot.songs.create(title: 'Kamera', runtime: '3:30')
 foxtrot.songs.create(title: 'Jesus, etc.', runtime: '3:52')
 foxtrot.songs.create(title: 'Pot Kettle Black', runtime: '4:01')
+
+battery_brain = supertoys.songs.create(title: 'Battery Brain', runtime: '4:51')
+track = File.open("/Users/eliraybon/app/robotify_assets/battery_brain.mp3")
+battery_brain.track.attach(io: track, filename: 'battery_brain.mp3')
 
 beep = robotify.playlists.create(title: 'Beep Boop Bops')
 great_songs = eli.playlists.create(title: 'DB Test')

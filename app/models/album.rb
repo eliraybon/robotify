@@ -16,6 +16,8 @@ class Album < ApplicationRecord
   validates :title, :release_date, presence: true
   validates :genre, inclusion: { in: GENRES }
 
+  has_one_attached :cover
+
   belongs_to :artist
 
   has_many :songs, dependent: :destroy

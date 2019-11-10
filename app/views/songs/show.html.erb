@@ -1,0 +1,8 @@
+<!--This view is for testing Active Storage and playing music. Delete later.
+-->
+
+<h1><%= @song.title %></h1>
+<img src="<%= url_for(@song.album.cover) %>" width="200" height="200">
+<audio src="<%= url_for(@song.track) %>" controls preload='auto'></audio>
+
+
