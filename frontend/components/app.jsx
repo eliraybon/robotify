@@ -9,9 +9,9 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 const App = () => (
   <div>
     <h1>Robotify</h1>
-    <SplashContainer />
+    <Route exact path="/" component={SplashContainer} />
     <AuthRoute exact path="/signup" component={ SignupFormContainer } />
-    <AuthRoute exact path="/login" component={LoginFormContainer} />
+    <AuthRoute exact path="/login" component={ LoginFormContainer } />
   </div>
 );
 

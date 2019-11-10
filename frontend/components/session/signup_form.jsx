@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class SessionForm extends React.Component {
+export default class SignupForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = { username: '', password: '' };
