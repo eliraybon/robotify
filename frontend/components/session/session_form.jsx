@@ -5,7 +5,7 @@ export default class SessionForm extends React.Component {
     super(props);
     this.state = { username: '', password: '' };
 
-    this.handleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(e) {
@@ -31,7 +31,6 @@ export default class SessionForm extends React.Component {
   render() {
     return (
       <div>
-        {this.props.navLink}
         <h2>{this.props.formType}</h2>
         {this.renderErrors()}
         <form onSubmit={this.handleSubmit}>
@@ -51,6 +50,7 @@ export default class SessionForm extends React.Component {
           </label>
           <button>{this.props.formType}</button>
         </form>
+        {this.props.navLink}
       </div>
     )
   }
