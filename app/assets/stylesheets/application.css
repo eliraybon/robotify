@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+ .robotify-header {
+   text-align: center;
+   font-weight: 700;
+   font-size: 50px;
+   font-family: 'Roboto', sans-serif;
+   margin: 15px;
+ }

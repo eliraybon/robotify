@@ -34,16 +34,18 @@ export default class LoginForm extends React.Component {
         <h2>{this.props.formType}</h2>
         {this.renderErrors()}
         <form onSubmit={this.handleSubmit}>
-          <label>Email
+          <label>
             <input
               type="text"
+              placeholder="Email"
               value={this.state.email}
               onChange={this.update('email')}
             />
           </label>
-          <label>Password
+          <label>
             <input
               type="password"
+              placeholder="Password"
               value={this.state.password}
               onChange={this.update('password')}
             />
