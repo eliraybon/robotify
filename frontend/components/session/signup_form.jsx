@@ -43,14 +43,14 @@ export default class SignupForm extends React.Component {
 
         <form className="signup-form" onSubmit={this.handleSubmit}>
 
-          <button className="demo-button">Log In With Demo</button>
+          <button className="demo-button">Log In As Demo User</button>
 
           <div className="div-line">
             <span className="or">or</span>
           </div>
 
           <div className="signup-prompt">Sign up with your email address</div>
-          <div className="signup-errors">{this.renderErrors()}</div>
+          <div className="session-errors">{this.renderErrors()}</div>
 
           <label>
             <input 
@@ -128,23 +128,23 @@ export default class SignupForm extends React.Component {
           <div className="radio-buttons">
 
             <label className="gender-radio">
-              <input type="radio" />
+              <input type="radio" name="gender" />
               <span className="radio-text">Male</span>
             </label>
   
             <label className="gender-radio">
-              <input type="radio" />
+              <input type="radio" name="gender" />
               <span className="radio-text">Female</span>
             </label>
   
             <label className="gender-radio">
-              <input type="radio" />
+              <input type="radio" name="gender" />
               <span className="radio-text">Non-binary</span>
             </label>
           </div>
 
 
-          <button className="signup-button">{this.props.formType}</button>
+          <button className="session-button">{this.props.formType}</button>
         </form>
 
         <div className="login-instead">Already have an account? {this.props.navLink}</div>

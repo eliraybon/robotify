@@ -30,29 +30,51 @@ export default class LoginForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>{this.props.formType}</h2>
+      <div className="login">
         {this.renderErrors()}
-        <form onSubmit={this.handleSubmit}>
+        <form className="login-form" onSubmit={this.handleSubmit}>
+
+          <div className="login-prompt">To continue, log in to Robotify.</div>
+          <button className="demo-button full">Log In As Demo User</button>
+
+          <div className="div-line">
+            <span className="or">or</span>
+          </div>
+
+          <div className="session-errors">{this.renderErrors()}</div>
+
           <label>
             <input
+             className="input email input"
               type="text"
               placeholder="Email"
               value={this.state.email}
               onChange={this.update('email')}
             />
           </label>
+
           <label>
             <input
+              className="input password input"
               type="password"
               placeholder="Password"
               value={this.state.password}
               onChange={this.update('password')}
             />
           </label>
-          <button>{this.props.formType}</button>
+
+          <div className ="login-button">
+            <label className="remember-me">
+              <input type="checkbox" />
+              <span>Remember me</span>
+            </label>
+            <button className="session-button">{this.props.formType}</button>
+          </div>
+
+          <div className="div-line"></div>
+          <div className="login-prompt">Don't have an account?</div>
+          {this.props.navLink}
         </form>
-        {this.props.navLink}
       </div>
     )
   }
