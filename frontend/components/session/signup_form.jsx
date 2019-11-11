@@ -1,5 +1,4 @@
 import React from 'react';
-import { demoLogin } from '../../util/session_api_util';
 
 export default class SignupForm extends React.Component {
   constructor(props) {
@@ -42,6 +41,34 @@ export default class SignupForm extends React.Component {
     );
   };
 
+  confirmEmailErrors() {
+    const { email, confirmEmail } = this.state;
+    if (email && confirmEmail && email.slice(0, confirmEmail.length) != confirmEmail) {
+      return <div className="session-errors">Email adress doesn't match</div>
+    };
+  };
+
+  dayErrors() {
+    if (this.state.day === '') return null;
+    const day = parseInt(this.state.day);
+    if (!day || day < 0 || day > 31) {
+      return <div className="session-errors">Invalid day</div>
+    };
+  }
+
+  yearErrors() {
+    if (this.state.year === '') return null;
+    const year = parseInt(this.state.year);
+
+    if (year) {
+      if (year > 999 && year < 1900 || year > 2019) {
+        return <div className="session-errors">No time travelers allowed</div>
+      }
+    } else {
+      return <div className="session-errors">Invalid year</div>
+    }
+  }
+
   render() {
     return (
       <div className="signup">
@@ -79,6 +106,7 @@ export default class SignupForm extends React.Component {
               value={this.state.confirmEmail}
               onChange={this.update('confirmEmail')}
             />
+            {this.confirmEmailErrors()}
           </label>
 
           <label>
@@ -133,6 +161,8 @@ export default class SignupForm extends React.Component {
               onChange={this.update('year')}
             />
           </label>
+          {this.dayErrors()}
+          {this.yearErrors()}
 
           <div className="radio-buttons">
 
