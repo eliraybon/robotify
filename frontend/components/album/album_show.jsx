@@ -9,7 +9,7 @@ export default class AlbumDetail extends React.Component {
   render() {
     const { album, songs } = this.props;
     if (!album) return null;
-    
+
     const songItems = songs.map(song => <li key={ song.id }>{song.title}</li>)
 
 
@@ -17,9 +17,6 @@ export default class AlbumDetail extends React.Component {
       <section>
         <h1>{album.title}</h1>
         <h3>{album.artist_name}</h3>
-        {/* <ul>
-          {songItems}
-        </ul> */}
         <SongIndex songs={ songs } />
       </section>
     )
