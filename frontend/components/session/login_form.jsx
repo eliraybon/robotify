@@ -8,6 +8,10 @@ export default class LoginForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentWillUnmount() {
+    this.props.clearErrors();
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     this.props.processForm(this.state);
@@ -31,11 +35,10 @@ export default class LoginForm extends React.Component {
   render() {
     return (
       <div className="login">
-        {this.renderErrors()}
         <form className="login-form" onSubmit={this.handleSubmit}>
 
           <div className="login-prompt">To continue, log in to Robotify.</div>
-          
+
           <button 
             className="demo-button full"
             onClick={this.props.demoLogin}>
