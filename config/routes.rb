@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :albums, only: [:show]
     resources :playlists, only: [:show]
+    resources :artists, only: [:show]
   end
 
   #These routes are for testing Active Storage. Delete later
