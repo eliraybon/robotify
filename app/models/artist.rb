@@ -1,6 +1,9 @@
 class Artist < ApplicationRecord
   validates :name, presence: true
 
+  has_one_attached :profile_img
+  has_one_attached :banner_img
+
   has_many :albums, dependent: :destroy
 
   has_many :songs, 

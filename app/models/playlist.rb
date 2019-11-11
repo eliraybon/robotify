@@ -1,6 +1,8 @@
 class Playlist < ApplicationRecord
   validates :title, presence: true
 
+  has_one_attached :cover
+
   belongs_to :user
 
   has_many :playlist_songs, dependent: :destroy

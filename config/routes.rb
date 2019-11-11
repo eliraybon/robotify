@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: :json} do
     resources :users, only: [:create]
     resource :session, only: [:create, :destroy]
+    resources :albums, only: [:show]
+    resources :playlists, only: [:show]
   end
 
   #These routes are for testing Active Storage. Delete later
