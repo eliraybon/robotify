@@ -44,7 +44,7 @@ export default class SignupForm extends React.Component {
   confirmEmailErrors() {
     const { email, confirmEmail } = this.state;
     if (email && confirmEmail && email.slice(0, confirmEmail.length) != confirmEmail) {
-      return <div className="session-errors">Email adress doesn't match</div>
+      return <div className="session-errors">Email address doesn't match</div>
     };
   };
 
@@ -71,7 +71,7 @@ export default class SignupForm extends React.Component {
 
   render() {
     return (
-      <div className="signup">
+      <div className="signup">  
 
         <form className="signup-form" onSubmit={this.handleSubmit}>
 

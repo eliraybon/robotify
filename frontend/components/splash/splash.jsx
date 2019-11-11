@@ -9,10 +9,12 @@ import { Link } from 'react-router-dom';
 const Splash = ({currentUser, logout}) => {
   const sessionLinks = () => {
     return (
-      <nav>
-        <Link to="/signup">Sign Up</Link>
-        <Link to="/login">Login</Link>
-      </nav>
+      <header className="main-header">
+        <nav className="main-nav">
+          <Link to="/signup" className="nav-link">Sign Up</Link>
+          <Link to="/login" className="nav-link">Login</Link>
+        </nav>
+      </header>
     )
   };
 

@@ -1,0 +1,29 @@
+.main-header { 
+  position: sticky;
+}
+
+.main-nav {
+  display: flex;
+  justify-content: flex-end;
+  background: rgba(0, 0, 0, 0.7);
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  height: 80px;
+  color: white;
+  transition-duration: 0.3s;
+}
+
+.nav-link {
+  margin: 0px 20px;
+  line-height: 80px;
+}
+
+.nav-link:hover {
+  color: #1db954;
+  transition-duration: 0.3s;
+}
+
+.nav-link:last-of-type {
+  margin-right: 60px;
+}

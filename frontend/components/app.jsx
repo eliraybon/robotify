@@ -8,10 +8,10 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
   <div>
-    <h1 className="robotify-header">Robotify
-      {/* <img src="/Users/eliraybon/app/robotify-assets/beat-bot.jpg" width="100" height="100"/> */}
-    </h1>
     <Route exact path="/" component={SplashContainer} />
+    <h1 
+      className="robotify-header">Robotify
+    </h1>
     <AuthRoute exact path="/signup" component={ SignupFormContainer } />
     <AuthRoute exact path="/login" component={ LoginFormContainer } />
   </div>
