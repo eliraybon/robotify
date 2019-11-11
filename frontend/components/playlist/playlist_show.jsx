@@ -6,6 +6,12 @@ export default class PlaylistShow extends React.Component {
     this.props.fetchPlaylist(this.props.playlistId);
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.playlistId !== prevProps.playlistId) {
+      this.props.fetchPlaylist(this.props.playlistId);
+    }
+  }
+
   render() {
     const { playlist, songs } = this.props;
     if (!playlist) return null; 

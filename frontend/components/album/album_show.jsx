@@ -6,6 +6,12 @@ export default class AlbumDetail extends React.Component {
     this.props.fetchAlbum(this.props.albumId)
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.albumId !== prevProps.albumId) {
+      this.props.fetchAlbum(this.props.albumId);
+    }
+  }
+
   render() {
     const { album, songs } = this.props;
     if (!album) return null;
