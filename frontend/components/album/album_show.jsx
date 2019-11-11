@@ -8,9 +8,10 @@ export default class AlbumDetail extends React.Component {
 
   render() {
     const { album, songs } = this.props;
+    if (!album) return null;
+    
     const songItems = songs.map(song => <li key={ song.id }>{song.title}</li>)
 
-    if (!album) return null;
 
     return (
       <section>
