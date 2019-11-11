@@ -45,6 +45,13 @@ export const logout = () => dispatch => {
   );
 };
 
+export const demoLogin = () => dispatch => {
+  return SessionApiUtil.demoLogin().then(
+    user => dispatch(receiveCurrentUser(user)),
+    errors => dispatch(receiveSessionErrors(errors))
+  );
+};
+
 
 
 

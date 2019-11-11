@@ -1,4 +1,5 @@
 import React from 'react';
+import { demoLogin } from '../../util/session_api_util';
 
 export default class SignupForm extends React.Component {
   constructor(props) {
@@ -43,7 +44,11 @@ export default class SignupForm extends React.Component {
 
         <form className="signup-form" onSubmit={this.handleSubmit}>
 
-          <button className="demo-button">Log In As Demo User</button>
+          <button 
+            className="demo-button" 
+            onClick={this.props.demoLogin}>
+              Log In As Demo User
+          </button>
 
           <div className="div-line">
             <span className="or">or</span>

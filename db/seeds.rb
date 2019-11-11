@@ -8,6 +8,7 @@
 
 robotify = User.create(email: 'robotify', password:'beepboop')
 eli = User.create(email: 'eli', password:'fullstack')
+demoUser = User.create(email: 'demo-user@robotify.com', password: 'robotifyrocks')
 
 tangerine = Artist.create(name: 'Tangerine Dream')
 flaming_lips = Artist.create(name: 'The Flaming Lips')
