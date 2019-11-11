@@ -5,6 +5,8 @@ import Root from './components/root';
 
 // FOR TESTING
 import { signup, login, logout } from './actions/session_actions';
+import { fetchAlbum } from './actions/album_actions';
+//
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -28,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.signup = signup;
   window.login = login;
   window.logout = logout;
+  window.fetchAlbum = fetchAlbum;
   //TESTING END
 
   const root = document.getElementById("root");
