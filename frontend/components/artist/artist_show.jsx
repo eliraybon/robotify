@@ -16,9 +16,7 @@ export default class ArtistShow extends React.Component {
 
   render() {
     const { artist, albums, songs } = this.props;
-    debugger;
     if (!artist) return null;
-    debugger;
     const songItems = songs.map(song => <li key={ song.id }>{song.title}</li>);
     const albumItems = albums.map(album => <li key={ album.id }>{album.title}</li> )
 

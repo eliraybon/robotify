@@ -4,7 +4,6 @@ import { fetchArtist } from '../../actions/artist_actions';
 
 const mapStateToProps = (state, ownProps) => {
   const artistId = parseInt(ownProps.match.params.artistId);
-  debugger;
   return {
     artistId,
     artist: state.entities.artists[artistId],

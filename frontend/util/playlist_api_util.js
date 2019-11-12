@@ -28,4 +28,20 @@ export const deletePlaylist = playlistId => {
   });
 };
 
+export const likePlaylist = playlistId => {
+  return $.ajax({
+    method: 'POST',
+    url: `/api/playlists/${playlistId}/like`
+  });
+};
+
+export const unlikePlaylist = playlistId => {
+  return $.ajax({
+    method: 'DELETE',
+    url: `/api/playlists/${playlistId}/unlike`
+  });
+};
+
+
+
 

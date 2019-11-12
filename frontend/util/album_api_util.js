@@ -5,3 +5,16 @@ export const fetchAlbum = albumId => {
   });
 };
 
+export const likeAlbum = albumId => {
+  return $.ajax({
+    method: 'POST',
+    url: `/api/albums/${albumId}/like`
+  });
+};
+
+export const unlikeAlbum = albumId => {
+  return $.ajax({
+    method: 'DELETE',
+    url: `/api/albums/${albumId}/unlike`
+  });
+};

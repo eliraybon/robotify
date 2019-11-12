@@ -14,6 +14,11 @@ import {
 } from './actions/playlist_actions';
 import { deleteSongFromPlaylist } from './util/playlist_song_util';
 import { addSongToPlaylist } from './actions/playlist_song_actions';
+import { likeSong, unlikeSong } from './util/song_api_util';
+import { likeAlbum, unlikeAlbum } from './util/album_api_util';
+import { likePlaylist, unlikePlaylist } from './util/playlist_api_util';
+import { followArtist, unfollowArtist } from './util/artist_api_util';
+import { followUser, unfollowUser } from './util/user_api_util';
 //
 
 
@@ -45,6 +50,16 @@ document.addEventListener("DOMContentLoaded", () => {
   window.deletePlaylist = deletePlaylist;
   window.addSongToPlaylist = addSongToPlaylist;
   window.deleteSongFromPlaylist = deleteSongFromPlaylist;
+  window.likeSong = likeSong;
+  window.unlikeSong = unlikeSong;
+  window.likeAlbum = likeAlbum;
+  window.unlikeAlbum = unlikeAlbum;
+  window.likePlaylist = likePlaylist;
+  window.unlikePlaylist = unlikePlaylist;
+  window.followArtist = followArtist;
+  window.unfollowArtist = unfollowArtist;
+  window.followUser = followUser;
+  window.unfollowUser = unfollowUser;
   //TESTING END
 
   const root = document.getElementById("root");
