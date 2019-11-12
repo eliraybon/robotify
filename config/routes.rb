@@ -10,14 +10,14 @@ Rails.application.routes.draw do
     
     resource :session, only: [:create, :destroy]
 
-    resources :albums, only: [:show] do
+    resources :albums, only: [:index, :show] do
       member do 
         post :like
         delete :unlike
       end
     end
 
-    resources :playlists, only: [:show, :create, :update, :destroy] do
+    resources :playlists, only: [:index, :show, :create, :update, :destroy] do
       member do 
         post :like
         delete :unlike

@@ -1,3 +1,11 @@
+export const fetchAlbums = context => {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/albums',
+    data: { context }
+  });
+};
+
 export const fetchAlbum = albumId => {
   return $.ajax({
     method: 'GET',

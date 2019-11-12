@@ -1,4 +1,15 @@
 class Api::PlaylistsController < ApplicationController
+  def index 
+    case params[:context]
+    when 'library'
+      @playlists = current_user.liked_playlists.concat(current_user.playlists)
+    when 'explore'
+      @playlists = Playlist.all[0..4]
+    end
+
+    render :index 
+  end
+
   def show
     @playlist = Playlist.find(params[:id])
     render :show

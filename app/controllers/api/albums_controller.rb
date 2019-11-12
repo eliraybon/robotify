@@ -1,5 +1,13 @@
 class Api::AlbumsController < ApplicationController
   def index 
+    case params[:context]
+    when 'library'
+      @albums = current_user.liked_albums
+    when 'explore'
+      @albums = Album.all[0..4]
+    end
+
+    render :index
   end
 
   def show

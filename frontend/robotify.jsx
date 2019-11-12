@@ -5,9 +5,10 @@ import Root from './components/root';
 
 // FOR TESTING
 import { signup, login, logout } from './actions/session_actions';
-import { fetchAlbum } from './actions/album_actions';
+import { fetchAlbum, fetchAlbums } from './actions/album_actions';
 import { 
   fetchPlaylist, 
+  fetchPlaylists,
   createPlaylist, 
   updatePlaylist, 
   deletePlaylist 
@@ -44,7 +45,9 @@ document.addEventListener("DOMContentLoaded", () => {
   window.login = login;
   window.logout = logout;
   window.fetchAlbum = fetchAlbum;
+  window.fetchAlbums = fetchAlbums;
   window.fetchPlaylist = fetchPlaylist;
+  window.fetchPlaylists = fetchPlaylists;
   window.createPlaylist = createPlaylist;
   window.updatePlaylist = updatePlaylist;
   window.deletePlaylist = deletePlaylist;
