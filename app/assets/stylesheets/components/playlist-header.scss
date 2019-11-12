@@ -1,0 +1,31 @@
+.playlist-header {
+  position: relative;
+  background: $main-background;
+  color: $white;
+  font-family: $sans-serif;
+}
+
+.ph-playlist-cover {
+  // display: block;
+  margin: 1% 5%;
+}
+
+.ph-playlist-tag {
+  position: absolute;
+  top: 10%;
+  left: 22%;
+  font-style: italic;
+}
+
+.ph-playlist-title {
+  position: absolute;
+  font-size: 40px;
+  font-weight: 700;
+  top: 20%;
+  left: 22%;
+}
+.ph-other-info {
+  position: absolute;
+  top: 70%;
+  left: 22%;
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import SongIndex from '../song/song_index';
+import PlaylistHeader from './playlist_header';
 
 export default class PlaylistShow extends React.Component {
   componentDidMount() {
@@ -18,8 +19,7 @@ export default class PlaylistShow extends React.Component {
 
     return (
       <section>
-        <h1>{playlist.title}</h1>
-        <h3>{playlist.user_email}</h3>
+        <PlaylistHeader playlist={ playlist }/>
         <SongIndex songs={ songs } />
       </section>
     )
