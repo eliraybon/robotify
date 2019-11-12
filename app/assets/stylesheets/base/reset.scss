@@ -40,6 +40,14 @@ button {
   appearance: none;
 }
 
+input {
+  display: block;
+}
+
+button {
+  display: block;
+}
+
 button, input[type="submit"] {
   cursor: pointer;
 }

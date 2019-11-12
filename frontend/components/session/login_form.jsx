@@ -85,7 +85,7 @@ export default class LoginForm extends React.Component {
           <div className ="login-button">
             <label className="remember-me">
               <input type="checkbox" />
-              <span>Remember me</span>
+              <span className="remember-me-text">Remember me</span>
             </label>
             <button className="session-button">{this.props.formType}</button>
           </div>
