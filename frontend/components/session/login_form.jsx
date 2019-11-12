@@ -15,8 +15,7 @@ export default class LoginForm extends React.Component {
       email: 'demo-user@robotify.com', 
       password: 'robotifyrocks'
     };
-    this.state = demoUser;
-    this.props.processForm(this.state);
+    this.props.processForm(demoUser);
   }
 
   componentWillUnmount() {

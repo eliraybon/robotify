@@ -20,14 +20,3 @@ export const logout = () => {
     url: '/api/session'
   });
 };
-
-const demoUser = { email: 'demo-user@robotify.com', password: 'robotifyrocks' };
-
-export const demoLogin = () => {
-  return $.ajax({
-    method: 'POST',
-    url: '/api/session',
-    data: { user: demoUser }
-  });
-};
-

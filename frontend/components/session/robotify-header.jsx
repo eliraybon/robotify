@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 
 const SessionHeader = (props) => {
   return (
-    <Link to="/" className="robotify-header">Robotify</Link>
+    <div className="robotify-header">
+      <Link to="/" className="robotify-header-logo">Robotify</Link>
+    </div>
   )
 }
 

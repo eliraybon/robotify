@@ -12,6 +12,17 @@ export default class SignupForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.demoLogin = this.demoLogin.bind(this);
+  }
+
+  demoLogin(e) {
+    e.preventDefault();
+    const demoUser = {
+      email: 'demo-user@robotify.com',
+      password: 'robotifyrocks'
+    };
+    // this.state = demoUser;
+    this.props.login(demoUser);
   }
 
   componentWillUnmount() {
@@ -77,7 +88,7 @@ export default class SignupForm extends React.Component {
 
           <button 
             className="demo-button" 
-            onClick={this.props.demoLogin}>
+            onClick={this.demoLogin}>
               Log In As Demo User
           </button>
 
