@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const SessionHeader = (props) => {
+const RobotifyHeader = () => {
   return (
     <div className="robotify-header">
       <Link to="/" className="robotify-header-logo">Robotify</Link>
@@ -9,4 +9,4 @@ const SessionHeader = (props) => {
   )
 }
 
-export default SessionHeader;
+export default RobotifyHeader;

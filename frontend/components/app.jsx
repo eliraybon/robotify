@@ -16,14 +16,12 @@ import Main from './main/Main';
 const App = () => (
   <div>
     <Route exact path="/" component={ SplashContainer } />
-    <AuthRoute exact path="/signup" component={ RobotifyHeader } />
-    <AuthRoute exact path="/login" component={ RobotifyHeader } />
     <AuthRoute exact path="/signup" component={ SignupFormContainer } />
     <AuthRoute exact path="/login" component={ LoginFormContainer } />
     {/* <ProtectedRoute path="/albums" component={ Main } /> */}
-    <Route path="/albums/:albumId" component={AlbumShow} />
-    <Route path="/playlists/:playlistId" component={PlaylistShow} />
-    <Route path="/artists/:artistId" component={ArtistShow} />
+    <ProtectedRoute path="/albums/:albumId" component={AlbumShow} />
+    <ProtectedRoute path="/playlists/:playlistId" component={PlaylistShow} />
+    <ProtectedRoute path="/artists/:artistId" component={ArtistShow} />
   </div>
 );
 

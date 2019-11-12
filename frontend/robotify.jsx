@@ -6,6 +6,12 @@ import Root from './components/root';
 // FOR TESTING
 import { signup, login, logout } from './actions/session_actions';
 import { fetchAlbum } from './actions/album_actions';
+import { 
+  fetchPlaylist, 
+  createPlaylist, 
+  updatePlaylist, 
+  deletePlaylist 
+} from './actions/playlist_actions';
 //
 
 
@@ -31,6 +37,10 @@ document.addEventListener("DOMContentLoaded", () => {
   window.login = login;
   window.logout = logout;
   window.fetchAlbum = fetchAlbum;
+  window.fetchPlaylist = fetchPlaylist;
+  window.createPlaylist = createPlaylist;
+  window.updatePlaylist = updatePlaylist;
+  window.deletePlaylist = deletePlaylist;
   //TESTING END
 
   const root = document.getElementById("root");

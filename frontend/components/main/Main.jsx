@@ -11,9 +11,11 @@ const Main = () => (
   <div className="main">
     <Sidebar />
     <Navbar />
-
-    <Route path="/albums/:albumId" component={ AlbumShow } />
-    <Route path="/playlists/:playlistId" component={ PlaylistShow } />
+    
+    <div className="col-4-5">
+      <Route path="/albums/:albumId" component={AlbumShow} />
+      <Route path="/playlists/:playlistId" component={PlaylistShow} />
+    </div>
 
     <Playbar />
 
