@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :albums, only: [:show]
     resources :playlists, only: [:show, :create, :update, :destroy]
     resources :artists, only: [:show]
+    resources :playlist_songs, only: [:create, :destroy]
   end
 
   #These routes are for testing Active Storage. Delete later

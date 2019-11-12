@@ -3,7 +3,7 @@ import * as PlaylistApiUtil from '../util/playlist_api_util';
 export const RECEIVE_PLAYLIST_AND_SONGS = "RECEIVE_PLAYLIST_AND_SONGS";
 export const REMOVE_PLAYLIST_AND_SONGS = "REMOVE_PLAYLIST_AND_SONGS";
 
-const receivePlaylistAndSongs = payload => {
+export const receivePlaylistAndSongs = payload => {
   return {
     type: RECEIVE_PLAYLIST_AND_SONGS,
     payload

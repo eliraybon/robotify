@@ -21,8 +21,8 @@ const App = () => (
     <AuthRoute exact path="/login" component={ LoginFormContainer } />
     {/* <ProtectedRoute path="/albums" component={ Main } /> */}
     <ProtectedRoute path="/albums/:albumId" component={AlbumShow} />
+    <ProtectedRoute exact path="/playlists/create" component={ CreatePlaylistForm } />
     <ProtectedRoute exact path="/playlists/:playlistId" component={PlaylistShow} />
-    <ProtectedRoute path="/playlists/create" component={ CreatePlaylistForm } />
     <ProtectedRoute exact path="/playlists/:playlistId/edit" component={ EditPlaylistForm } />
     <ProtectedRoute path="/artists/:artistId" component={ArtistShow} />
   </div>

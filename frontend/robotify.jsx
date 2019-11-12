@@ -12,6 +12,8 @@ import {
   updatePlaylist, 
   deletePlaylist 
 } from './actions/playlist_actions';
+import { deleteSongFromPlaylist } from './util/playlist_song_util';
+import { addSongToPlaylist } from './actions/playlist_song_actions';
 //
 
 
@@ -41,6 +43,8 @@ document.addEventListener("DOMContentLoaded", () => {
   window.createPlaylist = createPlaylist;
   window.updatePlaylist = updatePlaylist;
   window.deletePlaylist = deletePlaylist;
+  window.addSongToPlaylist = addSongToPlaylist;
+  window.deleteSongFromPlaylist = deleteSongFromPlaylist;
   //TESTING END
 
   const root = document.getElementById("root");
