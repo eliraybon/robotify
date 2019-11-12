@@ -78,7 +78,7 @@ class User < ApplicationRecord
       self.session_token = User.generate_session_token
     end
 
-    self.save
+    self.save!
     self.session_token
   end
 end

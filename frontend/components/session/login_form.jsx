@@ -9,7 +9,8 @@ export default class LoginForm extends React.Component {
     this.demoLogin = this.demoLogin.bind(this);
   }
   
-  demoLogin() {
+  demoLogin(e) {
+    e.preventDefault();
     const demoUser = { 
       email: 'demo-user@robotify.com', 
       password: 'robotifyrocks'
