@@ -10,7 +10,6 @@ class Api::PlaylistsController < ApplicationController
     @playlist.user_id = current_user.id
 
     if @playlist.save
-      current_user.liked_playlists << @playlist
       render :show
     else
       render json: @playlist.errors.full_messages, status: 422

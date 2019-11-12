@@ -4,10 +4,11 @@ import SignupFormContainer from './session/signup_form_container';
 import LoginFormContainer from './session/login_form_container';
 import AlbumShow from './album/album_show_container';
 import PlaylistShow from './playlist/playlist_show_container';
+import CreatePlaylistForm from './playlist/create_playlist_form_container';
+import EditPlaylistForm from './playlist/edit_playlist_form_container';
 import ArtistShow from './artist/artist_show_container';
 import { Route } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util'; 
-import RobotifyHeader from './session/robotify-header';
 import Main from './main/Main';
 
 
@@ -20,7 +21,9 @@ const App = () => (
     <AuthRoute exact path="/login" component={ LoginFormContainer } />
     {/* <ProtectedRoute path="/albums" component={ Main } /> */}
     <ProtectedRoute path="/albums/:albumId" component={AlbumShow} />
-    <ProtectedRoute path="/playlists/:playlistId" component={PlaylistShow} />
+    <ProtectedRoute exact path="/playlists/:playlistId" component={PlaylistShow} />
+    <ProtectedRoute path="/playlists/create" component={ CreatePlaylistForm } />
+    <ProtectedRoute exact path="/playlists/:playlistId/edit" component={ EditPlaylistForm } />
     <ProtectedRoute path="/artists/:artistId" component={ArtistShow} />
   </div>
 );
