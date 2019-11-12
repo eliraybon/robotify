@@ -20,15 +20,7 @@
  // Core
  @import "base/colors.scss";
  @import "base/fonts.scss";
+ @import "base/grid.scss";
 
  // Components
  @import "components/*";
-
-
- .robotify-header {
-   text-align: center;
-   font-weight: 700;
-   font-size: 50px;
-   font-family: 'Roboto', sans-serif;
-   margin: 15px;
- }

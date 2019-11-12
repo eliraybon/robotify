@@ -23,18 +23,20 @@ export default class AlbumHeader extends React.Component {
           height="200"
           className="ah-album-cover">
         </img>
+        
+        <div className="ah-meta-data">
+          <span className="ah-album-tag">Album</span>
+          <span className="ah-album-title">{album.title}</span>
+          <span className="ah-artist-name">
+            <span>By</span>
+            {artistLink}
+          </span>
 
-        <span className="ah-album-tag">Album</span>
-        <span className="ah-album-title">{album.title}</span>
-        <span className="ah-artist-name">
-          <span>By</span>
-          {artistLink}
-        </span>
-
-        <span className="ah-other-info">
-          <span className="ah-album-year">{album.year} - </span>
-          <span className="ah-song-count">{album.song_ids.length} Songs</span>
-        </span>
+          <span className="ah-other-info">
+            <span className="ah-album-year">{album.year} - </span>
+            <span className="ah-song-count">{album.song_ids.length} Songs</span>
+          </span>
+        </div>
       </div>
     )
   }

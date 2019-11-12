@@ -1,34 +1,45 @@
 .album-header {
   position: relative;
+  display: flex;
   background: $main-background;
   color: $white;
   font-family: $sans-serif;
 }
 
+.ah-meta-data {
+  display: flex;
+  flex-direction: column;
+  margin-top: 4%;
+}
+
 .ah-album-cover {
-  margin: 1% 5%;
+  margin-left: 5%;
+  margin-right: 3%;
+  margin-top: 3%;
+  margin-bottom: 3%;
 }
 
 .ah-album-tag {
-  position: absolute;
-  top: 10%;
-  left: 22%;
+  // position: absolute;
+  // top: 10%;
+  // left: 22%;
   font-style: italic;
 }
 
 .ah-album-title {
-  position: absolute;
+  // position: absolute;
   font-size: 40px;
   font-weight: 700;
-  top: 20%;
-  left: 22%;
+  margin-bottom: 40px;
+  // top: 20%;
+  // left: 22%;
 }
 
-.ah-artist-name {
-  position: absolute;
-  top: 60%;
-  left: 22%;
-}
+// .ah-artist-name {
+//   // position: absolute;
+//   // top: 60%;
+//   // left: 22%;
+// }
 
 .ah-artist-link {
   margin-left: 5px;
@@ -38,8 +49,9 @@
   text-decoration: underline;
 }
 
-.ah-other-info {
-  position: absolute;
-  top: 70%;
-  left: 22%;
-}
+
+// .ah-other-info {
+//   position: absolute;
+//   top: 70%;
+//   left: 22%;
+// }

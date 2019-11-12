@@ -1,30 +1,41 @@
 .playlist-header {
   position: relative;
+  display: flex;
   background: $main-background;
   color: $white;
   font-family: $sans-serif;
 }
 
+.ph-other-info {
+  display: flex;
+  flex-direction: column;
+  margin-top: 4%;
+}
+
 .ph-playlist-cover {
-  margin: 1% 5%;
+  margin-left: 5%;
+  margin-right: 3%;
+  margin-top: 3%;
+  margin-bottom: 3%;
 }
 
 .ph-playlist-tag {
-  position: absolute;
-  top: 10%;
-  left: 22%;
+  // position: absolute;
+  // top: 10%;
+  // left: 22%;
   font-style: italic;
 }
 
 .ph-playlist-title {
-  position: absolute;
+  // position: absolute;
   font-size: 40px;
   font-weight: 700;
-  top: 20%;
-  left: 22%;
+  margin-bottom: 40px;
+  // top: 20%;
+  // left: 22%;
 }
-.ph-other-info {
-  position: absolute;
-  top: 70%;
-  left: 22%;
-}
+// .ph-other-info {
+//   // position: absolute;
+//   // top: 70%;
+//   // left: 22%;
+// }

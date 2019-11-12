@@ -1,4 +1,6 @@
 .song-index-item {
+  display: flex;
+  justify-content: right;
   color: $white;
   background: $main-background;
   width: 90%;
@@ -22,26 +24,30 @@
 }
 
 .sii-song-title {
-  position: absolute;
-  left: 10%;
+  width: 40%;
+  margin-left: 40px;
+  // position: absolute;
+  // left: 10%;
 }
 
 .sii-artist-name {
-  position: absolute;
-  left: 45%;
+  width: 20%;
+  // position: absolute;
+  // left: 45%;
 }
 
 .sii-album-title {
-  position: absolute;
-  left: 65%;
+  width: 30%;
+  // position: absolute;
+  // left: 65%;
 }
 
 .sii-runtime {
-  position: absolute;
-  left: 90%;
+  width: 10%
+  // position: absolute;
+  // left: 90%;
 }
 
 .sii-heart {
   position: absolute;
-  left: 3%;
 }

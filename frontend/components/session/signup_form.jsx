@@ -1,4 +1,5 @@
 import React from 'react';
+import RobotifyHeader from './robotify-header';
 
 export default class SignupForm extends React.Component {
   constructor(props) {
@@ -83,6 +84,7 @@ export default class SignupForm extends React.Component {
   render() {
     return (
       <div className="signup">  
+        <RobotifyHeader />
 
         <form className="signup-form" onSubmit={this.handleSubmit}>
 

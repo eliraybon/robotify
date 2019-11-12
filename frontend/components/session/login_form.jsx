@@ -1,4 +1,5 @@
 import React from 'react';
+import RobotifyHeader from './robotify-header';
 
 export default class LoginForm extends React.Component {
   constructor(props) {
@@ -45,6 +46,8 @@ export default class LoginForm extends React.Component {
   render() {
     return (
       <div className="login">
+        <RobotifyHeader />
+
         <form className="login-form" onSubmit={this.handleSubmit}>
 
           <div className="login-prompt">To continue, log in to Robotify.</div>

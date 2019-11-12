@@ -24,14 +24,16 @@ export default class PlaylistHeader extends React.Component {
           className="ph-playlist-cover">
         </img>
 
-        <span className="ph-playlist-tag">Playlist</span>
-        <span className="ph-playlist-title">{playlist.title}</span>
-        <p>{playlist.description}</p>
+        <div className="ph-other-info">
+          <span className="ph-playlist-tag">Playlist</span>
+          <span className="ph-playlist-title">{playlist.title}</span>
+          <p>{playlist.description}</p>
 
-        <span className="ph-other-info">
-          <span className="ph-user">Created by {playlist.user_email} - </span>
-          <span className="ph-song-count">{playlist.song_ids.length} Songs</span>
-        </span>
+          <span className="ph-other-info">
+            <span className="ph-user">Created by {playlist.user_email} - </span>
+            <span className="ph-song-count">{playlist.song_ids.length} Songs</span>
+          </span>
+        </div>
       </div>
     )
   }
