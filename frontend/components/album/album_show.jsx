@@ -1,5 +1,6 @@
 import React from 'react';
 import SongIndex from '../song/song_index';
+import AlbumHeader from './album_header';
 
 export default class AlbumDetail extends React.Component {
   componentDidMount() {
@@ -18,8 +19,7 @@ export default class AlbumDetail extends React.Component {
     
     return (
       <section>
-        <h1>{album.title}</h1>
-        <h3>{album.artist_name}</h3>
+        <AlbumHeader album={ album } />
         <SongIndex songs={ songs } />
       </section>
     )

@@ -1,0 +1,46 @@
+.album-header {
+  position: relative;
+  background: $main-background;
+  color: $white;
+  font-family: $sans-serif;
+}
+
+.ah-album-cover {
+  // display: block;
+  margin: 1% 5%;
+}
+
+.ah-album-tag {
+  position: absolute;
+  top: 10%;
+  left: 22%;
+  font-style: italic;
+}
+
+.ah-album-title {
+  position: absolute;
+  font-size: 40px;
+  font-weight: 700;
+  top: 20%;
+  left: 22%;
+}
+
+.ah-artist-name {
+  position: absolute;
+  top: 60%;
+  left: 22%;
+}
+
+.ah-artist-link {
+  margin-left: 5px;
+}
+
+.ah-artist-link:hover {
+  text-decoration: underline;
+}
+
+.ah-other-info {
+  position: absolute;
+  top: 70%;
+  left: 22%;
+}

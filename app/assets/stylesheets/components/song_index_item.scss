@@ -1,0 +1,47 @@
+.song-index-item {
+  color: $white;
+  background: $main-background;
+  width: 90%;
+  height: 40px;
+  font-family: $sans-serif;
+  margin: 0px auto;
+  line-height: 40px;
+  border-top: 1px solid $lighter-background;
+}
+
+.song-index-item:last-of-type {
+  border-bottom: 1px solid $lighter-background;
+}
+
+.song-index-item:hover {
+  background: $lighter-background;
+}
+
+.sii-link:hover {
+  text-decoration: underline;
+}
+
+.sii-song-title {
+  position: absolute;
+  left: 10%;
+}
+
+.sii-artist-name {
+  position: absolute;
+  left: 45%;
+}
+
+.sii-album-title {
+  position: absolute;
+  left: 65%;
+}
+
+.sii-runtime {
+  position: absolute;
+  left: 90%;
+}
+
+.sii-heart {
+  position: absolute;
+  left: 3%;
+}
