@@ -1,6 +1,7 @@
 import { RECEIVE_ALBUM_AND_SONGS } from '../actions/album_actions';
 import { RECEIVE_PLAYLIST_AND_SONGS, REMOVE_PLAYLIST_AND_SONGS } from '../actions/playlist_actions';
 import { RECEIVE_ARTIST } from '../actions/artist_actions';
+import { RECEIVE_SONGS } from '../actions/song_actions';
 
 const songsReducer = (state = {}, action) => {
 
@@ -10,6 +11,8 @@ const songsReducer = (state = {}, action) => {
       return action.payload.songs;
     case RECEIVE_PLAYLIST_AND_SONGS:
       return (action.payload.songs) ? action.payload.songs : {};
+    case RECEIVE_SONGS:
+      return action.songs;
     case REMOVE_PLAYLIST_AND_SONGS:
       return {};
     case RECEIVE_ARTIST:

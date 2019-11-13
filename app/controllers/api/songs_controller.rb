@@ -1,6 +1,11 @@
 class Api::SongsController < ApplicationController
   def index 
+    case params[:context]
+    when 'library'
+      @songs = current_user.liked_songs
+    end
     
+    render :index 
   end
 
   def like

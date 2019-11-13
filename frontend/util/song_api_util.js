@@ -1,3 +1,11 @@
+export const fetchSongs = context => {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/songs',
+    data: { context }
+  });
+};
+
 export const likeSong = songId => {
   return $.ajax({
     method: 'POST',

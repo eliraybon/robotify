@@ -13,6 +13,7 @@ import Main from './main/Main';
 import AlbumIndex from './album/album_index_container';
 import LibraryAlbums from './library/library_albums';
 import PlaylistIndex from './playlist/playlist_index_container';
+import LibrarySongs from './library/library_songs_container';
 
 
 
@@ -25,6 +26,7 @@ const App = () => (
     {/* <ProtectedRoute path="/albums" component={ Main } /> */}
     <ProtectedRoute exact path="/library/albums" component={ LibraryAlbums } />
     <ProtectedRoute exact path="/library/playlists" component={PlaylistIndex} />
+    <ProtectedRoute exact path="/library/songs" component={LibrarySongs} />
     <ProtectedRoute path="/albums/:albumId" component={AlbumShow} />
     <ProtectedRoute exact path="/playlists/create" component={ CreatePlaylistForm } />
     <ProtectedRoute exact path="/playlists/:playlistId" component={PlaylistShow} />
