@@ -1,6 +1,7 @@
 .library-songs {
   display: flex;
   flex-direction: column;
+  width: 85vw;
   background: $main-background;
   color: $white;
   $font-family: $sans-serif;

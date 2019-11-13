@@ -31,6 +31,7 @@ export default class SongIndexItem extends React.Component {
         onMouseOver={ this.mouseOver }
         onMouseLeave={ this.mouseLeave }
       >
+        
         <span className="sii-heart">{heart}</span>
 
         <span className="sii-song-title">{song.title}</span>
