@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PlayButton from '../ui/play_button';
 
 export default class PlaylistHeader extends React.Component {
   constructor(props) {
@@ -33,6 +34,8 @@ export default class PlaylistHeader extends React.Component {
             <span className="ph-user">Created by {playlist.user_email} - </span>
             <span className="ph-song-count">{playlist.song_ids.length} Songs</span>
           </span>
+
+          <PlayButton />
         </div>
       </div>
     )

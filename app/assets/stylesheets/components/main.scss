@@ -2,6 +2,7 @@
   width: 20%;
   height: 500px;
   background: $darker-background;
+  float:left; 
 }
 
 .navbar {
@@ -14,4 +15,8 @@
   width: 100%;
   height: 100px;
   background: $lighter-background;
+}
+
+.main-window {
+  width: 80%;
 }

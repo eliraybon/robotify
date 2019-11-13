@@ -24,12 +24,12 @@ const App = () => (
     <Route exact path="/" component={ SplashContainer } />
     <AuthRoute exact path="/signup" component={ SignupFormContainer } />
     <AuthRoute exact path="/login" component={ LoginFormContainer } />
-    {/* <ProtectedRoute path="/albums" component={ Main } /> */}
+    <ProtectedRoute path="/albums/:albumId" component={ Main } />
     <ProtectedRoute exact path="/library/albums" component={ LibraryAlbums } />
     <ProtectedRoute exact path="/library/playlists" component={PlaylistIndex} />
     <ProtectedRoute exact path="/library/songs" component={LibrarySongs} />
     <ProtectedRoute exact path="/library/artists" component={LibraryArtists} />
-    <ProtectedRoute path="/albums/:albumId" component={AlbumShow} />
+    {/* <ProtectedRoute path="/albums/:albumId" component={AlbumShow} /> */}
     <ProtectedRoute exact path="/playlists/create" component={ CreatePlaylistForm } />
     <ProtectedRoute exact path="/playlists/:playlistId" component={PlaylistShow} />
     <ProtectedRoute exact path="/playlists/:playlistId/edit" component={ EditPlaylistForm } />

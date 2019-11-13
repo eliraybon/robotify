@@ -12,7 +12,7 @@ const Main = () => (
     <Sidebar />
     <Navbar />
     
-    <div className="col-4-5">
+    <div className="main-window">
       <Route path="/albums/:albumId" component={AlbumShow} />
       <Route path="/playlists/:playlistId" component={PlaylistShow} />
     </div>
