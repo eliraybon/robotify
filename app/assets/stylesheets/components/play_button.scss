@@ -1,0 +1,21 @@
+.play-button {
+  text-align: center;
+  text-transform: uppercase;
+  background: $robotify-green;
+  color: $white;
+  width: 95px;
+  height: 32px;
+  line-height: 32px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-family: $sans-serif;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition-duration: 0.3s;
+}
+
+.play-button:hover {
+  background: $highlight-green;
+  transform: scale(1.1);
+  transition-duration: 0.3s;
+}

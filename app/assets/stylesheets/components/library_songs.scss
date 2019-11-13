@@ -4,6 +4,11 @@
   background: $main-background;
   color: $white;
   $font-family: $sans-serif;
+
+  .play-button {
+    margin-left: 80px;
+    margin-bottom: 25px;
+  }
 }
 
 .songs-header {
