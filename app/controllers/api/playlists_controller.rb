@@ -2,7 +2,8 @@ class Api::PlaylistsController < ApplicationController
   def index 
     case params[:context]
     when 'library'
-      @playlists = current_user.liked_playlists.concat(current_user.playlists)
+      #you should also call .sort on this array to send the data in alphabetical order
+      @playlists = current_user.liked_playlists + current_user.playlists
     when 'explore'
       @playlists = Playlist.all[0..4]
     end

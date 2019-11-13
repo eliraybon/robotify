@@ -1,10 +1,12 @@
-.sidebar {
-  height:89vh;
-  width: 15vw;
-  min-width: 192px;
-  background: $darker-background;
-  float: left;
-}
+// .sidebar {
+//   height:89vh;
+//   width: 15vw;
+//   min-width: 192px;
+//   background: $darker-background;
+//   float: left;
+//   color: $white;
+//   font-family: $sans-serif;
+// }
 
 .navbar {
   position: sticky;
@@ -26,4 +28,5 @@
   overflow: scroll;
   height: 89vh;
   background: $main-background;
+  padding-bottom: 100px;
 }

@@ -1,0 +1,77 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height:89vh;
+  width: 15vw;
+  min-width: 192px;
+  background: $darker-background;
+  float: left;
+  color: $light-gray;
+  font-family: $sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  text-align: center;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.sidebar-link {
+  margin: 5px;
+}
+
+.sidebar-link:hover {
+  color: $white;
+  border-left: 2px solid $robotify-green;
+}
+
+.sidebar-library {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+}
+
+.sidebar-playlists-container {
+  margin-top: 40px;
+}
+
+.sidebar-playlists {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-playlist-item {
+  margin: 5px;
+  font-size: 14px;
+  color: $light-gray;
+}
+
+.sidebar-playlist-item:hover {
+  color: $white;
+}
+
+.sidebar-scrollable {
+  display: flex;
+  flex-direction: column;
+  max-height: 600px;
+  overflow: scroll;
+  padding-bottom: 40px;
+}
+
+.sidebar-section-text {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.new-playlist-button {
+  padding-top: 40px;
+  margin-bottom: 5px;
+  border-top: 1px solid $gray;
+}
+
+

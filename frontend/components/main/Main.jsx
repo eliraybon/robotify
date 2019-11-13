@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { ProtectedRoute } from '../../util/route_util';
 
-import Sidebar from './sidebar';
+import Sidebar from './sidebar/sidebar_container';
 import Navbar from './navbar';
 import Playbar from './playbar';
 
