@@ -1,0 +1,15 @@
+.playlist-index-item {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.pi-user-email-link {
+  color: $gray;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.pi-playlist-cover {
+  margin-bottom: 15px;
+}
