@@ -1,0 +1,14 @@
+.library-albums {
+  display: flex;
+  flex-direction: column;
+  background: $main-background;
+  color: $white;
+  font-family: $sans-serif;
+}
+
+.albums-header {
+  font-size: 40px; 
+  font-weight: 700;
+  margin: 20px;
+  margin-left: 80px;
+}

@@ -17,18 +17,18 @@ export default class AlbumIndex extends React.Component {
       return <AlbumIndexItem album={ album } key={ album.id } />
     });
 
-    let header;
-    if (this.props.match.path === '/library/albums') header = 'Albums';
+    // let header;
+    // if (this.props.match.path === '/library/albums') header = 'Albums';
     
     return (
-      <div className="album-index-container">
+      // <div className="album-index-container">
 
-        <h1 className="albums-header">{header}</h1>
+        
 
         <ul className="album-index">
           {albumIndexItems}
         </ul>
-      </div>
+      // </div>
     )
   }
 }

@@ -11,6 +11,7 @@ import { Route } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util'; 
 import Main from './main/Main';
 import AlbumIndex from './album/album_index_container';
+import LibraryAlbums from './library/library_albums';
 import PlaylistIndex from './playlist/playlist_index_container';
 
 
@@ -22,7 +23,7 @@ const App = () => (
     <AuthRoute exact path="/signup" component={ SignupFormContainer } />
     <AuthRoute exact path="/login" component={ LoginFormContainer } />
     {/* <ProtectedRoute path="/albums" component={ Main } /> */}
-    <ProtectedRoute exact path="/library/albums" component={ AlbumIndex } />
+    <ProtectedRoute exact path="/library/albums" component={ LibraryAlbums } />
     <ProtectedRoute exact path="/library/playlists" component={PlaylistIndex} />
     <ProtectedRoute path="/albums/:albumId" component={AlbumShow} />
     <ProtectedRoute exact path="/playlists/create" component={ CreatePlaylistForm } />
