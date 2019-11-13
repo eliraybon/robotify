@@ -6,7 +6,7 @@ import { fetchPlaylist, updatePlaylist } from '../../actions/playlist_actions';
 const mapStateToProps = (state, ownProps) => {
   return {
     playlist: state.entities.playlists[ownProps.match.params.playlistId],
-    formType: 'Update Playlist'
+    formType: 'Edit'
   };
 };
 

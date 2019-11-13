@@ -36,7 +36,10 @@ export const fetchPlaylists = context => dispatch => {
 
 export const createPlaylist = playlist => dispatch => {
   return PlaylistApiUtil.createPlaylist(playlist)
-    .then(payload => dispatch(receivePlaylistAndSongs(payload)));
+    .then(payload => {
+      dispatch(receivePlaylistAndSongs(payload))
+      return payload
+    });
 };
 
 export const updatePlaylist = playlist => dispatch => {

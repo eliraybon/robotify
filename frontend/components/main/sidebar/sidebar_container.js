@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import Sidebar from './sidebar';
 import { fetchPlaylists } from '../../../actions/playlist_actions';
+import { openModal } from '../../../actions/modal_actions';
 
 const mapStateToProps = state => {
   return {
@@ -11,7 +12,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchPlaylists: context => dispatch(fetchPlaylists(context))
+    fetchPlaylists: context => dispatch(fetchPlaylists(context)),
+    openModal: modal => dispatch(openModal(modal))
   };
 };
 

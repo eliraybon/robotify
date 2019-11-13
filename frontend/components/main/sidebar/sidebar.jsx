@@ -8,23 +8,28 @@ export default class Sidebar extends React.Component {
 
   render() {
     const { playlists } = this.props;
-    if (!playlists.length) return null; 
-    const userPlaylists = playlists.filter(playlist => {
-      return playlist.user_id === this.props.currentUserId
-    });
+    let userPlaylists;
+    let playlistItems; 
 
-    const playlistItems = userPlaylists.map(playlist => {
-      return (
-        <li key={playlist.id}>
-          <Link
-            to={`/playlists/${playlist.id}`}
-            className="sidebar-playlist-item"
-          >
-            {playlist.title}
-          </Link>
-        </li>
-      )
-    });
+    if (!playlists.length) {
+      userPlaylists = null;
+    } else {
+     userPlaylists = playlists.filter(playlist => {
+        return playlist.user_id === this.props.currentUserId
+      });
+      playlistItems = userPlaylists.map(playlist => {
+        return (
+          <li key={playlist.id}>
+            <Link
+              to={`/playlists/${playlist.id}`}
+              className="sidebar-playlist-item"
+            >
+              {playlist.title}
+            </Link>
+          </li>
+        )
+      });
+    }
 
     return (
       <div className="sidebar">
@@ -80,13 +85,22 @@ export default class Sidebar extends React.Component {
           </div>
         </div>
 
-        <div className="new-playlist-button">
+        {/* <div className="new-playlist-button">
           <Link
             to="/playlists/create"
           >
             New Playlist
           </Link>
+        </div> */}
+
+        <div className="new-playlist-button">
+          <button
+            onClick={() => this.props.openModal('create')}
+          >
+            New Playlist
+        </button>
         </div>
+
       </div>
     )
   }

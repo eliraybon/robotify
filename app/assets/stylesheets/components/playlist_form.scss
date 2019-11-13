@@ -1,0 +1,76 @@
+.playlist-form {
+  color: $white;
+  font-family: $sans-serif;
+  font-weight: 500;
+  text-align: center;
+
+  h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 15px;
+    margin-bottom: 30px;
+  }
+
+  img {
+    margin-left: 25px;
+  }
+
+  form {
+    width: 350px;
+    margin-right: 25px;
+  }
+
+  .form-main {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  input {
+    height: 20px;
+    border: 1px solid $light-gray;
+    background: $white;
+    border-radius: 2px; 
+    padding: 15px;
+    color: $black;
+  }
+
+  textarea {
+    background: $white;
+    padding: 10px;
+    color: $black;
+    height: 120px;
+  }
+
+  label {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    color: $gray;
+    font-size: 14px;
+    margin-bottom: 15px;
+    text-align: left;
+  }
+
+  button {
+    text-align: center;
+    text-transform: uppercase;
+    background: $robotify-green;
+    color: $white;
+    width: 95px;
+    height: 32px;
+    line-height: 32px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-family: $sans-serif;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition-duration: 0.3s;
+    margin-top: 20px;
+  }
+
+  button:hover {
+    background: $highlight-green;
+    transform: scale(1.1);
+    transition-duration: 0.3s;
+  }
+}

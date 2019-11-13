@@ -5,6 +5,7 @@ import { ProtectedRoute } from '../../util/route_util';
 import Sidebar from './sidebar/sidebar_container';
 import Navbar from './navbar';
 import Playbar from './playbar';
+import Modal from '../ui/modal_container';
 
 import AlbumShow from '../album/album_show_container';
 import PlaylistShow from '../playlist/playlist_show_container';
@@ -19,17 +20,19 @@ import LibraryArtists from '../library/library_artists_container';
 
 const Main = () => (
   <div className="main">
-    {/* <Navbar /> */}
+    <Modal />
     <Sidebar />
 
     <div className="main-content">
       <Navbar />
       <Route path="/albums/:albumId" component={AlbumShow}/>
-      <Route path="/playlists/:playlistId" component={PlaylistShow} />
+      <Route exact path="/playlists/:playlistId" component={PlaylistShow} />
       <Route path="/artists/:artistId" component={ArtistShow} />
       <Route path="/library/songs" component={LibrarySongs} />
       <Route path="/library/albums" component={LibraryAlbums} />
       <Route path="/library/artists" component={LibraryArtists} />
+      <Route path="/playlists/create" component={CreatePlaylistForm} />
+      <Route path="/playlists/:playlistId/edit" component={EditPlaylistForm} />
     </div>
 
     <Playbar />
