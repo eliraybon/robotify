@@ -7,13 +7,12 @@ export default class PlaylistForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-
-  //I need to redirect to the new playlist when it's created
+  
   handleSubmit(e) {
     e.preventDefault();
+    //should i move this inside of the .then?
     this.props.closeModal();
     this.props.processForm(this.state).then((payload) => {
-      debugger;
       this.props.history.push(`/playlists/${payload.playlist.id}`)
     });
   }
