@@ -12,7 +12,7 @@ const playlistsReducer = (state = {}, action) => {
       const payload = action.payload;
       return Object.assign({}, state, { [payload.playlist.id]: payload.playlist });
     case RECEIVE_PLAYLISTS:
-      return Object.assign({}, action.playlists, state);
+      return action.playlists;
     case REMOVE_PLAYLIST_AND_SONGS:
       return {};
     default:

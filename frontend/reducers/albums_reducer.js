@@ -11,7 +11,7 @@ const albumsReducer = (state = {}, action) => {
       const payload = action.payload;
       return Object.assign({}, state, { [payload.album.id]: payload.album });
     case RECEIVE_ALBUMS:
-      return Object.assign({}, action.albums, state);
+      return action.albums;
     case RECEIVE_ARTIST:
       return action.payload.albums;
     default: 

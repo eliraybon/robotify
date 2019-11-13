@@ -1,0 +1,15 @@
+.album-index-item {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.ai-artist-name-link {
+  color: $gray;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.ai-album-cover {
+  margin-bottom: 15px;
+}

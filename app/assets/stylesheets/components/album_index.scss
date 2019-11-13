@@ -1,0 +1,29 @@
+.album-index-container {
+  display: flex;
+  flex-direction: column;
+  background: $main-background;
+  color: $white;
+  font-family: $sans-serif;
+}
+
+.albums-header {
+  font-size: 40px; 
+  font-weight: 700;
+  margin: 20px;
+  margin-left: 80px;
+}
+
+.album-index {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  color: $white;
+  font-family: $sans-serif;
+  font-weight: 500;
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+
