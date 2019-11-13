@@ -1,0 +1,15 @@
+.artist-index-item {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.arti-artist-name-link {
+  color: $white;
+  margin-top: 5px;
+}
+
+.arti-profile-img {
+  margin-bottom: 15px;
+  border-radius: 50%;
+}

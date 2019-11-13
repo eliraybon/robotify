@@ -24,7 +24,7 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :artists, only: [:show] do 
+    resources :artists, only: [:index, :show] do 
       member do 
         post :follow
         delete :unfollow

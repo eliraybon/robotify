@@ -19,3 +19,13 @@ export const unfollowArtist = artistId => {
   });
 };
 
+export const fetchArtists = context => {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/artists',
+    data: { context }
+  });
+};
+
+
+

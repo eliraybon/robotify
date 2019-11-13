@@ -1,4 +1,14 @@
 class Api::ArtistsController < ApplicationController
+  def index 
+
+    case params[:context]
+    when 'library'
+      @artists = current_user.followed_artists
+    end
+
+    render :index
+  end
+
   def show
     @artist = Artist.find(params[:id])
     render :show
