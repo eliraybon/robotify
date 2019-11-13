@@ -9,7 +9,7 @@ export default class ArtistIndexItem extends React.Component {
     return (
       <li className="artist-index-item">
         <img
-          src={artist.cover_url}
+          src={artist.profile_img_url}
           className="arti-profile-img"
           width="250"
           height="250"

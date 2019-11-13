@@ -1,4 +1,7 @@
 import React from 'react';
+import SongIndex from '../song/song_index';
+import AlbumIndex from '../album/album_index_container';
+
 
 export default class ArtistShow extends React.Component {
   componentDidMount() {
@@ -11,28 +14,26 @@ export default class ArtistShow extends React.Component {
     }
   }
 
-  //maybe add a cool method to return an artists top 10 most played songs using
-  //quicksort
-
   render() {
     const { artist, albums, songs } = this.props;
     if (!artist) return null;
-    const songItems = songs.map(song => <li key={ song.id }>{song.title}</li>);
+    // const songItems = songs.map(song => <li key={ song.id }>{song.title}</li>);
     const albumItems = albums.map(album => <li key={ album.id }>{album.title}</li> )
 
     return (
-      <section>
-        <h1>{artist.name}</h1>
-        <h2>Songs</h2>
-        <ul>
-          {songItems}
-        </ul>
-        <h2>Albums</h2>
-        <ul>
-          {albumItems}
-        </ul>
-        {/* <SongIndex songs={ songs } />
-        <AlbumIndex albums={ albums } /> */}
+      <section className="artist-show">
+        <h1 className="as-artist-name">{artist.name}</h1>
+        <img 
+          class="arti-profile-img"
+          src={artist.profile_img_url}
+          width="200"
+          height="200"
+        />
+        <h2 className="section-title">Songs</h2>
+        <SongIndex songs={ songs } />
+ 
+        <h2 className="section-title">Albums</h2>
+        <AlbumIndex match={this.props.match}/>
       </section>
     )
   }
