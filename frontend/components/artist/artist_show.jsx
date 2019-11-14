@@ -24,7 +24,7 @@ export default class ArtistShow extends React.Component {
       <section className="artist-show">
         <h1 className="as-artist-name">{artist.name}</h1>
         <img 
-          class="arti-profile-img"
+          className="arti-profile-img"
           src={artist.profile_img_url}
           width="200"
           height="200"

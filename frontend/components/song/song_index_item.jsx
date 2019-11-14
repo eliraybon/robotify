@@ -1,13 +1,33 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { likeSong, unlikeSong } from '../../actions/song_actions';
 
-export default class SongIndexItem extends React.Component {
+class SongIndexItem extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { hover: false };
+    this.state = { hover: false, liked: false };
 
     this.mouseOver = this.mouseOver.bind(this);
     this.mouseLeave = this.mouseLeave.bind(this);
+    this.likeSong = this.likeSong.bind(this);
+    this.unlikeSong = this.unlikeSong.bind(this);
+  }
+
+  componentDidMount() {
+    this.setState({ liked: this.props.song.isLiked })
+  }
+
+  likeSong() {
+    this.props.likeSong(this.props.song.id).then(() => {
+      this.setState({ liked: true });
+    })
+  }
+
+  unlikeSong() {
+    this.props.unlikeSong(this.props.song.id).then(() => {
+      this.setState({ liked: false });
+    })
   }
 
   mouseOver(e) {
@@ -24,6 +44,21 @@ export default class SongIndexItem extends React.Component {
     //the heart and options buttons should end up being their own components
     const { song } = this.props;
     const heart = (this.state.hover) ? "H" : null;
+    
+    let toggleLike;
+    if (this.state.liked) {
+      toggleLike = (
+        <button onClick={ this.unlikeSong }>
+          Unlike
+        </button>
+      )
+    } else {
+      toggleLike = (
+        <button onClick={ this.likeSong }>
+          Like
+        </button>
+      )
+    }
 
     return (
       <li 
@@ -48,10 +83,24 @@ export default class SongIndexItem extends React.Component {
             {song.album_title}
         </Link>
 
+        {toggleLike}
+
         <span className="sii-runtime">{song.runtime}</span>
       </li>
     )
   }
 }  
 
+
+const mapDispatchToProps = dispatch => {
+  return {
+    likeSong: songId => dispatch(likeSong(songId)),
+    unlikeSong: songId => dispatch(unlikeSong(songId))
+  };
+};
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(SongIndexItem);
 //this is going to end up being one of the most important components
