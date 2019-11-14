@@ -14,12 +14,16 @@ export default class AlbumDetail extends React.Component {
   }
 
   render() {
-    const { album, songs } = this.props;
+    const { album, songs, likeAlbum, unlikeAlbum } = this.props;
     if (!album) return null;
     
     return (
       <section>
-        <AlbumHeader album={ album } />
+        <AlbumHeader 
+          album={ album } 
+          likeAlbum={ likeAlbum }
+          unlikeAlbum={ unlikeAlbum }
+        />
         <SongIndex songs={ songs } />
       </section>
     )

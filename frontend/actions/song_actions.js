@@ -1,7 +1,7 @@
 import * as SongApiUtil from '../util/song_api_util';
 
 export const RECEIVE_SONGS = "RECEIVE_SONGS";
-export const TOGGLE_LIKE = "TOGGLE_LIKE";
+export const TOGGLE_SONG_LIKE = "TOGGLE_SONG_LIKE";
 
 const receiveSongs = songs => {
   return {
@@ -12,7 +12,7 @@ const receiveSongs = songs => {
 
 const toggleLike = song => {
   return {
-    type: TOGGLE_LIKE,
+    type: TOGGLE_SONG_LIKE,
     song
   };
 };

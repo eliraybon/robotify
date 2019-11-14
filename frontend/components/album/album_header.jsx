@@ -5,6 +5,26 @@ import PlayButton from '../ui/play_button';
 export default class AlbumHeader extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { liked: false };
+
+    this.likeAlbum = this.likeAlbum.bind(this);
+    this.unlikeAlbum = this.unlikeAlbum.bind(this);
+  }
+
+  componentDidMount() {
+    this.setState({ liked: this.props.album.isLiked })
+  }
+
+  likeAlbum() {
+    this.props.likeAlbum(this.props.album.id).then(() => {
+      this.setState({ liked: true })
+    })
+  }
+
+  unlikeAlbum() {
+    this.props.unlikeAlbum(this.props.album.id).then(() => {
+      this.setState({ liked: false })
+    })
   }
 
   render() {
@@ -14,6 +34,21 @@ export default class AlbumHeader extends React.Component {
       to={`/artists/${album.artist_id}`}>
         {album.artist_name}
       </Link>
+
+    let toggleLike;
+    if (this.state.liked) {
+      toggleLike = (
+        <button onClick={this.unlikeAlbum}>
+          Unlike
+        </button>
+      )
+    } else {
+      toggleLike = (
+        <button onClick={this.likeAlbum}>
+          Like
+        </button>
+      )
+    }
 
     return (
       <div className="album-header">
@@ -41,6 +76,7 @@ export default class AlbumHeader extends React.Component {
           </span>
           <span>
             <PlayButton  />
+            {toggleLike}
           </span>
         </div>
       </div>

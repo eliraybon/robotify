@@ -1,5 +1,9 @@
 import { connect } from 'react-redux';
-import { fetchAlbum } from '../../actions/album_actions';
+import { 
+  fetchAlbum,
+  likeAlbum,
+  unlikeAlbum 
+} from '../../actions/album_actions';
 import AlbumShow from './album_show';
 
 const mapStateToProps = (state, ownProps) => {
@@ -13,7 +17,9 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchAlbum: albumId => dispatch(fetchAlbum(albumId))
+    fetchAlbum: albumId => dispatch(fetchAlbum(albumId)),
+    likeAlbum: albumId => dispatch(likeAlbum(albumId)),
+    unlikeAlbum: albumId => dispatch(unlikeAlbum(albumId))
   };
 };
 

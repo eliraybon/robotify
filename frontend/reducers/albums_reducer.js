@@ -3,6 +3,7 @@ import {
   RECEIVE_ALBUMS 
 } from '../actions/album_actions';
 import { RECEIVE_ARTIST } from '../actions/artist_actions';
+import { TOGGLE_ALBUM_LIKE } from '../actions/album_actions';
 
 const albumsReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -14,6 +15,8 @@ const albumsReducer = (state = {}, action) => {
       return action.albums;
     case RECEIVE_ARTIST:
       return action.payload.albums;
+    case TOGGLE_ALBUM_LIKE:
+      return Object.assign({}, state, { [action.album.id]: action.album });
     default: 
       return state;
   };

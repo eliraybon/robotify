@@ -1,4 +1,8 @@
-import { RECEIVE_ARTIST, RECEIVE_ARTISTS } from '../actions/artist_actions';
+import { 
+  RECEIVE_ARTIST, 
+  RECEIVE_ARTISTS,
+  TOGGLE_FOLLOW
+} from '../actions/artist_actions';
 
 
 const artistsReducer = (state = {}, action) => {
@@ -9,6 +13,8 @@ const artistsReducer = (state = {}, action) => {
       return { [payload.artist.id]: payload.artist };
     case RECEIVE_ARTISTS:
       return action.artists;
+    case TOGGLE_FOLLOW:
+      return Object.assign({}, state, { [action.artist.id]: action.artist });
     default:
       return state;
   };

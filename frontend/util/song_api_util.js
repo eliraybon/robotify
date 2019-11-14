@@ -14,7 +14,6 @@ export const likeSong = songId => {
 };
 
 export const unlikeSong = songId => {
-  debugger;
   return $.ajax({
     method: 'DELETE',
     url: `/api/songs/${songId}/unlike`
