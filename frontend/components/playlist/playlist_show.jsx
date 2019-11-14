@@ -14,12 +14,16 @@ export default class PlaylistShow extends React.Component {
   }
 
   render() {
-    const { playlist, songs } = this.props;
+    const { playlist, songs, likePlaylist, unlikePlaylist } = this.props;
     if (!playlist) return null; 
 
     return (
       <section>
-        <PlaylistHeader playlist={ playlist }/>
+        <PlaylistHeader 
+          playlist={ playlist }
+          likePlaylist={ likePlaylist }
+          unlikePlaylist={ unlikePlaylist }
+        />
         <SongIndex songs={ songs } />
       </section>
     )

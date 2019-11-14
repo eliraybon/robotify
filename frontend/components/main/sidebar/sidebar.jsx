@@ -15,7 +15,7 @@ export default class Sidebar extends React.Component {
       userPlaylists = null;
     } else {
      userPlaylists = playlists.filter(playlist => {
-        return playlist.user_id === this.props.currentUserId
+        return playlist.user_id === this.props.currentUserId || playlist.isLiked
       });
       playlistItems = userPlaylists.map(playlist => {
         return (

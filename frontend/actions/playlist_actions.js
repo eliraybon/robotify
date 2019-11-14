@@ -3,6 +3,7 @@ import * as PlaylistApiUtil from '../util/playlist_api_util';
 export const RECEIVE_PLAYLIST_AND_SONGS = "RECEIVE_PLAYLIST_AND_SONGS";
 export const REMOVE_PLAYLIST_AND_SONGS = "REMOVE_PLAYLIST_AND_SONGS";
 export const RECEIVE_PLAYLISTS = "RECEIVE_PLAYLISTS";
+export const TOGGLE_PLAYLIST_LIKE = "TOGGLE_PLAYLIST_LIKE";
 
 export const receivePlaylistAndSongs = payload => {
   return {
@@ -21,6 +22,13 @@ const receivePlaylists = playlists => {
   return {
     type: RECEIVE_PLAYLISTS,
     playlists
+  };
+};
+
+const toggleLike = playlist => { 
+  return {
+    type: TOGGLE_PLAYLIST_LIKE,
+    playlist
   };
 };
 
@@ -51,5 +59,15 @@ export const updatePlaylist = playlist => dispatch => {
 export const deletePlaylist = playlistId => dispatch => {
   return PlaylistApiUtil.deletePlaylist(playlistId)
     .then(() => dispatch(removePlaylistAndSongs(playlistId)));
+};
+
+export const likePlaylist = playlistId => dispatch => {
+  return PlaylistApiUtil.likePlaylist(playlistId)
+    .then(playlist => dispatch(toggleLike(playlist)));
+};
+
+export const unlikePlaylist = playlistId => dispatch => {
+  return PlaylistApiUtil.unlikePlaylist(playlistId)
+    .then(playlist => dispatch(toggleLike(playlist)));
 };
 

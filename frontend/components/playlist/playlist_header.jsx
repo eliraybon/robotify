@@ -5,6 +5,32 @@ import PlayButton from '../ui/play_button';
 export default class PlaylistHeader extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { liked: false };
+
+    this.likePlaylist = this.likePlaylist.bind(this);
+    this.unlikePlaylist = this.unlikePlaylist.bind(this);
+  }
+
+  componentDidMount() {
+    this.setState({ liked: this.props.playlist.isLiked })
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.playlist !== prevProps.playlist) {
+      this.setState({ liked: this.props.playlist.isLiked })
+    }
+  }
+
+  likePlaylist() {
+    this.props.likePlaylist(this.props.playlist.id).then(() => {
+      this.setState({ liked: true });
+    })
+  }
+
+  unlikePlaylist() {
+    this.props.unlikePlaylist(this.props.playlist.id).then(() => {
+      this.setState({ liked: false });
+    })
   }
 
   render() {
@@ -14,6 +40,21 @@ export default class PlaylistHeader extends React.Component {
     //   to={`/user/${playlist.user_id}`}>
     //   {album.artist_name}
     // </Link>
+
+    let toggleLike;
+    if (this.state.liked) {
+      toggleLike = (
+        <button onClick={this.unlikePlaylist}>
+          Unlike
+        </button>
+      )
+    } else {
+      toggleLike = (
+        <button onClick={this.likePlaylist}>
+          Like
+        </button>
+      )
+    }
 
     return (
       <div className="playlist-header">
@@ -36,6 +77,7 @@ export default class PlaylistHeader extends React.Component {
           </span>
 
           <PlayButton />
+          {toggleLike}
         </div>
       </div>
     )

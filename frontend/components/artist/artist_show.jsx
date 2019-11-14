@@ -20,7 +20,9 @@ export default class ArtistShow extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.artistId !== prevProps.artistId) {
-      this.props.fetchArtist(this.props.artistId);
+      this.props.fetchArtist(this.props.artistId).then(() => {
+        this.setState({ followed: this.props.artist.isFollowed });
+      })
     }
   }
 

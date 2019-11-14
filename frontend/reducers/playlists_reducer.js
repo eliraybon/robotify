@@ -1,7 +1,8 @@
 import { 
   RECEIVE_PLAYLIST_AND_SONGS, 
   REMOVE_PLAYLIST_AND_SONGS,
-  RECEIVE_PLAYLISTS
+  RECEIVE_PLAYLISTS,
+  TOGGLE_PLAYLIST_LIKE
 } from '../actions/playlist_actions';
 
 const playlistsReducer = (state = {}, action) => {
@@ -13,6 +14,8 @@ const playlistsReducer = (state = {}, action) => {
       return Object.assign({}, state, { [payload.playlist.id]: payload.playlist });
     case RECEIVE_PLAYLISTS:
       return Object.assign({}, state, action.playlists);
+    case TOGGLE_PLAYLIST_LIKE:
+      return Object.assign({}, state, { [action.playlist.id]: action.playlist });
     case REMOVE_PLAYLIST_AND_SONGS:
       return {};
     default:

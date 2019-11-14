@@ -15,6 +15,12 @@ export default class AlbumHeader extends React.Component {
     this.setState({ liked: this.props.album.isLiked })
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.album !== prevProps.album) {
+      this.setState({ liked: this.props.album.isLiked })
+    }
+  }
+
   likeAlbum() {
     this.props.likeAlbum(this.props.album.id).then(() => {
       this.setState({ liked: true })
