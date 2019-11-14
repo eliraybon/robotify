@@ -1,4 +1,5 @@
 import React from 'react';
+import MenuButton from '../ui/menu_button';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { likeSong, unlikeSong } from '../../actions/song_actions';
@@ -83,6 +84,7 @@ class SongIndexItem extends React.Component {
             {song.album_title}
         </Link>
 
+        <MenuButton songId={ song.id } />
         {toggleLike}
 
         <span className="sii-runtime">{song.runtime}</span>

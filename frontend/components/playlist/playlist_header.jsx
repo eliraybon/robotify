@@ -40,9 +40,41 @@ export default class PlaylistHeader extends React.Component {
     })
   }
 
+  // renderDropdown() {
+  //   const { playlists } = this.props;
+  //   let userPlaylists;
+  //   let playlistItems;
+
+  //   if (!playlists.length) {
+  //     userPlaylists = null;
+  //   } else {
+  //     userPlaylists = playlists.filter(playlist => {
+  //       return playlist.user_id === this.props.currentUserId
+  //     });
+  //     playlistItems = userPlaylists.map(playlist => {
+  //       return (
+  //         <li key={playlist.id}>
+  //           <Link
+  //             to={`/playlists/${playlist.id}`}
+  //             className="dropdown-playlist-item"
+  //           >
+  //             {playlist.title}
+  //           </Link>
+  //         </li>
+  //       )
+  //     });
+  //   }
+
+  //   return (
+  //     <ul className="playlist-dropdown">
+  //       {playlistItems}
+  //     </ul>
+  //   )
+  // }
+
   render() {
     const { playlist, currentUserId } = this.props;
-    
+
     // const userLink = <Link
     //   className="ah-artist-link"
     //   to={`/user/${playlist.user_id}`}>
@@ -76,6 +108,7 @@ export default class PlaylistHeader extends React.Component {
       deleteButton = null;
     }
 
+
     return (
       <div className="playlist-header">
 
@@ -99,6 +132,10 @@ export default class PlaylistHeader extends React.Component {
           <PlayButton />
           {toggleLike}
           {deleteButton}
+          {/* <div className="">
+            {addToPlaylist}
+            {this.renderDropdown()}
+          </div> */}
         </div>
       </div>
     )

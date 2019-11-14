@@ -85,14 +85,6 @@ export default class Sidebar extends React.Component {
           </div>
         </div>
 
-        {/* <div className="new-playlist-button">
-          <Link
-            to="/playlists/create"
-          >
-            New Playlist
-          </Link>
-        </div> */}
-
         <div className="new-playlist-button">
           <button
             onClick={() => this.props.openModal('create')}

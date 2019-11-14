@@ -13,7 +13,7 @@ import {
   updatePlaylist, 
   deletePlaylist 
 } from './actions/playlist_actions';
-import { deleteSongFromPlaylist } from './util/playlist_song_util';
+import { deleteSongFromPlaylist } from './util/playlist_song_api_util';
 import { addSongToPlaylist } from './actions/playlist_song_actions';
 import { likeSong, unlikeSong } from './util/song_api_util';
 import { likeAlbum, unlikeAlbum } from './util/album_api_util';

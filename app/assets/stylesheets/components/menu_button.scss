@@ -1,0 +1,40 @@
+.menu-button-container {
+  position: relative;
+  display: inline-block;
+}
+
+.menu-button {
+  padding: 0;
+  width: 20px;
+  border: 0;
+  background: $main-background;
+  color: $white;
+  cursor: pointer;
+  outline: 0;
+  font-size: 20px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 95%;
+  left: -100px;
+  width: 300px;
+  z-index: 2;
+  border: 1px solid $div-border;
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14);
+  background: $lighter-background;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      padding: 5px 5px;
+    }
+
+    li:hover {
+      background: $darker-background;
+    }
+  }
+}

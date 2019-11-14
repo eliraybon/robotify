@@ -10,7 +10,7 @@
   just don't allow it haha. 
 */
 
-import * as PlaylistSongApiUtil from '../util/playlist_song_util';
+import * as PlaylistSongApiUtil from '../util/playlist_song_api_util';
 import { receivePlaylistAndSongs } from './playlist_actions';
 
 export const RECEIVE_PLAYLIST_SONG = "RECEIVE_PLAYLIST_SONG";
