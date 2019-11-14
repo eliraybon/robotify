@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     
     resource :session, only: [:create, :destroy]
 
+    resources :searches, only: [:index]
+
     resources :albums, only: [:index, :show] do
       member do 
         post :like

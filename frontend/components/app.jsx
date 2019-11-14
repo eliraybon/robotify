@@ -29,6 +29,7 @@ const App = () => (
       <ProtectedRoute path="/albums" component={Main} />
       <ProtectedRoute path="/playlists" component={Main} />
       <ProtectedRoute path="/artists" component={Main} />
+      <ProtectedRoute path="/search" component={Main} />
     </Switch>
   </div>
 );

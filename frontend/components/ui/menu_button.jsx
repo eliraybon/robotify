@@ -31,7 +31,9 @@ class MenuButton extends React.Component {
   }
 
   handleOutsideClick(e) {
-    e.preventDefault();
+    //if you prevent default, you can't click the inputs in the modal if a 
+    //menu button is on the page
+    // e.preventDefault();
 
     if (this.container.current && !this.container.current.contains(e.target)) {
       this.setState({ open: false });

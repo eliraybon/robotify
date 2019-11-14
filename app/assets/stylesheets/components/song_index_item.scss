@@ -28,21 +28,26 @@
 .sii-song-title {
   width: 40%;
   margin-left: 40px;
+  overflow: hidden;
 }
 
 .sii-artist-name {
   width: 20%;
+  overflow: hidden;
 }
 
 .sii-album-title {
   width: 30%;
+  overflow: hidden;
 }
 
 .sii-runtime {
-  width: 10%
+  width: 10%;
+  overflow: hidden;
 }
 
 .sii-heart {
   position: absolute;
   z-index: 1;
+  overflow: hidden;
 }

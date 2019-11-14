@@ -18,13 +18,13 @@ import PlaylistIndex from '../playlist/playlist_index_container';
 import LibrarySongs from '../library/library_songs_container';
 import LibraryArtists from '../library/library_artists_container';
 
-const Main = () => (
+const Main = (props) => (
   <div className="main">
     <Modal />
     <Sidebar />
 
     <div className="main-content">
-      <Navbar />
+      <Navbar history={ props.history } />
       <Route path="/albums/:albumId" component={AlbumShow}/>
       <Route exact path="/playlists/:playlistId" component={PlaylistShow} />
       <Route path="/artists/:artistId" component={ArtistShow} />
