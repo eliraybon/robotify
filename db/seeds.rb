@@ -39,7 +39,7 @@ supertoys = eliraybon.albums.create(
   genre: 'Alternative'
 )
 
-supertoys_cover = File.open('/Users/eliraybon/app/robotify_assets/supertoys.jpg')
+supertoys_cover = File.open(image_url('supertoys.jpg'))
 supertoys.cover.attach(io: supertoys_cover, filename: 'supertoys.jpg')
 
 phaedra.songs.create(title: 'Phaedra', runtime: '17:32')
@@ -56,8 +56,8 @@ foxtrot.songs.create(title: 'Jesus, etc.', runtime: '3:52')
 foxtrot.songs.create(title: 'Pot Kettle Black', runtime: '4:01')
 
 battery_brain = supertoys.songs.create(title: 'Battery Brain', runtime: '4:51')
-track = File.open("/Users/eliraybon/app/robotify_assets/battery_brain.mp3")
-battery_brain.track.attach(io: track, filename: 'battery_brain.mp3')
+# track = File.open("/Users/eliraybon/app/robotify_assets/battery_brain.mp3")
+# battery_brain.track.attach(io: track, filename: 'battery_brain.mp3')
 
 beep = robotify.playlists.create(title: 'Beep Boop Bops')
 great_songs = eli.playlists.create(title: 'DB Test')
