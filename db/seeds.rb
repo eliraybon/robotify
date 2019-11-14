@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+require 'open-uri'
+
 robotify = User.create(email: 'robotify@robots.com', password:'beepboop')
 eli = User.create(email: 'eli@eli.com', password:'fullstack')
 demoUser = User.create(email: 'demo-user@robotify.com', password: 'robotifyrocks')
@@ -39,7 +41,7 @@ supertoys = eliraybon.albums.create(
   genre: 'Alternative'
 )
 
-supertoys_cover = File.open(image_url('supertoys.jpg'))
+supertoys_cover = open('https://robotify-development.s3.amazonaws.com/supertoys.jpg')
 supertoys.cover.attach(io: supertoys_cover, filename: 'supertoys.jpg')
 
 phaedra.songs.create(title: 'Phaedra', runtime: '17:32')
