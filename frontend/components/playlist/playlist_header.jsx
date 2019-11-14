@@ -9,6 +9,7 @@ export default class PlaylistHeader extends React.Component {
 
     this.likePlaylist = this.likePlaylist.bind(this);
     this.unlikePlaylist = this.unlikePlaylist.bind(this);
+    this.deletePlaylist = this.deletePlaylist.bind(this);
   }
 
   componentDidMount() {
@@ -33,8 +34,15 @@ export default class PlaylistHeader extends React.Component {
     })
   }
 
+  deletePlaylist() {
+    this.props.deletePlaylist(this.props.playlist.id).then(() => {
+      this.props.history.push('/')
+    })
+  }
+
   render() {
-    const { playlist } = this.props;
+    const { playlist, currentUserId } = this.props;
+    
     // const userLink = <Link
     //   className="ah-artist-link"
     //   to={`/user/${playlist.user_id}`}>
@@ -54,6 +62,18 @@ export default class PlaylistHeader extends React.Component {
           Like
         </button>
       )
+    }
+
+    let deleteButton;
+    if (playlist.user_id === currentUserId) { 
+      deleteButton = (
+        <button onClick={ this.deletePlaylist }>
+          Delete
+        </button>
+      )
+    }
+    else {
+      deleteButton = null;
     }
 
     return (
@@ -78,6 +98,7 @@ export default class PlaylistHeader extends React.Component {
 
           <PlayButton />
           {toggleLike}
+          {deleteButton}
         </div>
       </div>
     )

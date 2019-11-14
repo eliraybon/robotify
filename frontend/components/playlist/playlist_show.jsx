@@ -14,15 +14,27 @@ export default class PlaylistShow extends React.Component {
   }
 
   render() {
-    const { playlist, songs, likePlaylist, unlikePlaylist } = this.props;
+    const { 
+      playlist, 
+      songs, 
+      likePlaylist, 
+      unlikePlaylist, 
+      deletePlaylist,
+      currentUserId,
+      history 
+    } = this.props;
+
     if (!playlist) return null; 
 
     return (
       <section>
         <PlaylistHeader 
           playlist={ playlist }
+          deletePlaylist={ deletePlaylist }
           likePlaylist={ likePlaylist }
           unlikePlaylist={ unlikePlaylist }
+          currentUserId={ currentUserId }
+          history={ history }
         />
         <SongIndex songs={ songs } />
       </section>
