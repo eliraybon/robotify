@@ -5,6 +5,7 @@ import {
 import { RECEIVE_ARTIST } from '../actions/artist_actions';
 import { TOGGLE_ALBUM_LIKE } from '../actions/album_actions';
 import { UPDATE_SEARCH } from '../actions/search_actions';
+import { CLEAR_STATE } from '../actions/other_actions';
 
 const albumsReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -20,6 +21,8 @@ const albumsReducer = (state = {}, action) => {
       return Object.assign({}, state, { [action.album.id]: action.album });
     case UPDATE_SEARCH:
       return action.payload.albums || {};
+    case CLEAR_STATE:
+      return {};
     default: 
       return state;
   };

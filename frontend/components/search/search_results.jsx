@@ -5,6 +5,10 @@ import AlbumResults from './album_results';
 import ArtistResults from './artist_results';
 
 export default class SearchResults extends React.Component {
+  UNSAFE_componentWillMount() {
+    this.props.clearState();
+  }
+
   render() {
     const { songs, albums, artists } = this.props;
 

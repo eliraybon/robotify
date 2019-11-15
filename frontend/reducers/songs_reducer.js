@@ -3,6 +3,7 @@ import { RECEIVE_PLAYLIST_AND_SONGS, REMOVE_PLAYLIST_AND_SONGS } from '../action
 import { RECEIVE_ARTIST } from '../actions/artist_actions';
 import { RECEIVE_SONGS, TOGGLE_SONG_LIKE } from '../actions/song_actions';
 import { UPDATE_SEARCH } from '../actions/search_actions';
+import { CLEAR_STATE } from '../actions/other_actions';
 
 
 const songsReducer = (state = {}, action) => {
@@ -23,6 +24,8 @@ const songsReducer = (state = {}, action) => {
       return Object.assign({}, state, { [action.song.id]: action.song });
     case UPDATE_SEARCH:
       return action.payload.songs || {};
+    case CLEAR_STATE:
+      return {};
     default:
       return state;
   };

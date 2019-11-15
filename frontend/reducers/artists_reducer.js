@@ -4,6 +4,7 @@ import {
   TOGGLE_FOLLOW
 } from '../actions/artist_actions';
 import { UPDATE_SEARCH } from '../actions/search_actions';
+import { CLEAR_STATE } from '../actions/other_actions';
 
 
 const artistsReducer = (state = {}, action) => {
@@ -18,6 +19,8 @@ const artistsReducer = (state = {}, action) => {
       return Object.assign({}, state, { [action.artist.id]: action.artist });
     case UPDATE_SEARCH:
       return action.payload.artists || {};
+    case CLEAR_STATE:
+      return {};
     default:
       return state;
   };
