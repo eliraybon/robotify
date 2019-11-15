@@ -32,7 +32,7 @@ class Api::PlaylistsController < ApplicationController
   end
 
   def update 
-    @playlist = Playlist.find(params[:id])
+    @playlist = Playlist.find(params[:playlist][:id])
     if @playlist.update(playlist_params)
       render :show
     else
@@ -68,6 +68,10 @@ class Api::PlaylistsController < ApplicationController
 
   private
   def playlist_params
-    params.require(:playlist).permit(:title, :description, :cover)
+    if params[:playlist][:id] && !params[:playlist][:cover]
+      params.require(:playlist).permit(:title, :description)
+    else 
+      params.require(:playlist).permit(:title, :description, :cover)
+    end
   end
 end

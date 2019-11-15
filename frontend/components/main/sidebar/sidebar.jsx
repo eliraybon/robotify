@@ -87,7 +87,7 @@ export default class Sidebar extends React.Component {
 
         <div className="new-playlist-button">
           <button
-            onClick={() => this.props.openModal('create')}
+            onClick={() => this.props.openModal({ type: 'create', wildcard: null})}
           >
             New Playlist
         </button>

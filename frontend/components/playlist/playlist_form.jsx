@@ -2,9 +2,11 @@ import React from 'react';
 
 export default class PlaylistForm extends React.Component {
   constructor(props) {
+    debugger;
     super(props);
+
     const playlist = this.props.playlist;
-    playlist['photoUrl'] = null; 
+    playlist['photoUrl'] = this.props.playlist.cover_url || null; 
     this.state = this.props.playlist;
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -13,10 +15,14 @@ export default class PlaylistForm extends React.Component {
   
   handleSubmit(e) {
     e.preventDefault();
+    debugger;
     const formData = new FormData();
     formData.append('playlist[title]', this.state.title);
     formData.append('playlist[description]', this.state.description);
     formData.append('playlist[cover]', this.state.photoFile); 
+    if (this.props.playlist.id) {
+      formData.append('playlist[id', this.props.playlist.id);
+    }
 
     this.props.closeModal();
     this.props.processForm(formData).then((payload) => {

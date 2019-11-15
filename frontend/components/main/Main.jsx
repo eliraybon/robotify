@@ -19,9 +19,7 @@ import LibrarySongs from '../library/library_songs_container';
 import LibraryArtists from '../library/library_artists_container';
 import SearchResults from '../search/search_results_container';
 
-const Main = (props) => {
-  debugger;
-return (
+const Main = (props) => (
   <div className="main">
     <Modal />
     <Sidebar />
@@ -41,6 +39,6 @@ return (
 
     <MusicPlayer />
   </div>
-)}
+)
 
 export default Main;

@@ -3,10 +3,10 @@ import CreatePlaylistForm from '../playlist/create_playlist_form_container';
 import EditPlaylistForm from '../playlist/edit_playlist_form_container';
 
 const Modal = ({ modal, closeModal }) => {
-  if (!modal) return null;
+  if (!modal.type) return null;
 
   let component;
-  switch (modal) {
+  switch (modal.type) {
     case 'create':
       component = <CreatePlaylistForm />
       break;
