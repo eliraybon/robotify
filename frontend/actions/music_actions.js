@@ -2,6 +2,7 @@ export const UPDATE_CURRENT_SONG = 'UPDATE_CURRENT_SONG';
 export const TOGGLE_PLAY = 'TOGGLE_PLAY';
 export const ADD_TO_QUEUE = 'ADD_TO_QUEUE';
 export const UPDATE_QUEUE = "UPDATE_QUEUE";
+export const UPDATE_HISTORY = "UPDATE_HISTORY";
 
 export const updateCurrentSong = song => {
   return {
@@ -29,6 +30,13 @@ export const togglePlay = play => {
   return {
     type: TOGGLE_PLAY,
     play
+  };
+};
+
+export const updateHistory = songHistory => {
+  return {
+    type: UPDATE_HISTORY,
+    songHistory
   };
 };
 

@@ -7,7 +7,7 @@ export default class MusicPlayer extends React.Component {
     this.play = this.play.bind(this);
     this.pause = this.pause.bind(this);
     this.nextSong = this.nextSong.bind(this);
-    // this.prevSong = this.prevSong.bind(this);
+    this.prevSong = this.prevSong.bind(this);
   }
 
   componentDidMount() {
@@ -38,9 +38,19 @@ export default class MusicPlayer extends React.Component {
   }
 
   nextSong() {
-    if (!this.props.queue.length) return;
-    this.props.updateCurrentSong(this.props.queue[0]);
-    this.props.updateQueue(this.props.queue.slice(1));
+    const { currentSong, queue, songHistory } = this.props;
+    if (!queue.length) return;
+    this.props.updateSongHistory(songHistory.concat([currentSong]));
+    this.props.updateCurrentSong(queue[0]);
+    this.props.updateQueue(queue.slice(1));
+  }
+
+  prevSong() {
+    const { currentSong, queue, songHistory } = this.props;
+    if (!songHistory.length) return;
+    this.props.updateQueue([currentSong].concat(queue));
+    this.props.updateCurrentSong(songHistory.pop());
+    this.props.updateSongHistory(songHistory);
   }
 
   render() {
@@ -56,9 +66,9 @@ export default class MusicPlayer extends React.Component {
             Pause
           </button>
 
-          {/* <button onClick={this.prevSong}>
+          <button onClick={this.prevSong}>
             Prev
-          </button> */}
+          </button>
 
           <button onClick={this.nextSong}>
             Next

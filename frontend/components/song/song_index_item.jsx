@@ -3,7 +3,11 @@ import MenuButton from '../ui/menu_button';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { likeSong, unlikeSong } from '../../actions/song_actions';
-import { updateCurrentSong, addToQueue } from '../../actions/music_actions';
+import { 
+  updateCurrentSong, 
+  addToQueue,
+  togglePlay 
+} from '../../actions/music_actions';
 
 class SongIndexItem extends React.Component {
   constructor(props) {
@@ -14,6 +18,7 @@ class SongIndexItem extends React.Component {
     this.mouseLeave = this.mouseLeave.bind(this);
     this.likeSong = this.likeSong.bind(this);
     this.unlikeSong = this.unlikeSong.bind(this);
+    this.playSong = this.playSong.bind(this);
   }
 
   componentDidMount() {
@@ -40,6 +45,11 @@ class SongIndexItem extends React.Component {
   mouseLeave(e) {
     e.preventDefault();
     this.setState({ hover: false })
+  }
+
+  playSong() {
+    this.props.updateCurrentSong(this.props.song);
+    this.props.togglePlay(true);
   }
 
   render() {
@@ -70,7 +80,7 @@ class SongIndexItem extends React.Component {
       >
         
         {/* <span className="sii-heart">{heart}</span> */}
-        <button onClick={() => this.props.updateCurrentSong(song)}>Play</button>
+        <button onClick={ this.playSong }>Play</button>
         <button onClick={ () => this.props.addToQueue([song])}>Queue</button>
 
         <span className="sii-song-title">{song.title}</span>
@@ -102,7 +112,8 @@ const mapDispatchToProps = dispatch => {
     likeSong: songId => dispatch(likeSong(songId)),
     unlikeSong: songId => dispatch(unlikeSong(songId)),
     updateCurrentSong: song => dispatch(updateCurrentSong(song)),
-    addToQueue: queue => dispatch(addToQueue(queue))
+    addToQueue: queue => dispatch(addToQueue(queue)),
+    togglePlay: play => dispatch(togglePlay(play))
   };
 };
 

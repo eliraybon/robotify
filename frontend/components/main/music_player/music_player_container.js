@@ -3,6 +3,7 @@ import MusicPlayer from './music_player';
 import { 
   updateCurrentSong, 
   updateQueue, 
+  updateHistory,
   togglePlay 
 } from '../../../actions/music_actions';
 
@@ -10,7 +11,8 @@ const mapStateToProps = ({ music }) => {
   return {
     currentSong: music.currentSong,
     playing: music.playing,
-    queue: music.queue
+    queue: music.queue,
+    songHistory: music.songHistory
   };
 };
 
@@ -18,6 +20,7 @@ const mapDispatchToProps = dispatch => {
   return {
     updateCurrentSong: song => dispatch(updateCurrentSong(song)),
     updateQueue: queue => dispatch(updateQueue(queue)),
+    updateSongHistory: history => dispatch(updateHistory(history)),
     togglePlay: play => dispatch(togglePlay(play))
   };
 };

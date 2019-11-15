@@ -1,6 +1,7 @@
 import { 
   UPDATE_CURRENT_SONG, 
   UPDATE_QUEUE,
+  UPDATE_HISTORY,
   ADD_TO_QUEUE,
   TOGGLE_PLAY 
 } from '../actions/music_actions';
@@ -11,7 +12,8 @@ const _defaultState = {
     song_url: ''
   },
   playing: false,
-  queue: []
+  queue: [],
+  songHistory: []
 }
 
 //have actions for adding albums, playlists, and songs to the queue
@@ -21,7 +23,7 @@ const musicPlayerReducer = (state = _defaultState, action) => {
   switch (action.type) {
     case UPDATE_CURRENT_SONG:
       newMusic.currentSong = action.song;
-      newMusic.playing = true;
+      // newMusic.playing = true;
       // newMusic.queue[0] = action.song;
       return newMusic;
     case UPDATE_QUEUE:
@@ -29,6 +31,9 @@ const musicPlayerReducer = (state = _defaultState, action) => {
       return newMusic;
     case ADD_TO_QUEUE:
       newMusic.queue = newMusic.queue.concat(action.songs);
+      return newMusic;
+    case UPDATE_HISTORY:
+      newMusic.songHistory = newMusic.songHistory.concat(action.songHistory);
       return newMusic;
     case TOGGLE_PLAY:
       newMusic.playing = action.play;
