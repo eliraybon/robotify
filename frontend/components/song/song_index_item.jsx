@@ -3,6 +3,7 @@ import MenuButton from '../ui/menu_button';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { likeSong, unlikeSong } from '../../actions/song_actions';
+import { updateCurrentSong } from '../../actions/music_actions';
 
 class SongIndexItem extends React.Component {
   constructor(props) {
@@ -68,7 +69,8 @@ class SongIndexItem extends React.Component {
         onMouseLeave={ this.mouseLeave }
       >
         
-        <span className="sii-heart">{heart}</span>
+        {/* <span className="sii-heart">{heart}</span> */}
+        <button onClick={() => this.props.updateCurrentSong(song.id)}>Play</button>
 
         <span className="sii-song-title">{song.title}</span>
 
@@ -97,7 +99,8 @@ class SongIndexItem extends React.Component {
 const mapDispatchToProps = dispatch => {
   return {
     likeSong: songId => dispatch(likeSong(songId)),
-    unlikeSong: songId => dispatch(unlikeSong(songId))
+    unlikeSong: songId => dispatch(unlikeSong(songId)),
+    updateCurrentSong: song => dispatch(updateCurrentSong(song))
   };
 };
 

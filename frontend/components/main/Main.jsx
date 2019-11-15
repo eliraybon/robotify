@@ -4,7 +4,7 @@ import { ProtectedRoute } from '../../util/route_util';
 
 import Sidebar from './sidebar/sidebar_container';
 import Navbar from './navbar';
-import Playbar from './playbar';
+import MusicPlayer from './music_player/music_player_container';
 import Modal from '../ui/modal_container';
 
 import AlbumShow from '../album/album_show_container';
@@ -37,7 +37,7 @@ const Main = (props) => (
       <Route path="/search" component={SearchResults} />
     </div>
 
-    <Playbar />
+    <MusicPlayer />
   </div>
 )
 

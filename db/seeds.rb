@@ -15,7 +15,7 @@ demoUser = User.create(email: 'demo-user@robotify.com', password: 'robotifyrocks
 tangerine = Artist.create(name: 'Tangerine Dream')
 flaming_lips = Artist.create(name: 'The Flaming Lips')
 wilco = Artist.create(name: 'Wilco')
-eliraybon = Artist.create(name: 'Eli Raybon')
+test = Artist.create(name: 'Disconscious')
 
 yoshimi = flaming_lips.albums.create(
   title: 'Yoshimi Battles the Pink Robots', 
@@ -35,14 +35,25 @@ foxtrot = wilco.albums.create(
   genre: 'Rock'
 )
 
-supertoys = eliraybon.albums.create(
-  title: 'Supertoys',
-  release_date: '07/12/2019',
+hologram = test.albums.create(
+  title: 'Hologram Plaza',
+  release_date: '2014',
   genre: 'Alternative'
 )
 
-supertoys_cover = open('https://robotify-development.s3.amazonaws.com/supertoys.jpg')
-supertoys.cover.attach(io: supertoys_cover, filename: 'supertoys.jpg')
+hologram_cover = open('https://robotify-development.s3.amazonaws.com/cover.jpg')
+hologram.cover.attach(io: hologram_cover, filename: 'cover.jpg')
+
+song_1 = hologram.songs.create(title: 'Elevator Up', runtime: '0:51')
+song_2 = hologram.songs.create(title: 'Enter Through the Lobby', runtime: '4:48')
+
+track_1 = open('https://robotify-development.s3.amazonaws.com/Disconscious+-+Hologram+Plaza+-+01+Elevator+Up.mp3')
+song_1.track.attach(io: track_1, filename: 'Disconscious+-+Hologram+Plaza+-+01+Elevator+Up.mp3')
+
+track_2 = open('https://robotify-development.s3.amazonaws.com/Disconscious+-+Hologram+Plaza+-+02+Enter+Through+the+Lobby.mp3')
+song_2.track.attach(io: track_2, filename: 'Disconscious+-+Hologram+Plaza+-+02+Enter+Through+the+Lobby.mp3')
+
+
 
 phaedra.songs.create(title: 'Phaedra', runtime: '17:32')
 phaedra.songs.create(title: 'Mysterious Semblance at the Strand of Nightmares', runtime: '9:41')
@@ -57,12 +68,8 @@ foxtrot.songs.create(title: 'Kamera', runtime: '3:30')
 foxtrot.songs.create(title: 'Jesus, etc.', runtime: '3:52')
 foxtrot.songs.create(title: 'Pot Kettle Black', runtime: '4:01')
 
-battery_brain = supertoys.songs.create(title: 'Battery Brain', runtime: '4:51')
-# track = File.open("/Users/eliraybon/app/robotify_assets/battery_brain.mp3")
-# battery_brain.track.attach(io: track, filename: 'battery_brain.mp3')
-
 beep = robotify.playlists.create(title: 'Beep Boop Bops')
-great_songs = eli.playlists.create(title: 'DB Test')
+great_songs = demoUser.playlists.create(title: 'DB Test')
 
 phaedra.songs.each { |song| beep.songs.push(song) }
 yoshimi.songs.each { |song| beep.songs.push(song) }
@@ -71,13 +78,13 @@ great_songs.songs << foxtrot.songs.last
 great_songs.songs << yoshimi.songs.first
 great_songs.songs << yoshimi.songs.last
 
-eli.followed_accounts.create(followable_id: 1, followable_type: 'User')
-eli.followed_accounts.create(followable_id: 1, followable_type: 'Artist')
-eli.followed_accounts.create(followable_id: 3, followable_type: 'Artist')
+demoUser.followed_accounts.create(followable_id: 1, followable_type: 'User')
+demoUser.followed_accounts.create(followable_id: 1, followable_type: 'Artist')
+demoUser.followed_accounts.create(followable_id: 3, followable_type: 'Artist')
 
-eli.likes.create(likeable_id: 2, likeable_type: 'Song')
-eli.likes.create(likeable_id: 4, likeable_type: 'Song')
-eli.likes.create(likeable_id: 5, likeable_type: 'Song')
-eli.likes.create(likeable_id: 1, likeable_type: 'Playlist')
-eli.likes.create(likeable_id: 2, likeable_type: 'Album')
+demoUser.likes.create(likeable_id: 2, likeable_type: 'Song')
+demoUser.likes.create(likeable_id: 4, likeable_type: 'Song')
+demoUser.likes.create(likeable_id: 5, likeable_type: 'Song')
+demoUser.likes.create(likeable_id: 1, likeable_type: 'Playlist')
+demoUser.likes.create(likeable_id: 2, likeable_type: 'Album')
 

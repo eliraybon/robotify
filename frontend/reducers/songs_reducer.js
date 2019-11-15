@@ -19,7 +19,7 @@ const songsReducer = (state = {}, action) => {
     case REMOVE_PLAYLIST_AND_SONGS:
       return {};
     case RECEIVE_ARTIST:
-      return action.payload.songs;
+      return action.payload.songs || {};
     case TOGGLE_SONG_LIKE:
       return Object.assign({}, state, { [action.song.id]: action.song });
     case UPDATE_SEARCH:
