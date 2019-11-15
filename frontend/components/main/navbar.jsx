@@ -1,26 +1,11 @@
 import React from 'react';
+import SearchBar from '../search/search_bar_container';
 
 export default class Navbar extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.redirectToSearch = this.redirectToSearch.bind(this);
-  }
-
-  redirectToSearch() {
-    this.props.history.push('/search');
-  }
-
   render() {
     return (
       <div className="navbar">
-        <input
-          className="search-bar"
-          type="text"
-          placeholder="⌕ Search"
-          onClick={ this.redirectToSearch }
-        >
-        </input>
+        <SearchBar history={ this.props.history} />
       </div>
     )
   }

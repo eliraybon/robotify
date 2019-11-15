@@ -3,6 +3,7 @@ import {
   RECEIVE_ARTISTS,
   TOGGLE_FOLLOW
 } from '../actions/artist_actions';
+import { UPDATE_SEARCH } from '../actions/search_actions';
 
 
 const artistsReducer = (state = {}, action) => {
@@ -15,6 +16,8 @@ const artistsReducer = (state = {}, action) => {
       return action.artists;
     case TOGGLE_FOLLOW:
       return Object.assign({}, state, { [action.artist.id]: action.artist });
+    case UPDATE_SEARCH:
+      return action.payload.artists || {};
     default:
       return state;
   };
