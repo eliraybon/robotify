@@ -3,7 +3,7 @@ import MenuButton from '../ui/menu_button';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { likeSong, unlikeSong } from '../../actions/song_actions';
-import { updateCurrentSong } from '../../actions/music_actions';
+import { updateCurrentSong, addToQueue } from '../../actions/music_actions';
 
 class SongIndexItem extends React.Component {
   constructor(props) {
@@ -71,6 +71,7 @@ class SongIndexItem extends React.Component {
         
         {/* <span className="sii-heart">{heart}</span> */}
         <button onClick={() => this.props.updateCurrentSong(song)}>Play</button>
+        <button onClick={ () => this.props.addToQueue([song])}>Queue</button>
 
         <span className="sii-song-title">{song.title}</span>
 
@@ -100,7 +101,8 @@ const mapDispatchToProps = dispatch => {
   return {
     likeSong: songId => dispatch(likeSong(songId)),
     unlikeSong: songId => dispatch(unlikeSong(songId)),
-    updateCurrentSong: song => dispatch(updateCurrentSong(song))
+    updateCurrentSong: song => dispatch(updateCurrentSong(song)),
+    addToQueue: queue => dispatch(addToQueue(queue))
   };
 };
 

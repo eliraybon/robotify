@@ -3,19 +3,11 @@ import React from 'react';
 export default class MusicPlayer extends React.Component {
   constructor(props) {
     super(props);
-    // this.state = props;
-    this.state = {
-      currentSong: props.currentSong,
-      playing: props.playing,
-      queue: props.queue
-    }
-
-    this.songHistory = [];
 
     this.play = this.play.bind(this);
     this.pause = this.pause.bind(this);
     this.nextSong = this.nextSong.bind(this);
-    this.prevSong = this.prevSong.bind(this);
+    // this.prevSong = this.prevSong.bind(this);
   }
 
   componentDidMount() {
@@ -25,54 +17,34 @@ export default class MusicPlayer extends React.Component {
 
   // UNSAFE_componentWillUpdate(nextProps) {
   //   if (this.props !== nextProps) {
-  //     this.setState(nextProps);
+  //     this.setState(state => {
+  //       return { 
+  //         currentSong: nextProps.currentSong, 
+  //         playing: nextProps.playing,
+  //         queue: state.queue.concat(nextProps.queue)
+  //       }
+  //     });
   //   }
   // }
 
-  UNSAFE_componentWillUpdate(nextProps) {
-    // debugger;
-    if (this.props !== nextProps) {
-      this.setState(state => {
-        return { 
-          currentSong: nextProps.currentSong, 
-          playing: nextProps.playing,
-          queue: state.queue.concat(nextProps.queue)
-        }
-      });
-    }
-  }
-
   play() {
-    this.setState({ playing: true });
+    this.props.togglePlay(true);
     this.refs.player.play();
   }
 
   pause() {
-    this.setState({ playing: false });
+    this.props.togglePlay(false);
     this.refs.player.pause();
   }
 
   nextSong() {
-    this.songHistory.push(this.state.currentSong);
-    if (!this.state.queue.length) return;
-    this.setState(state => {
-      return { currentSong: state.queue[1], queue: state.queue.slice(2) };
-    });
-  }
-
-  prevSong() {
-    if (!this.songHistory.length) return;
-    this.setState(state => {
-      return { 
-        currentSong: this.songHistory.pop(), 
-        queue: state.queue.unshift(state.currentSong) 
-      };
-    });
+    if (!this.props.queue.length) return;
+    this.props.updateCurrentSong(this.props.queue[0]);
+    this.props.updateQueue(this.props.queue.slice(1));
   }
 
   render() {
-    const { currentSong, playing } = this.state;
-    // debugger;
+    const { currentSong, playing } = this.props;
     return (
       <div className="music-player">
         <div className="control-buttons">
@@ -84,9 +56,9 @@ export default class MusicPlayer extends React.Component {
             Pause
           </button>
 
-          <button onClick={this.prevSong}>
+          {/* <button onClick={this.prevSong}>
             Prev
-          </button>
+          </button> */}
 
           <button onClick={this.nextSong}>
             Next
