@@ -21,7 +21,8 @@ export default class PlaylistShow extends React.Component {
       unlikePlaylist, 
       deletePlaylist,
       currentUserId,
-      history 
+      history,
+      openModal 
     } = this.props;
 
     if (!playlist) return null; 
@@ -35,6 +36,7 @@ export default class PlaylistShow extends React.Component {
           unlikePlaylist={ unlikePlaylist }
           currentUserId={ currentUserId }
           history={ history }
+          openModal={ openModal }
         />
         <SongIndex songs={ songs } />
       </section>

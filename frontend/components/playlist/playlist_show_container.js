@@ -6,6 +6,7 @@ import {
   likePlaylist,
   unlikePlaylist 
 } from '../../actions/playlist_actions';
+import { openModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => {
   const playlistId = parseInt(ownProps.match.params.playlistId);
@@ -23,7 +24,8 @@ const mapDispatchToProps = dispatch => {
     fetchPlaylist: playlistId => dispatch(fetchPlaylist(playlistId)),
     deletePlaylist: playlistId => dispatch(deletePlaylist(playlistId)),
     likePlaylist: playlistId => dispatch(likePlaylist(playlistId)),
-    unlikePlaylist: playlistId => dispatch(unlikePlaylist(playlistId))
+    unlikePlaylist: playlistId => dispatch(unlikePlaylist(playlistId)),
+    openModal: modal => dispatch(openModal(modal))
   };
 };
 

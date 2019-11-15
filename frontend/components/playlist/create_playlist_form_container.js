@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = state => {
   return {
-    playlist: { title: '', description: '' },
+    playlist: { title: '', description: '', photoFile: null },
     formType: 'Create'
   };
 };

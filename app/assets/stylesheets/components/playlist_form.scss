@@ -11,18 +11,27 @@
     margin-bottom: 30px;
   }
 
-  img {
+  .img-upload {
+    width: 200px;
+    height: 200px;
+    background: $lighter-background;
+    border: 1px solid $black;
+    cursor: pointer;
     margin-left: 25px;
   }
 
   form {
-    width: 350px;
-    margin-right: 25px;
+    display: flex; 
+    justify-content: flex-start;
+    margin-right: 30px;
   }
 
   .form-main {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-left: 55px;
+    width: 330px;
   }
 
   input {
@@ -73,4 +82,19 @@
     transform: scale(1.1);
     transition-duration: 0.3s;
   }
+
+  .preview-container {
+    position: relative;
+  }
+
+  .preview {
+    position: absolute;
+    top: 0;
+    left: 25px;
+    background: $lighter-background;
+    cursor: pointer;
+    // margin-left: 25px;
+  }
+
+
 }

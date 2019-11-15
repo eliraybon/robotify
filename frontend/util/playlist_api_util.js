@@ -17,7 +17,9 @@ export const createPlaylist = playlist => {
   return $.ajax({
     method: 'POST',
     url: '/api/playlists',
-    data: { playlist }
+    data: playlist,
+    contentType: false, 
+    processData: false
   });
 };
 
@@ -25,7 +27,9 @@ export const updatePlaylist = playlist => {
   return $.ajax({
     method: 'PATCH',
     url: `/api/playlists/${playlist.id}`,
-    data: { playlist }
+    data: playlist,
+    contentType: false, 
+    processData: false
   });
 };
 

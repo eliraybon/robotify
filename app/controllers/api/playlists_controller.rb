@@ -68,6 +68,6 @@ class Api::PlaylistsController < ApplicationController
 
   private
   def playlist_params
-    params.require(:playlist).permit(:title, :description)
+    params.require(:playlist).permit(:title, :description, :cover)
   end
 end
