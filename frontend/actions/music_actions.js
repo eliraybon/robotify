@@ -1,4 +1,4 @@
-export const UPDATE_CURRENT_SONG = 'SET_CURRENT_SONG';
+export const UPDATE_CURRENT_SONG = 'UPDATE_CURRENT_SONG';
 export const TOGGLE_PLAY = 'TOGGLE_PLAY';
 
 export const updateCurrentSong = song => {

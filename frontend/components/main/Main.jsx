@@ -19,7 +19,9 @@ import LibrarySongs from '../library/library_songs_container';
 import LibraryArtists from '../library/library_artists_container';
 import SearchResults from '../search/search_results_container';
 
-const Main = (props) => (
+const Main = (props) => {
+  debugger;
+return (
   <div className="main">
     <Modal />
     <Sidebar />
@@ -32,13 +34,13 @@ const Main = (props) => (
       <Route path="/library/songs" component={LibrarySongs} />
       <Route path="/library/albums" component={LibraryAlbums} />
       <Route path="/library/artists" component={LibraryArtists} />
-      <Route path="/playlists/create" component={CreatePlaylistForm} />
-      <Route path="/playlists/:playlistId/edit" component={EditPlaylistForm} />
+      {/* <Route path="/playlists/create" component={CreatePlaylistForm} />
+      <Route path="/playlists/:playlistId/edit" component={EditPlaylistForm} /> */}
       <Route path="/search" component={SearchResults} />
     </div>
 
     <MusicPlayer />
   </div>
-)
+)}
 
 export default Main;

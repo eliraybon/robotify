@@ -4,7 +4,7 @@ export default class PlaylistForm extends React.Component {
   constructor(props) {
     super(props);
     const playlist = this.props.playlist;
-    playlist['photoUurl'] = null; 
+    playlist['photoUrl'] = null; 
     this.state = this.props.playlist;
 
     this.handleSubmit = this.handleSubmit.bind(this);

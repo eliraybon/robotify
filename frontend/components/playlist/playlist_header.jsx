@@ -132,7 +132,9 @@ export default class PlaylistHeader extends React.Component {
           <PlayButton />
           {toggleLike}
           {deleteButton}
-          <button onClick={ () => this.props.openModal('update')}>
+          <button onClick={ () => {
+            this.props.openModal('update')
+            }}>
             Update Playlist
           </button>
           {/* <div className="">

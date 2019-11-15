@@ -70,7 +70,7 @@ class SongIndexItem extends React.Component {
       >
         
         {/* <span className="sii-heart">{heart}</span> */}
-        <button onClick={() => this.props.updateCurrentSong(song.id)}>Play</button>
+        <button onClick={() => this.props.updateCurrentSong(song)}>Play</button>
 
         <span className="sii-song-title">{song.title}</span>
 

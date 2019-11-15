@@ -9,6 +9,7 @@ const _defaultState = {
   queue: []
 }
 
+//have actions for adding albums, playlists, and songs to the queue
 const musicPlayerReducer = (state = _defaultState, action) => {
   Object.freeze(state);
   const newMusic = Object.assign({}, state);
@@ -16,7 +17,7 @@ const musicPlayerReducer = (state = _defaultState, action) => {
     case UPDATE_CURRENT_SONG:
       newMusic.currentSong = action.song;
       newMusic.playing = true;
-      newMusic.queue.unshift(action.song);
+      // newMusic.queue = [action.song];
       return newMusic;
     case TOGGLE_PLAY:
       (newMusic.playing) ? newMusic.playing = false : newMusic.playing = true;
