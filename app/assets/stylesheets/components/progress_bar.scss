@@ -1,0 +1,22 @@
+.progress-bar {
+  display: flex;
+  min-height: 10px;
+  width: 400px;
+  border-radius: 10px;
+
+  .progress-bar-outline {
+    height: 10px;
+    width: 400px;
+    border-radius: 10px;
+    background: $gray;
+  }
+
+  .progress-bar-fill {
+    height: 10px;
+    width: 0%;
+    border-radius: 10px;
+    position: relative;
+    left: 0;
+    background: $div-border;
+  }
+}

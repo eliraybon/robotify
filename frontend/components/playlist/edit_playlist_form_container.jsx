@@ -6,7 +6,6 @@ import { fetchPlaylist, updatePlaylist } from '../../actions/playlist_actions';
 import { closeModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  debugger;
   return {
     playlist: state.entities.playlists[state.ui.modal.wildCard],
     formType: 'Edit'

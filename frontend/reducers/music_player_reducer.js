@@ -3,7 +3,9 @@ import {
   UPDATE_QUEUE,
   UPDATE_HISTORY,
   ADD_TO_QUEUE,
-  TOGGLE_PLAY 
+  TOGGLE_PLAY,
+  TOGGLE_SHUFFLE,
+  TOGGLE_REPEAT 
 } from '../actions/music_actions';
 
 const _defaultState = {
@@ -12,6 +14,8 @@ const _defaultState = {
     song_url: ''
   },
   playing: false,
+  shuffle: false,
+  repeat: false,
   queue: [],
   songHistory: []
 }

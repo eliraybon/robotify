@@ -11,6 +11,19 @@
   margin: 0px auto;
   line-height: 40px;
   border-top: 1px solid $lighter-background;
+
+  .sii-play {
+    position: sticky;
+  }
+
+  .sii-play:hover {
+    transform: scale(1.1);
+  }
+
+}
+
+.playing {
+  color: $robotify-green;
 }
 
 .song-index-item:last-of-type {

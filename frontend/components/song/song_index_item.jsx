@@ -19,6 +19,7 @@ class SongIndexItem extends React.Component {
     this.likeSong = this.likeSong.bind(this);
     this.unlikeSong = this.unlikeSong.bind(this);
     this.playSong = this.playSong.bind(this);
+    this.renderPlayButton();
   }
 
   componentDidMount() {
@@ -52,6 +53,20 @@ class SongIndexItem extends React.Component {
     this.props.togglePlay(true);
   }
 
+  renderPlayButton() {
+    if (this.state.hover) {
+      return (
+        <img
+          src="https://robotify-development.s3.amazonaws.com/play.png"
+          onClick={this.playSong}
+          height="39px"
+          width="39px"
+          className="sii-play"
+        />
+      )
+    }
+  }
+
   render() {
     //the heart and options buttons should end up being their own components
     const { song } = this.props;
@@ -72,15 +87,17 @@ class SongIndexItem extends React.Component {
       )
     }
 
+    const nowPlaying = (song.id === this.props.currentSongId) ? "playing" : "";
+
     return (
-      <li 
-        className="song-index-item"
-        onMouseOver={ this.mouseOver }
-        onMouseLeave={ this.mouseLeave }
+      <li  className={`song-index-item ${nowPlaying}`}
+        onMouseOver={this.mouseOver}
+        onMouseLeave={this.mouseLeave}
       >
         
-        {/* <span className="sii-heart">{heart}</span> */}
-        <button onClick={ this.playSong }>Play</button>
+        {/* <button onClick={ this.playSong }>Play</button> */}
+        {this.renderPlayButton()}
+
         <button onClick={ () => this.props.addToQueue([song])}>Queue</button>
 
         <span className="sii-song-title">{song.title}</span>
@@ -106,6 +123,11 @@ class SongIndexItem extends React.Component {
   }
 }  
 
+const mapStateToProps = state => {
+  return {
+    currentSongId: state.music.currentSong.id
+  };
+};
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -118,7 +140,7 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(SongIndexItem);
 

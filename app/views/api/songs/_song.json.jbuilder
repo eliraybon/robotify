@@ -8,4 +8,5 @@ json.isLiked !!Like.find_by(
   likeable_type: 'Song'
 )
 json.song_url url_for(song.track) if song.track.attached?
+json.cover_url url_for(song.album.cover) if song.album.cover.attached?
 

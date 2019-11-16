@@ -1,5 +1,7 @@
 .music-player {
   position: fixed;
+  display: flex;
+  justify-content: space-between;
   bottom: 0;
   width: 100vw;
   height: 11vh;
@@ -8,13 +10,49 @@
   font-family: $sans-serif;
   font-weight: 500;
 
-  button {
-    line-height: 11vh;
+  .mp-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-right: 600px;
   }
 
   .control-buttons {
     display: flex;
     justify-content: space-around;
+  }
+
+  .song-display {
+    display: flex;
+  }
+
+  .song-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .current-song-img {
+    margin: 10px;
+  }
+
+  .song-info {
+    font-size: 15px;
+    margin-left: 10px;
+    margin-top: 15px;
+  }
+
+  .song-info a:hover { 
+    text-decoration: underline;
+  }
+
+  .mp-song-title {
+    font-weight: 300;
+    margin-bottom: 5px;
+  }
+
+  .mp-artist-name {
+    color: $gray;
+    font-size: 13px;
   }
 
 }

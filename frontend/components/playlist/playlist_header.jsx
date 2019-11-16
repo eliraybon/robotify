@@ -43,27 +43,29 @@ export default class PlaylistHeader extends React.Component {
   render() {
     const { playlist, currentUserId } = this.props;
 
-    // const userLink = <Link
-    //   className="ah-artist-link"
-    //   to={`/user/${playlist.user_id}`}>
-    //   {album.artist_name}
-    // </Link>
-
     let toggleLike;
     if (this.state.liked) {
       toggleLike = (
-        <button onClick={this.unlikePlaylist}>
-          Unlike
-        </button>
+        <img
+          onClick={this.unlikePlaylist}
+          className="unliked"
+          width="30px"
+          height="30px"
+          src="https://robotify-development.s3.amazonaws.com/unlike.png"
+        />
+
       )
     } else {
       toggleLike = (
-        <button onClick={this.likePlaylist}>
-          Like
-        </button>
+        <img
+          onClick={this.likePlaylist}
+          className="liked"
+          width="30px"
+          height="30px"
+          src="https://robotify-development.s3.amazonaws.com/like.png"
+        />
       )
     }
-
     let deleteButton;
     if (playlist.user_id === currentUserId) { 
       deleteButton = (
@@ -97,8 +99,11 @@ export default class PlaylistHeader extends React.Component {
             <span className="ph-song-count">{playlist.song_ids.length} Songs</span>
           </span>
 
-          <PlayButton />
-          {toggleLike}
+          <div className="buttons">
+            <PlayButton />
+            {toggleLike}
+          </div>
+          
           {deleteButton}
           <button onClick={ () => {
             this.props.openModal({type: 'update', wildCard: playlist.id})

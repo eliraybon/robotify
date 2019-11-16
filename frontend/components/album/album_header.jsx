@@ -44,15 +44,24 @@ export default class AlbumHeader extends React.Component {
     let toggleLike;
     if (this.state.liked) {
       toggleLike = (
-        <button onClick={this.unlikeAlbum}>
-          Unlike
-        </button>
+        <img 
+          onClick={this.unlikeAlbum} 
+          className="unliked"
+          width="30px"
+          height="30px"
+          src="https://robotify-development.s3.amazonaws.com/unlike.png"
+        />
+          
       )
     } else {
       toggleLike = (
-        <button onClick={this.likeAlbum}>
-          Like
-        </button>
+        <img
+          onClick={this.likeAlbum}
+          className="liked"
+          width="30px"
+          height="30px"
+          src="https://robotify-development.s3.amazonaws.com/like.png"
+        />
       )
     }
 
@@ -80,10 +89,10 @@ export default class AlbumHeader extends React.Component {
             <span className="ah-album-year">{album.year} - </span>
             <span className="ah-song-count">{album.song_ids.length} Songs</span>
           </span>
-          <span>
+          <div className="buttons">
             <PlayButton  />
             {toggleLike}
-          </span>
+          </div>
         </div>
       </div>
     )

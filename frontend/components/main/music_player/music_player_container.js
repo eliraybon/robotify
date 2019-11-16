@@ -7,6 +7,7 @@ import {
   togglePlay 
 } from '../../../actions/music_actions';
 
+//add repeat and shuffle here
 const mapStateToProps = ({ music }) => {
   return {
     currentSong: music.currentSong,

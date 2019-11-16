@@ -82,6 +82,10 @@ const mapStateToProps = state => {
 
 //we aren't actually dispatching an action here. Just making a background 
 //POST request to the API
+
+//I'm going to connect a ton of functions here so that I can this one button
+//for songs, albums, and playlists...
+
 const mapDipatchToProps = dispatch => {
   return {
     addSongToPlaylist: playlistAdd => addSongToPlaylist(playlistAdd)

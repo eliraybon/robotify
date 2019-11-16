@@ -4,17 +4,44 @@
   background: $main-background;
   color: $white;
   font-family: $sans-serif;
+
+  .buttons {
+    display: flex;
+    margin-top: 20px;
+
+    .play-button {
+      margin-right: 15px;
+    }
+
+    img {
+      margin-right: 15px;
+      transition-duration: 0.2;
+    }
+
+    img:hover {
+      transform: scale(1.1);
+      transition-duration: 0.2;
+      border: 1px solid white;
+    }
+  }
+  
+  // .liked {
+  //   border: 1px solid red;
+  //   border-radius: 50%;
+  //   padding: 10px;
+  // }
+
+  // .unliked {
+  //   border: 1px solid gray;
+  //   border-radius: 50%;
+  //   padding: 10px;
+  // }
 }
 
 .ph-other-info {
   display: flex;
   flex-direction: column;
   margin-top: 4%;
-
-  .play-button {
-    margin-left: 0px;
-    margin-top: 20px;
-  }
 }
 
 .ph-playlist-cover {
