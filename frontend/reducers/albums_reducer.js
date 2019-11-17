@@ -18,7 +18,7 @@ const albumsReducer = (state = {}, action) => {
     case RECEIVE_ARTIST:
       return action.payload.albums;
     case TOGGLE_ALBUM_LIKE:
-      return Object.assign({}, state, { [action.album.id]: action.album });
+      return Object.assign({}, state, { [action.payload.album.id]: action.payload.album });
     case UPDATE_SEARCH:
       return action.payload.albums || {};
     case CLEAR_STATE:

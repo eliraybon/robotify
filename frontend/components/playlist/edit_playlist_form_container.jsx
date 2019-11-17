@@ -26,12 +26,15 @@ class EditPlaylistForm extends React.Component {
     this.photoUrl = null;
   }
 
-  componentDidMount() {
-    this.props.fetchPlaylist(this.props.match.params.playlistId);
-  }
+  //I'm getting the playlist info using the wildCard in the ui slice of state
+  //so I don't need to fetch the playlist again from the server 
+  
+  // componentDidMount() {
+  //   this.props.fetchPlaylist(this.props.match.params.playlistId);
+  // }
 
   render() {
-    const { processForm, formType, playlist, closeModal } = this.props;
+    const { processForm, formType, playlist, closeModal, history } = this.props;
     if (!playlist) return null;
     return (
       <PlaylistForm
@@ -39,6 +42,7 @@ class EditPlaylistForm extends React.Component {
         formType={ formType }
         playlist={ playlist } 
         closeModal={ closeModal }
+        history={ history }
       />
     );
   }

@@ -27,8 +27,6 @@ const musicPlayerReducer = (state = _defaultState, action) => {
   switch (action.type) {
     case UPDATE_CURRENT_SONG:
       newMusic.currentSong = action.song;
-      // newMusic.playing = true;
-      // newMusic.queue[0] = action.song;
       return newMusic;
     case UPDATE_QUEUE:
       newMusic.queue = action.queue;

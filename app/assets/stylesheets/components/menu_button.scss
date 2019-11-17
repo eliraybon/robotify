@@ -16,13 +16,15 @@
 
 .dropdown-menu {
   position: absolute;
-  top: 95%;
-  left: -100px;
-  width: 300px;
+  top: -20%;
+  right: 102%;
+  width: 150px;
   z-index: 2;
-  border: 1px solid $div-border;
-  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14);
+  border-radius: 5px;
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.719);
   background: $lighter-background;
+  color: $white;
+  margin-bottom: 50px;
 
   ul {
     list-style: none;
@@ -35,6 +37,23 @@
 
     li:hover {
       background: $darker-background;
+    }
+
+    .playlist-dropdown {
+      position: absolute;
+      top: 50%;
+      right: 100%;
+      width: 150px;
+      z-index: 2;
+      border-radius: 5px;
+      // border: 1px solid $div-border;
+      box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.719);
+      background: $lighter-background;
+      margin-bottom: 50px;
+
+      .green {
+        color: $robotify-green;
+      }
     }
   }
 }

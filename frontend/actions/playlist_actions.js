@@ -25,10 +25,10 @@ const receivePlaylists = playlists => {
   };
 };
 
-const toggleLike = playlist => { 
+const toggleLike = payload => { 
   return {
     type: TOGGLE_PLAYLIST_LIKE,
-    playlist
+    payload
   };
 };
 
@@ -45,14 +45,17 @@ export const fetchPlaylists = context => dispatch => {
 export const createPlaylist = playlist => dispatch => {
   return PlaylistApiUtil.createPlaylist(playlist)
     .then(payload => {
-      dispatch(receivePlaylistAndSongs(payload))
-      return payload
+      dispatch(receivePlaylistAndSongs(payload));
+      return payload;
     });
 };
 
 export const updatePlaylist = playlist => dispatch => {
   return PlaylistApiUtil.updatePlaylist(playlist)
-    .then(payload => dispatch(receivePlaylistAndSongs(payload)));
+    .then(payload => {
+      dispatch(receivePlaylistAndSongs(payload));
+      return payload;
+    });
 };
 
 //does removing a playlist also need to remove all songs from the state

@@ -18,10 +18,10 @@ const receiveArtists = artists => {
   };
 };
 
-const toggleFollow = artist => {
+const toggleFollow = payload => {
   return {
     type: TOGGLE_FOLLOW,
-    artist
+    payload
   };
 };
 

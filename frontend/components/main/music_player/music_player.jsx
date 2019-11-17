@@ -90,7 +90,7 @@ export default class MusicPlayer extends React.Component {
 
   render() {
     const { currentSong, playing } = this.props;
-    debugger;
+
     return (
       <div className="music-player">
         <div className="song-display"> 

@@ -15,7 +15,8 @@ const playlistsReducer = (state = {}, action) => {
     case RECEIVE_PLAYLISTS:
       return Object.assign({}, state, action.playlists);
     case TOGGLE_PLAYLIST_LIKE:
-      return Object.assign({}, state, { [action.playlist.id]: action.playlist });
+      const playlist = action.payload.playlist;
+      return Object.assign({}, state, { [playlist.id]: playlist });
     case REMOVE_PLAYLIST_AND_SONGS:
       return {};
     default:

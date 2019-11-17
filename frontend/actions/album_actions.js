@@ -18,10 +18,10 @@ const receiveAlbums = albums => {
   };
 };
 
-const toggleLike = album => {
+const toggleLike = payload => {
   return {
     type: TOGGLE_ALBUM_LIKE,
-    album
+    payload
   };
 };
 

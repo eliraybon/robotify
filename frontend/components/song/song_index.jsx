@@ -10,7 +10,7 @@ export default class SongIndex extends React.Component {
     />)
 
     return (
-      <ul>
+      <ul className="song-index" >
         {songIndexItems}
       </ul>
     )

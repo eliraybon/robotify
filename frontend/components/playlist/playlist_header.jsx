@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PlayButton from '../ui/play_button';
+import MenuButton from '../ui/menu_button';
 
 export default class PlaylistHeader extends React.Component {
   constructor(props) {
@@ -48,10 +49,10 @@ export default class PlaylistHeader extends React.Component {
       toggleLike = (
         <img
           onClick={this.unlikePlaylist}
-          className="unliked"
+          className="liked"
           width="30px"
           height="30px"
-          src="https://robotify-development.s3.amazonaws.com/unlike.png"
+          src="https://robotify-development.s3.amazonaws.com/like.png"
         />
 
       )
@@ -59,10 +60,10 @@ export default class PlaylistHeader extends React.Component {
       toggleLike = (
         <img
           onClick={this.likePlaylist}
-          className="liked"
+          className="unliked"
           width="30px"
           height="30px"
-          src="https://robotify-development.s3.amazonaws.com/like.png"
+          src="https://robotify-development.s3.amazonaws.com/unlike.png"
         />
       )
     }
@@ -102,14 +103,16 @@ export default class PlaylistHeader extends React.Component {
           <div className="buttons">
             <PlayButton />
             {toggleLike}
+            <MenuButton playlist={playlist} type="playlist" />
           </div>
           
-          {deleteButton}
+          {/* {deleteButton}
           <button onClick={ () => {
             this.props.openModal({type: 'update', wildCard: playlist.id})
             }}>
             Update Playlist
-          </button>
+          </button> */}
+
           {/* <div className="">
             {addToPlaylist}
             {this.renderDropdown()}

@@ -26,6 +26,12 @@ class SongIndexItem extends React.Component {
     this.setState({ liked: this.props.song.isLiked })
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.song.isLiked !== prevProps.song.isLiked) {
+      this.setState({ liked: this.props.song.isLiked })
+    }
+  }
+
   likeSong() {
     this.props.likeSong(this.props.song.id).then(() => {
       this.setState({ liked: true });
@@ -114,7 +120,7 @@ class SongIndexItem extends React.Component {
             {song.album_title}
         </Link>
 
-        <MenuButton songId={ song.id } />
+        <MenuButton song={song} songId={ song.id } type="song"/>
         {toggleLike}
 
         <span className="sii-runtime">{song.runtime}</span>

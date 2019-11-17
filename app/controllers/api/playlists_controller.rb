@@ -18,6 +18,7 @@ class Api::PlaylistsController < ApplicationController
 
   #how are you going to deal with user uploaded images?
   def create 
+
     @playlist = Playlist.new(playlist_params)
     @playlist.user_id = current_user.id
 
@@ -32,6 +33,7 @@ class Api::PlaylistsController < ApplicationController
   end
 
   def update 
+
     @playlist = Playlist.find(params[:playlist][:id])
     if @playlist.update(playlist_params)
       render :show
@@ -68,7 +70,9 @@ class Api::PlaylistsController < ApplicationController
 
   private
   def playlist_params
-    if params[:playlist][:id] && !params[:playlist][:cover]
+    if params[:playlist][:id] && params[:playlist][:cover] == "undefined"
+      params.require(:playlist).permit(:title, :description)
+    elsif params[:playlist][:cover] == "null"
       params.require(:playlist).permit(:title, :description)
     else 
       params.require(:playlist).permit(:title, :description, :cover)

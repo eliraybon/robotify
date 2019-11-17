@@ -16,7 +16,8 @@ const artistsReducer = (state = {}, action) => {
     case RECEIVE_ARTISTS:
       return action.artists;
     case TOGGLE_FOLLOW:
-      return Object.assign({}, state, { [action.artist.id]: action.artist });
+      const artist = action.payload.artist;
+      return Object.assign({}, state, { [artist.id]: artist });
     case UPDATE_SEARCH:
       return action.payload.artists || {};
     case CLEAR_STATE:

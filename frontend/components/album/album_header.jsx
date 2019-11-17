@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PlayButton from '../ui/play_button';
+import MenuButton from '../ui/menu_button';
 
 export default class AlbumHeader extends React.Component {
   constructor(props) {
@@ -12,24 +13,24 @@ export default class AlbumHeader extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({ liked: this.props.album.isLiked })
+    this.setState({ liked: this.props.album.isLiked });
   }
 
   componentDidUpdate(prevProps) {
     if (this.props.album !== prevProps.album) {
-      this.setState({ liked: this.props.album.isLiked })
+      this.setState({ liked: this.props.album.isLiked });
     }
   }
 
   likeAlbum() {
     this.props.likeAlbum(this.props.album.id).then(() => {
-      this.setState({ liked: true })
+      this.setState({ liked: true });
     })
   }
 
   unlikeAlbum() {
     this.props.unlikeAlbum(this.props.album.id).then(() => {
-      this.setState({ liked: false })
+      this.setState({ liked: false });
     })
   }
 
@@ -46,10 +47,10 @@ export default class AlbumHeader extends React.Component {
       toggleLike = (
         <img 
           onClick={this.unlikeAlbum} 
-          className="unliked"
+          className="liked"
           width="30px"
           height="30px"
-          src="https://robotify-development.s3.amazonaws.com/unlike.png"
+          src="https://robotify-development.s3.amazonaws.com/like.png"
         />
           
       )
@@ -57,13 +58,13 @@ export default class AlbumHeader extends React.Component {
       toggleLike = (
         <img
           onClick={this.likeAlbum}
-          className="liked"
+          className="unliked"
           width="30px"
           height="30px"
-          src="https://robotify-development.s3.amazonaws.com/like.png"
+          src="https://robotify-development.s3.amazonaws.com/unlike.png"
         />
       )
-    }
+    } 
 
     return (
       <div className="album-header">
@@ -92,6 +93,7 @@ export default class AlbumHeader extends React.Component {
           <div className="buttons">
             <PlayButton  />
             {toggleLike}
+            <MenuButton album={album} type="album" />
           </div>
         </div>
       </div>
