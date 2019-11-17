@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export default class MusicPlayer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { currentTime: 0, duration: 0 };
+    this.state = { currentTime: 0, duration: 0, volume: 100 };
 
     this.play = this.play.bind(this);
     this.pause = this.pause.bind(this);
@@ -16,6 +16,7 @@ export default class MusicPlayer extends React.Component {
     this.changeTime = this.changeTime.bind(this);
     this.seek = this.seek.bind(this);
     this.find = this.find.bind(this);
+    this.changeVolume = this.changeVolume.bind(this);
   }
 
   componentDidMount() {
@@ -100,6 +101,11 @@ export default class MusicPlayer extends React.Component {
     this.setState({ currentTime: this.refs.player.currentTime, duration: this.refs.player.duration || 0 });
   }
 
+  changeVolume(e) {
+    this.setState({ volume: e.currentTarget.value })
+    this.refs.player.volume = e.currentTarget.value / 100;
+  }
+
   renderMainButton() {
     if (this.props.playing) {
       return (
@@ -178,6 +184,16 @@ export default class MusicPlayer extends React.Component {
             runtime={currentSong.runtime}
             timeElapsed={this.state.timeElapsed}
           /> */}
+        </div>
+
+        <div className="volume-control">
+          <input 
+            type="range"
+            min={0}
+            max={100}
+            value={this.state.volume}
+            onChange={this.changeVolume}
+          />
         </div>
 
         <audio

@@ -14,7 +14,6 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    margin-right: 600px;
   }
 
   .control-buttons {
@@ -53,6 +52,11 @@
   .mp-artist-name {
     color: $gray;
     font-size: 13px;
+  }
+
+  .volume-control {
+    margin-top: 5.5vh;
+    margin-right: 10px;
   }
 
 }
