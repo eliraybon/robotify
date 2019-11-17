@@ -40,7 +40,11 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :playlist_songs, only: [:create, :destroy]
+    resources :playlist_songs, only: [:create, :destroy] do
+      collection do 
+        delete :remove
+      end
+    end
   end
 
   #These routes are for testing Active Storage. Delete later

@@ -21,10 +21,18 @@ export const addAlbumToPlaylist = (album, playlistId) => {
 //this method is going to have to change. I don't have anyway to get the
 //playlistSongId on the front end. You'll need to send the playlist and the song
 //and use find_by to grab the appropriate playlist_song on the backend
-export const deleteSongFromPlaylist= playlistSongId => {
+// export const deleteSongFromPlaylist= playlistSongId => {
+//   return $.ajax({
+//     method: 'DELETE',
+//     url: `/api/playlist_songs/${playlistSongId}`
+//   });
+// };
+
+export const deleteSongFromPlaylist = (songId, playlistId) => {
   return $.ajax({
     method: 'DELETE',
-    url: `/api/playlist_songs/${playlistSongId}`
+    url: '/api/playlist_songs/remove',
+    data: { song_id: songId, playlist_id: playlistId }
   });
 };
 

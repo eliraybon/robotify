@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { 
   addToQueue, 
+  updateQueue,
   updateCurrentSong,
   togglePlay 
 } from '../../actions/music_actions';
@@ -14,11 +15,22 @@ class PlayButton extends React.Component {
     this.pause = this.pause.bind(this);
   }
 
+  queueHelper(songs, queue) {
+    const sliceOfQueue = queue.slice(0, songs.length);
+
+    for (let i = 0; i < songs.length; i++) {
+      if (songs[i] !== sliceOfQueue[i]) return false; 
+    }
+    return true;
+  }
+
   play() {
-    const { songs } = this.props;
+    const { songs, queue } = this.props;
     if (!songs.length) return;
     this.props.updateCurrentSong(songs[0]);
-    this.props.addToQueue(songs.slice(1));
+    if (!this.queueHelper(songs, queue)) {
+      this.props.updateQueue([...songs.slice(1)]);
+    }
     this.props.togglePlay(true);
   }
 
@@ -38,13 +50,15 @@ class PlayButton extends React.Component {
 const mapStateToProps = state => {
   return {
     songs: Object.values(state.entities.songs),
-    playing: state.music.playing
+    playing: state.music.playing,
+    queue: state.music.queue
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     addToQueue: songs => dispatch(addToQueue(songs)),
+    updateQueue: queue => dispatch(updateQueue(queue)),
     updateCurrentSong: song => dispatch(updateCurrentSong(song)),
     togglePlay: play => dispatch(togglePlay(play))
   };

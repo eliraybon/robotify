@@ -1,22 +1,76 @@
-.progress-bar {
-  display: flex;
-  min-height: 10px;
-  width: 400px;
-  border-radius: 10px;
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    input[type='range'] {
+      overflow: hidden;
+      width: 80px;
+      border-radius: 20px;
+      -webkit-appearance: none;
+      background-color: $progress-bar;
+    }
+    
+    input[type='range']::-webkit-slider-runnable-track {
+      height: 6px;
+      -webkit-appearance: none;
+      color: $robotify-green;
+      // margin-top: -1px;
+    }
+    
+    input[type='range']::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 6px;
+      height: 6px;
+      background: $white;
+      border-radius: 50%;
+      box-shadow: -80px 0 0 80px $robotify-green;
+    }
 
-  .progress-bar-outline {
-    height: 10px;
-    width: 400px;
-    border-radius: 10px;
-    background: $gray;
-  }
-
-  .progress-bar-fill {
-    height: 10px;
-    width: 0%;
-    border-radius: 10px;
-    position: relative;
-    left: 0;
-    background: $div-border;
-  }
 }
+
+// @media screen and (-webkit-min-device-pixel-ratio:0) {
+//     input[type='range'] {
+//       overflow: hidden;
+//       width: 80px;
+//       -webkit-appearance: none;
+//       background-color: #9a905d;
+//     }
+    
+//     input[type='range']::-webkit-slider-runnable-track {
+//       height: 10px;
+//       -webkit-appearance: none;
+//       color: #13bba4;
+//       margin-top: -1px;
+//     }
+    
+//     input[type='range']::-webkit-slider-thumb {
+//       width: 10px;
+//       -webkit-appearance: none;
+//       height: 10px;
+//       cursor: ew-resize;
+//       background: #434343;
+//       box-shadow: -80px 0 0 80px #43e5f7;
+//     }
+
+// }
+
+
+// .progress-bar {
+//   display: flex;
+//   min-height: 10px;
+//   width: 400px;
+//   border-radius: 10px;
+
+//   .progress-bar-outline {
+//     height: 10px;
+//     width: 400px;
+//     border-radius: 10px;
+//     background: $gray;
+//   }
+
+//   .progress-bar-fill {
+//     height: 10px;
+//     width: 0%;
+//     border-radius: 10px;
+//     position: relative;
+//     left: 0;
+//     background: $div-border;
+//   }
+// }

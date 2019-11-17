@@ -149,6 +149,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(SongIndexItem);
-
-
-//this is going to end up being one of the most important components

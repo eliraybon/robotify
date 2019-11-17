@@ -4,10 +4,18 @@ export const RECEIVE_PLAYLIST_AND_SONGS = "RECEIVE_PLAYLIST_AND_SONGS";
 export const REMOVE_PLAYLIST_AND_SONGS = "REMOVE_PLAYLIST_AND_SONGS";
 export const RECEIVE_PLAYLISTS = "RECEIVE_PLAYLISTS";
 export const TOGGLE_PLAYLIST_LIKE = "TOGGLE_PLAYLIST_LIKE";
+export const RECEIVE_PLAYLIST = "RECEIVE_PLAYLIST";
 
 export const receivePlaylistAndSongs = payload => {
   return {
     type: RECEIVE_PLAYLIST_AND_SONGS,
+    payload
+  };
+};
+
+export const receivePlaylist = payload => {
+  return {
+    type: RECEIVE_PLAYLIST,
     payload
   };
 };

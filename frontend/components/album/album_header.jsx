@@ -6,10 +6,12 @@ import MenuButton from '../ui/menu_button';
 export default class AlbumHeader extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { liked: false };
+    this.state = { liked: false, hover: false };
 
     this.likeAlbum = this.likeAlbum.bind(this);
     this.unlikeAlbum = this.unlikeAlbum.bind(this);
+    this.hover = this.hover.bind(this);
+    this.leave = this.leave.bind(this);
   }
 
   componentDidMount() {
@@ -32,6 +34,14 @@ export default class AlbumHeader extends React.Component {
     this.props.unlikeAlbum(this.props.album.id).then(() => {
       this.setState({ liked: false });
     })
+  }
+
+  hover() {
+    this.setState({ hover: true });
+  }
+
+  leave() {
+    this.setState({ hover: false });
   }
 
   render() {
@@ -69,12 +79,22 @@ export default class AlbumHeader extends React.Component {
     return (
       <div className="album-header">
         
-        <img 
-          src={album.cover_url} 
-          width="200" 
-          height="200"
-          className="ah-album-cover">
-        </img>
+        <div className="ah-album-cover" onMouseEnter={this.hover} onMouseLeave={this.leave}>
+          <img
+            src={album.cover_url}
+            width="200"
+            height="200"
+            className="ah-album-cover">
+          </img>
+
+          {this.state.hover && (
+            <span className="ah-hover">
+              <div className="ah-hover-play">
+
+              </div>
+            </span>
+          )}
+        </div>
         
         <div className="ah-meta-data">
 

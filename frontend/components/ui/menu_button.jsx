@@ -6,12 +6,13 @@ import { likeSong, unlikeSong } from '../../actions/song_actions';
 import { likeAlbum, unlikeAlbum } from '../../actions/album_actions';
 import { likePlaylist, unlikePlaylist, deletePlaylist } from '../../actions/playlist_actions';
 import { 
-  addSongToPlaylist,
+  // addSongToPlaylist,
   addAlbumToPlaylist
 } from '../../util/playlist_song_api_util';
 import { getUsersPlaylists } from '../../reducers/selectors';
 import { addToQueue } from '../../actions/music_actions';
 import { openModal } from '../../actions/modal_actions';
+import { addSongToPlaylist, removeSongFromPlaylist } from '../../actions/playlist_song_actions';
 
 class MenuButton extends React.Component {
   constructor(props) {
@@ -134,6 +135,15 @@ class MenuButton extends React.Component {
               </div>
             )}
           </li>
+
+          {(this.props.match.path === "/playlists/:playlistId") && (
+            <li 
+              onClick={() => this.props.removeSongFromPlaylist(song.id, this.props.match.params.playlistId)}
+              onMouseEnter={this.closePlaylistHover}
+            >
+              Remove from Playlist
+            </li>
+          )}
         </ul>
       </div>
     )
@@ -267,7 +277,9 @@ const mapStateToProps = state => {
 
 const mapDipatchToProps = dispatch => {
   return {
-    addSongToPlaylist: playlistAdd => addSongToPlaylist(playlistAdd),
+    // addSongToPlaylist: playlistAdd => addSongToPlaylist(playlistAdd),
+    addSongToPlaylist: playlistAdd => dispatch(addSongToPlaylist(playlistAdd)),
+    removeSongFromPlaylist: (songId, playlistId) => dispatch(removeSongFromPlaylist(songId, playlistId)),
     addAlbumToPlaylist: (album, playlistId) => addAlbumToPlaylist(album, playlistId),
     addToQueue: queue => dispatch(addToQueue(queue)),
     likeSong: songId => dispatch(likeSong(songId)),
