@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import ProgressBar from './progress_bar';
 
 export default class MusicPlayer extends React.Component {
   constructor(props) {
@@ -10,10 +9,8 @@ export default class MusicPlayer extends React.Component {
       duration: 0, 
       volume: 100, 
       muted: false,
-      playPauseHover: false, 
-      volumeImgHover: false,
-      prevHover: false,
-      nextHover: false 
+      repeat: false,
+      shuffle: false
     };
 
     this.play = this.play.bind(this);
@@ -29,7 +26,15 @@ export default class MusicPlayer extends React.Component {
     this.changeVolume = this.changeVolume.bind(this);
     this.mute = this.mute.bind(this);
     this.unMute = this.unMute.bind(this);
+    this.repeatOn = this.repeatOn.bind(this);
+    this.repeatOff = this.repeatOff.bind(this);
+    this.shuffleOn = this.shuffleOn.bind(this);
+    this.shuffleOff = this.shuffleOff.bind(this);
+    this.timeToString = this.timeToString.bind(this);
+    this.renderShuffleButton = this.renderShuffleButton.bind(this);
+    this.renderRepeatButton = this.renderRepeatButton.bind(this);
   }
+
 
   componentDidMount() {
     const player = this.refs.player;
@@ -65,8 +70,34 @@ export default class MusicPlayer extends React.Component {
       return;
     }
     this.props.updateSongHistory(songHistory.concat([currentSong]));
-    this.props.updateCurrentSong(queue[0]);
-    this.props.updateQueue(queue.slice(1));
+    if (this.state.shuffle) {
+      const idx = Math.floor(Math.random() * queue.length);
+      this.props.updateCurrentSong(queue[idx]);
+      this.props.updateQueue(
+        queue.slice(0, idx).concat(queue.slice(idx + 1, queue.length)
+      ));
+    } else {
+      this.props.updateCurrentSong(queue[0]);
+      this.props.updateQueue(queue.slice(1));
+    }
+  }
+
+  repeatOn() {
+    this.refs.player.loop = true;
+    this.setState({ repeat: true });
+  }
+
+  repeatOff() {
+    this.refs.player.loop = false; 
+    this.setState({ repeat: false });
+  }
+
+  shuffleOn() {
+    this.setState({ shuffle: true });
+  }
+
+  shuffleOff() {
+    this.setState({ shuffle: false });
   }
 
   seek() {
@@ -76,24 +107,6 @@ export default class MusicPlayer extends React.Component {
   find() {
     this.refs.player.volume = 1;
   }
-
-  //rough sketch of how shuffle play will work. Repeat will go here as well.
-
-  // nextSong() {
-  //   const { currentSong, queue, songHistory } = this.props;
-  //   if (!queue.length) return;
-  //   this.props.updateSongHistory(songHistory.concat([currentSong]));
-  //   if (!shuffle) {
-  //     const idx = Math.floor(Math.random() * queue.length);
-  //     this.props.updateCurrentSong(queue[idx]);
-  //     this.props.updateQueue(
-  //       queue.slice(0, idx-1).concat(queue.slice(idx, queue.length)
-  //     ));
-  //   } else {
-  //     this.props.updateCurrentSong(queue[0]);
-  //     this.props.updateQueue(queue.slice(1));
-  //   }
-  // }
 
   prevSong() {
     const { currentSong, queue, songHistory } = this.props;
@@ -110,7 +123,7 @@ export default class MusicPlayer extends React.Component {
   }
 
   updateTime() {
-    this.setState({ currentTime: this.refs.player.currentTime, duration: this.refs.player.duration || 0 });
+    this.setState({ currentTime: this.refs.player.currentTime || 0, duration: this.refs.player.duration || 0 });
   }
 
   changeVolume(e) {
@@ -135,14 +148,20 @@ export default class MusicPlayer extends React.Component {
     this.refs.player.volume = 1;
   }
 
+  timeToString(time) {
+    if (time === 0) return '0:00';
+    if (!time) return null;
+    time = Math.floor(time);
+    const minutes = Math.floor(time / 60);
+    let seconds = time % 60;
+    if (seconds < 10) seconds = `0${seconds}`;
+    return `${minutes}:${seconds}`;
+  }
+
   renderVolumeImg() {
     let src;
     if (this.state.muted) {
-      if (this.state.volumeImgHover) {
-        src = "https://robotify-development.s3.amazonaws.com/volume_off_hover.png";
-      } else {
-        src = "https://robotify-development.s3.amazonaws.com/volume_off.png";
-      }
+      src = "https://robotify-development.s3.amazonaws.com/volume_off_hover.png";
       return (
         <img
           src={src}
@@ -155,11 +174,7 @@ export default class MusicPlayer extends React.Component {
         />
       )
     } else {
-      if (this.state.volumeImgHover) {
-        src = "https://robotify-development.s3.amazonaws.com/volume_on_hover.png";
-      } else {
-        src = "https://robotify-development.s3.amazonaws.com/volume_on.png";
-      }
+      src = "https://robotify-development.s3.amazonaws.com/volume_on_hover.png";
       return (
         <img
           src={src}
@@ -176,46 +191,76 @@ export default class MusicPlayer extends React.Component {
 
   renderMainButton() {
     let src;
-    let width;
-    let height;
+    let width = '34px';
+    let height = '34px';
     if (this.props.playing) {
-      if (this.state.playPauseHover) {
-        src = "https://robotify-development.s3.amazonaws.com/pause_hover.png"
-        width='36px'
-        height='36px'
-      } else {
-        src = "https://robotify-development.s3.amazonaws.com/pause.png"
-        width='34px'
-        height='34px'
-      }
+      src = "https://robotify-development.s3.amazonaws.com/pause_hover.png"
       return (
         <img
           onClick={this.pause}
           src={src}
           height={height}
           width={width}
-          onMouseOver={() => this.setState({ playPauseHover: true })}
-          onMouseOut={() => this.setState({ playPauseHover: false })}
+          className="main-button"
         />
       )
     } else {
-      if (this.state.playPauseHover) {
-        src = "https://robotify-development.s3.amazonaws.com/play_hover.png";
-        width = '36px'
-        height = '36px'
-      } else {
-        src = "https://robotify-development.s3.amazonaws.com/play.png";
-        width="34px"
-        height="34px"
-      }
+      src = "https://robotify-development.s3.amazonaws.com/play_hover.png"
       return (
         <img
           onClick={this.play}
           src={src}
           height={height}
           width={width}
-          onMouseOver={() => this.setState({ playPauseHover: true })}
-          onMouseOut={() => this.setState({ playPauseHover: false })}
+          className="main-button"
+        />
+      )
+    }
+  }
+
+  renderShuffleButton() {
+    if (this.state.shuffle) {
+      return (
+        <img
+          onClick={this.shuffleOff}
+          src="https://robotify-development.s3.amazonaws.com/shuffle_on.png"
+          width="16px"
+          height="13px"
+          className="special-button-on"
+        />
+      )
+    } else {
+      return (
+        <img
+          onClick={this.shuffleOn}
+          src="https://robotify-development.s3.amazonaws.com/shuffle.png"
+          width="16px"
+          height="13px"
+          className="special-button"
+        />
+      )
+    }
+  }
+
+  renderRepeatButton() {
+    if (this.state.repeat) {
+      return (
+        <img
+          onClick={this.repeatOff}
+          src="https://robotify-development.s3.amazonaws.com/repeat_on.png"
+          width="16px"
+          height="13px"
+          className="special-button-on"
+        />
+      )
+    } else {
+      return (
+        <img
+          onClick={this.repeatOn}
+          src="https://robotify-development.s3.amazonaws.com/repeat.png"
+          width="16px"
+          height="13px"
+          className="special-button"
         />
       )
     }
@@ -253,12 +298,11 @@ export default class MusicPlayer extends React.Component {
 
         <div className="mp-main">
           <div className="control-buttons">
+            {this.renderShuffleButton()}
 
             <img
               onClick={this.prevSong}
-              onMouseOver={() => this.setState({ prevHover: true })}
-              onMouseOut={() => this.setState({ prevHover: false })}
-              src={(this.state.prevHover) ? "https://robotify-development.s3.amazonaws.com/prev_hover.png" : "https://robotify-development.s3.amazonaws.com/prev.png"}
+              src="https://robotify-development.s3.amazonaws.com/prev_hover.png"
               width="12px"
               height="13px"
               className="song-select"
@@ -268,17 +312,18 @@ export default class MusicPlayer extends React.Component {
 
             <img
               onClick={this.nextSong}
-              onMouseOver={() => this.setState({ nextHover: true })}
-              onMouseOut={() => this.setState({ nextHover: false })}
-              src={(this.state.nextHover) ? "https://robotify-development.s3.amazonaws.com/next_hover.png" : "https://robotify-development.s3.amazonaws.com/next.png"}
+              src="https://robotify-development.s3.amazonaws.com/next_hover.png"
               width="12px"
               height="13px"
               className="song-select"
             />
 
+            {this.renderRepeatButton()}
+
           </div>
 
           <div className="progress-bar-container">
+            <p className="time-display">{this.timeToString(this.state.currentTime)}</p>
             <input
               type="range"
               min={0}
@@ -289,7 +334,9 @@ export default class MusicPlayer extends React.Component {
               onMouseUp={this.find}
               className="progress-bar"
             />
+            <p className="time-display">{this.timeToString(this.state.duration)}</p>
           </div>
+          
         </div>
 
         <div className="volume-control">
