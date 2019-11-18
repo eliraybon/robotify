@@ -52,7 +52,7 @@ export default class PlaylistHeader extends React.Component {
           className="liked"
           width="30px"
           height="30px"
-          src="https://robotify-development.s3.amazonaws.com/like.png"
+          src="https://robotify-development.s3.amazonaws.com/header-liked-edit.png"
         />
 
       )
@@ -63,7 +63,7 @@ export default class PlaylistHeader extends React.Component {
           className="unliked"
           width="30px"
           height="30px"
-          src="https://robotify-development.s3.amazonaws.com/unlike.png"
+          src="https://robotify-development.s3.amazonaws.com/header-unliked-edit.png"
         />
       )
     }
@@ -93,10 +93,13 @@ export default class PlaylistHeader extends React.Component {
         <div className="ph-other-info">
           <span className="ph-playlist-tag">Playlist</span>
           <span className="ph-playlist-title">{playlist.title}</span>
-          <p>{playlist.description}</p>
+          <p className="ph-description">{playlist.description}</p>
 
-          <span className="ph-other-info">
-            <span className="ph-user">Created by {playlist.user_email} - </span>
+          <span>
+            <span className="ph-user">
+              Created by <span className="ph-user-link">{playlist.user_email}</span>
+            </span>
+            <span> &middot; </span>
             <span className="ph-song-count">{playlist.song_ids.length} Songs</span>
           </span>
 
@@ -105,18 +108,6 @@ export default class PlaylistHeader extends React.Component {
             {toggleLike}
             <MenuButton playlist={playlist} type="playlist" />
           </div>
-          
-          {/* {deleteButton}
-          <button onClick={ () => {
-            this.props.openModal({type: 'update', wildCard: playlist.id})
-            }}>
-            Update Playlist
-          </button> */}
-
-          {/* <div className="">
-            {addToPlaylist}
-            {this.renderDropdown()}
-          </div> */}
         </div>
       </div>
     )

@@ -231,16 +231,26 @@ class MenuButton extends React.Component {
   render() {
     let button;
     let src;
+    let width;
+    let height;
     switch(this.props.type) {
       case 'song':
         button = this.renderSongButton();
         src = "https://robotify-development.s3.amazonaws.com/sii-dots.png";
+        width = "16px";
+        height = "4px";
         break;
       case 'album':
         button =  this.renderAlbumButton();
+        src = "https://robotify-development.s3.amazonaws.com/header-menu-edit.png";
+        width = "30px";
+        height = "30px";
         break
       case 'playlist':
         button = this.renderPlaylistButton();
+        src = "https://robotify-development.s3.amazonaws.com/header-menu-edit.png";
+        width = "30px";
+        height = "30px";
         break;
     }
 
@@ -255,8 +265,8 @@ class MenuButton extends React.Component {
         <img 
           src={src}
           onClick={this.handleClick}
-          width="16px"
-          height="4px"
+          width={width}
+          height={height}
           id={id}
         />
         {this.state.open && (

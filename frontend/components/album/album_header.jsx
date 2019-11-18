@@ -60,7 +60,7 @@ export default class AlbumHeader extends React.Component {
           className="liked"
           width="30px"
           height="30px"
-          src="https://robotify-development.s3.amazonaws.com/like.png"
+          src="https://robotify-development.s3.amazonaws.com/header-liked-edit.png"
         />
           
       )
@@ -71,7 +71,7 @@ export default class AlbumHeader extends React.Component {
           className="unliked"
           width="30px"
           height="30px"
-          src="https://robotify-development.s3.amazonaws.com/unlike.png"
+          src="https://robotify-development.s3.amazonaws.com/header-unliked-edit.png"
         />
       )
     } 
@@ -107,7 +107,7 @@ export default class AlbumHeader extends React.Component {
           </span>
 
           <span className="ah-other-info">
-            <span className="ah-album-year">{album.year} - </span>
+            <span className="ah-album-year">{album.year} &middot; </span>
             <span className="ah-song-count">{album.song_ids.length} Songs</span>
           </span>
           <div className="buttons">

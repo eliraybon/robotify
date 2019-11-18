@@ -2,12 +2,14 @@
   position: relative;
   display: flex;
   background: $main-background;
-  color: $white;
+  color: rgb(170, 168, 168);
+  font-size: 14px;
   font-family: $sans-serif;
+  font-weight: 300;
 
   .buttons {
     display: flex;
-    margin-top: 20px;
+    margin-top: 35px;
 
     .play-button {
       margin-right: 15px;
@@ -16,40 +18,24 @@
     img {
       margin-right: 15px;
       transition-duration: 0.2;
+      opacity: 0.7;
     }
 
     img:hover {
       transform: scale(1.1);
+      opacity: 1;
       transition-duration: 0.2;
-      border: 1px solid white;
     }
-
-  }
-  
-  .liked {
-    border: 1px solid red;
-    border-radius: 50%;
-    padding: 10px;
-  }
-
-  .unliked {
-    border: 1px solid gray;
-    border-radius: 50%;
-    padding: 10px;
   }
 }
 
 .ah-meta-data {
   display: flex;
   flex-direction: column;
-  margin-top: 4%;
+  margin-top: 50px;
 }
 
 .ah-album-cover {
-  // margin-left: 5%;
-  // margin-right: 3%;
-  // margin-top: 3%;
-  // margin-bottom: 3%;
   position: relative;
   margin-left: 15px;
   margin-right: 10px;
@@ -83,18 +69,20 @@
   }
 
 .ah-album-tag {
-  font-style: italic;
+  letter-spacing: 1.5px;
 }
 
 .ah-album-title {
   font-size: 40px;
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  color: $white;
   overflow: hidden;
 }
 
 .ah-artist-link {
   margin-left: 5px;
+  color: $white;
 }
 
 .ah-artist-link:hover {
