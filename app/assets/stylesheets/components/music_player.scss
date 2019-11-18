@@ -4,7 +4,8 @@
   justify-content: space-between;
   bottom: 0;
   width: 100vw;
-  height: 11vh;
+  // height: 11vh;
+  height: 71px;
   background: $lighter-background;
   color: $white;
   font-family: $sans-serif;
@@ -12,17 +13,33 @@
 
   .mp-main {
     display: flex;
+    position: relative;
     flex-direction: column;
     justify-content: flex-start;
   }
 
   .control-buttons {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    margin-top: 15px;
+    height: 50px;
+    width: 200px;
+
+    .song-select {
+      margin-top: 10px;
+    }
+  }
+
+  .progress-bar-container {
+    position: absolute;
+    z-index: 2;
+    left: -150px;
+    bottom: 5px;
   }
 
   .song-display {
     display: flex;
+    width: 33.333vw;
   }
 
   .song-info {
@@ -55,8 +72,29 @@
   }
 
   .volume-control {
-    margin-top: 5.5vh;
+    display: flex;
+    justify-content: flex-end;
+    height: 10px;
+    cursor: auto;
+    margin-top: 35px;
     margin-right: 10px;
+    width: 33.333vw;
+
+    .volume-img {
+      position: relative;
+      top: -14px;
+      margin-right: 5px;
+    }
+
+    .play-hover {
+      width: 36px;
+      height: 36px;
+    }
+
+    .play-no-hover {
+      width: 34px; 
+      height: 34px;
+    }
   }
 
 }

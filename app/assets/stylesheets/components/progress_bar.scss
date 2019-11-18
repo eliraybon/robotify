@@ -1,10 +1,18 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
     input[type='range'] {
       overflow: hidden;
-      width: 80px;
+      height: 6px;
       border-radius: 20px;
       -webkit-appearance: none;
       background-color: $progress-bar;
+    }
+
+    input[type='range'].progress-bar {
+      width: 500px;
+    }
+
+    input[type='range'].volume-slider {
+      width: 100px;
     }
     
     input[type='range']::-webkit-slider-runnable-track {
@@ -20,7 +28,7 @@
       height: 6px;
       background: $white;
       border-radius: 50%;
-      box-shadow: -80px 0 0 80px $robotify-green;
+      box-shadow: -302px 0 0 300px $robotify-green;
     }
 
 }

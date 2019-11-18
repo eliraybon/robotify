@@ -5,18 +5,30 @@ import { Link } from 'react-router-dom';
 export default class MusicPlayer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { currentTime: 0, duration: 0, volume: 100 };
+    this.state = { 
+      currentTime: 0, 
+      duration: 0, 
+      volume: 100, 
+      muted: false,
+      playPauseHover: false, 
+      volumeImgHover: false,
+      prevHover: false,
+      nextHover: false 
+    };
 
     this.play = this.play.bind(this);
     this.pause = this.pause.bind(this);
     this.nextSong = this.nextSong.bind(this);
     this.prevSong = this.prevSong.bind(this);
     this.renderMainButton = this.renderMainButton.bind(this);
+    this.renderVolumeImg = this.renderVolumeImg.bind(this);
     this.updateTime = this.updateTime.bind(this);
     this.changeTime = this.changeTime.bind(this);
     this.seek = this.seek.bind(this);
     this.find = this.find.bind(this);
     this.changeVolume = this.changeVolume.bind(this);
+    this.mute = this.mute.bind(this);
+    this.unMute = this.unMute.bind(this);
   }
 
   componentDidMount() {
@@ -103,27 +115,107 @@ export default class MusicPlayer extends React.Component {
 
   changeVolume(e) {
     this.setState({ volume: e.currentTarget.value })
+    if (e.currentTarget.value < 0.01) {
+      this.mute();
+      return;
+    }
+    if (e.currentTarget.value > 0.01 && this.state.muted) {
+      this.setState({ muted: false })
+    }
     this.refs.player.volume = e.currentTarget.value / 100;
   }
 
-  renderMainButton() {
-    if (this.props.playing) {
+  mute() {
+    this.setState({ muted: true, volume: 0 })
+    this.refs.player.volume = 0;
+  }
+
+  unMute() {
+    this.setState({muted: false, volume: 100 });
+    this.refs.player.volume = 1;
+  }
+
+  renderVolumeImg() {
+    let src;
+    if (this.state.muted) {
+      if (this.state.volumeImgHover) {
+        src = "https://robotify-development.s3.amazonaws.com/volume_off_hover.png";
+      } else {
+        src = "https://robotify-development.s3.amazonaws.com/volume_off.png";
+      }
       return (
-        <button onClick={this.pause}>
-          Pause
-        </button>
+        <img
+          src={src}
+          width="35px"
+          height="35px"
+          onClick={this.unMute}
+          onMouseOver={() => this.setState({ volumeImgHover: true })}
+          onMouseOut={() => this.setState({ volumeImgHover: false })}
+          className="volume-img"
+        />
       )
     } else {
+      if (this.state.volumeImgHover) {
+        src = "https://robotify-development.s3.amazonaws.com/volume_on_hover.png";
+      } else {
+        src = "https://robotify-development.s3.amazonaws.com/volume_on.png";
+      }
       return (
-        // <button onClick={this.play}>
-        //   Play
-        // </button>
+        <img
+          src={src}
+          width="35px"
+          height="35px"
+          onClick={this.mute}
+          onMouseOver={() => this.setState({ volumeImgHover: true })}
+          onMouseOut={() => this.setState({ volumeImgHover: false })}
+          className="volume-img"
+        />
+      )
+    }
+  }
 
+  renderMainButton() {
+    let src;
+    let width;
+    let height;
+    if (this.props.playing) {
+      if (this.state.playPauseHover) {
+        src = "https://robotify-development.s3.amazonaws.com/pause_hover.png"
+        width='36px'
+        height='36px'
+      } else {
+        src = "https://robotify-development.s3.amazonaws.com/pause.png"
+        width='34px'
+        height='34px'
+      }
+      return (
+        <img
+          onClick={this.pause}
+          src={src}
+          height={height}
+          width={width}
+          onMouseOver={() => this.setState({ playPauseHover: true })}
+          onMouseOut={() => this.setState({ playPauseHover: false })}
+        />
+      )
+    } else {
+      if (this.state.playPauseHover) {
+        src = "https://robotify-development.s3.amazonaws.com/play_hover.png";
+        width = '36px'
+        height = '36px'
+      } else {
+        src = "https://robotify-development.s3.amazonaws.com/play.png";
+        width="34px"
+        height="34px"
+      }
+      return (
         <img
           onClick={this.play}
-          src="https://robotify-development.s3.amazonaws.com/play_test.png"
-          height="50px"
-          width="50px"
+          src={src}
+          height={height}
+          width={width}
+          onMouseOver={() => this.setState({ playPauseHover: true })}
+          onMouseOut={() => this.setState({ playPauseHover: false })}
         />
       )
     }
@@ -134,12 +226,14 @@ export default class MusicPlayer extends React.Component {
     return (
       <div className="music-player">
         <div className="song-display"> 
-          <img
-            src={currentSong.cover_url}
-            width="50px"
-            height="50px"
-            className="current-song-img"
-          />
+          {currentSong.cover_url && (
+            <img
+              src={currentSong.cover_url}
+              width="50px"
+              height="50px"
+              className="current-song-img"
+            />
+          )}
 
           <div className="song-info">
             <Link 
@@ -159,40 +253,55 @@ export default class MusicPlayer extends React.Component {
 
         <div className="mp-main">
           <div className="control-buttons">
+
+            <img
+              onClick={this.prevSong}
+              onMouseOver={() => this.setState({ prevHover: true })}
+              onMouseOut={() => this.setState({ prevHover: false })}
+              src={(this.state.prevHover) ? "https://robotify-development.s3.amazonaws.com/prev_hover.png" : "https://robotify-development.s3.amazonaws.com/prev.png"}
+              width="12px"
+              height="13px"
+              className="song-select"
+            />
+
             {this.renderMainButton()}
 
-            <button onClick={this.prevSong}>
-              Prev
-            </button>
+            <img
+              onClick={this.nextSong}
+              onMouseOver={() => this.setState({ nextHover: true })}
+              onMouseOut={() => this.setState({ nextHover: false })}
+              src={(this.state.nextHover) ? "https://robotify-development.s3.amazonaws.com/next_hover.png" : "https://robotify-development.s3.amazonaws.com/next.png"}
+              width="12px"
+              height="13px"
+              className="song-select"
+            />
 
-            <button onClick={this.nextSong}>
-              Next
-            </button>
           </div>
 
-          <input 
-            type="range"
-            min={0}
-            max={this.state.duration}
-            value={this.state.currentTime}
-            onChange={this.changeTime}
-            onMouseDown={this.seek}
-            onMouseUp={this.find}
-          />
-
-          {/* <ProgressBar
-            runtime={currentSong.runtime}
-            timeElapsed={this.state.timeElapsed}
-          /> */}
+          <div className="progress-bar-container">
+            <input
+              type="range"
+              min={0}
+              max={this.state.duration}
+              value={this.state.currentTime}
+              onChange={this.changeTime}
+              onMouseDown={this.seek}
+              onMouseUp={this.find}
+              className="progress-bar"
+            />
+          </div>
         </div>
 
         <div className="volume-control">
+          {this.renderVolumeImg()}
+
           <input 
             type="range"
             min={0}
             max={100}
             value={this.state.volume}
             onChange={this.changeVolume}
+            className="volume-slider"
           />
         </div>
 
