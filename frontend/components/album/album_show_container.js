@@ -5,13 +5,14 @@ import {
   unlikeAlbum 
 } from '../../actions/album_actions';
 import AlbumShow from './album_show';
+import { getAlbumSongs } from '../../reducers/selectors';
 
 const mapStateToProps = (state, ownProps) => {
   const albumId = parseInt(ownProps.match.params.albumId);
   return {
     albumId,
     album: state.entities.albums[albumId],
-    songs: Object.values(state.entities.songs)
+    songs: getAlbumSongs(state, albumId)
   };
 };
 

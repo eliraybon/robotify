@@ -41,17 +41,23 @@ class SongIndexItem extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    document.removeEventListener("mousedown", this.handleOutsideClick);
+  }
+
   handleOutsideClick() {
     this.setState({menuClicked: false });
   }
 
   likeSong() {
+    this.setState({ likeHover: false });
     this.props.likeSong(this.props.song.id).then(() => {
       this.setState({ liked: true });
     })
   }
 
   unlikeSong() {
+    this.setState({ likeHover: false });
     this.props.unlikeSong(this.props.song.id).then(() => {
       this.setState({ liked: false });
     })
@@ -151,6 +157,8 @@ class SongIndexItem extends React.Component {
         <img
           onMouseOver={() => this.setState({ likeHover: true })}
           src="https://robotify-development.s3.amazonaws.com/sii-liked_hover.png"
+          onMouseOver={() => this.setState({ likeHover: true })}
+          onMouseOut={() => this.setState({ likeHover: false })}
           width="15px"
           height="15px"
         />
@@ -159,6 +167,8 @@ class SongIndexItem extends React.Component {
       return (
         <img
           src="https://robotify-development.s3.amazonaws.com/sii-liked.png"
+          onMouseOver={() => this.setState({ likeHover: true })}
+          onMouseOut={() => this.setState({ likeHover: false })}
           width="15px"
           height="15px"
         />
@@ -170,6 +180,8 @@ class SongIndexItem extends React.Component {
         <img
           src="https://robotify-development.s3.amazonaws.com/sii-unliked_hover.png"
           onClick={this.likeSong}
+          onMouseOver={() => this.setState({ likeHover: true })}
+          onMouseOut={() => this.setState({ likeHover: false })}
           width="15px"
           height="15px"
         />
@@ -178,6 +190,8 @@ class SongIndexItem extends React.Component {
       return (
         <img
           src="https://robotify-development.s3.amazonaws.com/sii-unliked.png"
+          onMouseOver={() => this.setState({ likeHover: true })}
+          onMouseOut={() => this.setState({ likeHover: false })}
           width="15px"
           height="15px"
         />
@@ -189,6 +203,7 @@ class SongIndexItem extends React.Component {
         <img
           src="https://robotify-development.s3.amazonaws.com/sii-unlike.png"
           onClick={this.unlikeSong}
+          onMouseOver={() => this.setState({ likeHover: true })}
           onMouseOut={() => this.setState({ likeHover: false })}
           width="15px"
           height="15px"

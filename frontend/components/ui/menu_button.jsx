@@ -33,7 +33,7 @@ class MenuButton extends React.Component {
   }
 
   componentWillUnmount() {
-    document.removeEventListener("mousedown", this.handleOutsideClick)
+    document.removeEventListener("mousedown", this.handleOutsideClick);
   }
 
   handleClick(e) {

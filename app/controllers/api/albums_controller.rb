@@ -19,7 +19,9 @@ class Api::AlbumsController < ApplicationController
     @album = Album.find(params[:id])
 
     current_user.liked_albums << @album
-    @album.songs.each { |song| current_user.liked_songs << song }
+    @album.songs.each do |song|
+      current_user.liked_songs << song if !current_user.liked_songs.include?(song)
+    end
     render :show
   end
 
@@ -44,7 +46,7 @@ class Api::AlbumsController < ApplicationController
         user_id: current_user.id,
         likeable_type: 'Song'
       )
-      song_like.destroy
+      song_like.destroy if song_like
     end
 
     render :show

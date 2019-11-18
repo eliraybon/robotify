@@ -5,6 +5,7 @@ import { RECEIVE_SONGS, TOGGLE_SONG_LIKE } from '../actions/song_actions';
 import { UPDATE_SEARCH } from '../actions/search_actions';
 import { CLEAR_STATE } from '../actions/other_actions';
 import { RECEIVE_PLAYLIST } from '../actions/playlist_actions';
+import { TOGGLE_ALBUM_LIKE } from '../actions/album_actions';
 
 
 const songsReducer = (state = {}, action) => {
@@ -22,9 +23,11 @@ const songsReducer = (state = {}, action) => {
     case RECEIVE_ARTIST:
       return action.payload.songs || {};
     case RECEIVE_PLAYLIST: 
-      return action.payload.songs;
+      return Object.assign({}, state, action.payload.songs);
     case TOGGLE_SONG_LIKE:
       return Object.assign({}, state, { [action.song.id]: action.song });
+    case TOGGLE_ALBUM_LIKE:
+      return Object.assign({}, state, action.payload.songs);
     case UPDATE_SEARCH:
       return action.payload.songs || {};
     case CLEAR_STATE:
