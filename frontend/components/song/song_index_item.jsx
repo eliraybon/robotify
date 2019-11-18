@@ -16,7 +16,8 @@ class SongIndexItem extends React.Component {
       hover: false, 
       liked: false,
       playHover: false, 
-      likeHover: false
+      likeHover: false,
+      menuClicked: false
     };
 
     this.mouseOver = this.mouseOver.bind(this);
@@ -25,16 +26,23 @@ class SongIndexItem extends React.Component {
     this.unlikeSong = this.unlikeSong.bind(this);
     this.playSong = this.playSong.bind(this);
     this.pauseSong = this.pauseSong.bind(this);
+    this.handleOutsideClick = this.handleOutsideClick.bind(this);
+    this.menuClick = this.menuClick.bind(this);
   }
 
   componentDidMount() {
-    this.setState({ liked: this.props.song.isLiked })
+    this.setState({ liked: this.props.song.isLiked });
+    document.addEventListener("mousedown", this.handleOutsideClick);
   }
 
   componentDidUpdate(prevProps) {
     if (this.props.song.isLiked !== prevProps.song.isLiked) {
       this.setState({ liked: this.props.song.isLiked })
     }
+  }
+
+  handleOutsideClick() {
+    this.setState({menuClicked: false });
   }
 
   likeSong() {
@@ -66,52 +74,40 @@ class SongIndexItem extends React.Component {
 
   pauseSong() {
     this.props.togglePlay(false);
+    this.setState({ playHover: false })
+  }
+
+  menuClick() {
+    this.setState({ menuClicked: true });
+    document.getElementById('triple-dots').click();
   }
 
   renderPlayButton() {
     const { song, currentSongId } = this.props;
 
-    if (this.state.hover && !this.props.playing) {
+    if (this.state.hover 
+        && ((this.props.playing && song.id !== currentSongId)
+          || (!this.props.playing))
+        ) {
       return (
         <img
           src="https://robotify-development.s3.amazonaws.com/sii-play.png"
           onClick={this.playSong}
+          onMouseOver={() => this.setState({ playHover: true })}
+          onMouseOut={() => this.setState({ playHover: false })}
           height="30px"
           width="30px"
           className="sii-play"
         />
       )
     } 
-    
-    if (song.id === this.props.currentSongId) {
-      if (this.state.hover && !this.state.playHover) {
-        return (
-          <img
-            src="https://robotify-development.s3.amazonaws.com/sii-playing_hover.png"
-            onMouseOver={() => this.setState({ playHover: true })}
-            height="30px"
-            width="30px"
-            className="sii-play"
-          />
-        )
-      } else if (!this.state.hover && !this.state.playHover) {
-        return (
-          <img
-            src="https://robotify-development.s3.amazonaws.com/sii-playing.png"
-            onMouseOver={() => this.setState({ playHover: true })}
-            height="30px"
-            width="30px"
-            className="sii-play"
-          />
-        )
-      }
-    } 
 
-    if (this.props.playing && this.state.playHover) {
+    if (this.props.playing && song.id === currentSongId && this.state.playHover) {
       return (
         <img
           src="https://robotify-development.s3.amazonaws.com/sii-pause.png"
           onClick={this.pauseSong}
+          onMouseOver={() => this.setState({ playHover: true })}
           onMouseLeave={() => this.setState({ playHover: false })}
           height="30px"
           width="30px"
@@ -119,6 +115,32 @@ class SongIndexItem extends React.Component {
         />
       )
     }
+    
+    if (song.id === currentSongId) {
+      if (this.state.hover /* && !this.state.playHover*/) {
+        return (
+          <img
+            src="https://robotify-development.s3.amazonaws.com/sii-playing_hover.png"
+            onMouseOver={() => this.setState({ playHover: true })}
+            onMouseOut={() => this.setState({ playHover: false })}
+            height="30px"
+            width="30px"
+            className="sii-play"
+          />
+        )
+      } else if (!this.state.hover /*&& !this.state.playHover*/) {
+        return (
+          <img
+            src="https://robotify-development.s3.amazonaws.com/sii-playing.png"
+            onMouseOver={() => this.setState({ playHover: true })}
+            onMouseOut={() => this.setState({ playHover: false })}
+            height="30px"
+            width="30px"
+            className="sii-play"
+          />
+        )
+      }
+    } 
   }
 
   renderLikeButton() {
@@ -196,19 +218,32 @@ class SongIndexItem extends React.Component {
 
         <span className="sii-song-title">{song.title}</span>
 
-        <Link 
-          to={`/artists/${song.artist_id}`}
-          className="sii-artist-name sii-link">
+        <div className="sii-artist-name">
+          <Link
+            to={`/artists/${song.artist_id}`}
+            className="sii-link">
             {song.artist_name}
-        </Link>
+          </Link>
+        </div>
 
-        <Link 
-          to={`/albums/${song.album_id}`}
-          className="sii-album-title sii-link">
+        <div className="sii-album-title">
+          <Link
+            to={`/albums/${song.album_id}`}
+            className="sii-link">
             {song.album_title}
-        </Link>
+          </Link>
+        </div>
 
-        <MenuButton song={song} songId={ song.id } type="song"/>
+        <div 
+          className="sii-menu-button-container" 
+          onClick={this.menuClick}
+        >
+
+          {(this.state.hover || this.state.menuClicked) && (
+            <MenuButton song={song} songId={song.id} type="song" />
+          )}
+
+        </div>
 
         <span className="sii-runtime">{song.runtime}</span>
       </li>

@@ -229,13 +229,13 @@ class MenuButton extends React.Component {
   }
   
   render() {
-    // switch statement to render appropriate button
-
     let button;
+    let src;
     switch(this.props.type) {
       case 'song':
-         button = this.renderSongButton();
-         break;
+        button = this.renderSongButton();
+        src = "https://robotify-development.s3.amazonaws.com/sii-dots.png";
+        break;
       case 'album':
         button =  this.renderAlbumButton();
         break
@@ -244,11 +244,21 @@ class MenuButton extends React.Component {
         break;
     }
 
+    let id;
+    if (this.props.type === 'song') id="triple-dots";
+
     return (
       <div className="menu-button-container" ref={ this.container }>
-        <button className="menu-button" onClick={ this.handleClick }>
+        {/* <button className="menu-button" onClick={ this.handleClick }>
           ☰
-        </button>
+        </button> */}
+        <img 
+          src={src}
+          onClick={this.handleClick}
+          width="16px"
+          height="4px"
+          id={id}
+        />
         {this.state.open && (
           <div className="dropdown-menu">
             {button}
