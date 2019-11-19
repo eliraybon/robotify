@@ -11,8 +11,8 @@ export default class AlbumIndexItem extends React.Component {
         <img 
           src={album.cover_url} 
           className="ai-album-cover" 
-          width="250" 
-          height="250" 
+          width="200" 
+          height="200" 
         />
 
         <Link

@@ -3,6 +3,8 @@ class Api::SongsController < ApplicationController
     case params[:context]
     when 'library'
       @songs = current_user.liked_songs
+    when 'browse'
+      @songs = Song.all
     end
     
     render :index 

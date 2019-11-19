@@ -1,0 +1,38 @@
+.browse-navbar-links {
+  display: flex;
+  justify-content: space-between;
+  color: rgb(163, 159, 159);
+  font-family: $sans-serif;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: italic;
+  font-weight: 500;
+  margin-left: 40px;
+  margin-bottom: 40px;
+  width: 600px;
+
+  a:hover {
+    color: $white;
+  }
+
+  .active-navbar-link { 
+    color: $white;
+  }
+
+  .active-navbar-link:after {
+    content: ""; 
+    display: block; 
+    margin: 0px auto; 
+    width: 50%; 
+    padding-top: 2px;
+    border-bottom: 2px solid $robotify-green; 
+    transition-duration: 0.3s;
+  }
+
+  .active-navbar-link:hover:after {
+    transition-duration: 0.3s;
+    width: 75%;
+  }
+
+}

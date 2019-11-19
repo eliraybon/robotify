@@ -5,6 +5,13 @@ class Api::AlbumsController < ApplicationController
       @albums = current_user.liked_albums
     when 'explore'
       @albums = Album.all[0..4]
+    when 'browse'
+      @albums = Album.all
+    when 'genre'
+      @albums = []
+      @albums.concat(Album.find_by(genre: 'Alternative'))
+      @albums.concat(Album.find_by(genre: 'Electronic'))
+      @albums.concat(Album.find_by(genre: 'Rock'))
     end
 
     render :index

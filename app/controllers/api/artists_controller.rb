@@ -4,6 +4,8 @@ class Api::ArtistsController < ApplicationController
     case params[:context]
     when 'library'
       @artists = current_user.followed_artists
+    when 'browse'
+      @artists = Artist.all
     end
 
     render :index

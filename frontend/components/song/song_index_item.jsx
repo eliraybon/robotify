@@ -86,9 +86,10 @@ class SongIndexItem extends React.Component {
     this.setState({ playHover: false })
   }
 
-  menuClick() {
+  menuClick(e) {
     this.setState({ menuClicked: true });
-    // document.getElementById('triple-dots').click();
+    if (e.target.id === 'triple-dots') return;
+    document.getElementById('triple-dots').click();
   }
 
   renderPlayButton() {

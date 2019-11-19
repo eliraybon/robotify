@@ -31,6 +31,8 @@ export default class Sidebar extends React.Component {
       });
     }
 
+    //make these NavLinks and give them an activeClassName. This will allow you
+    //to give the active link a green highlight on the left 
     return (
       <div className="sidebar">
         <div className="sidebar-nav">

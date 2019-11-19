@@ -18,6 +18,7 @@ const App = () => (
       <ProtectedRoute path="/playlists" component={Main} />
       <ProtectedRoute path="/artists" component={Main} />
       <ProtectedRoute path="/search" component={Main} />
+      <ProtectedRoute path="/browse" component={Main} />
     </Switch>
   </div>
 );

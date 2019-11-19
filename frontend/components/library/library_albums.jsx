@@ -5,7 +5,9 @@ const LibraryAlbums = (props) => {
   return (
     <div className="library-albums">
       <h1 className ="albums-header">Albums</h1>
-      <AlbumIndex match={props.match}/>
+      <div className="library-albums-container">
+        <AlbumIndex match={props.match}/>
+      </div>
     </div>
   )
 }

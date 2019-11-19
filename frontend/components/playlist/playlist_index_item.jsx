@@ -11,8 +11,8 @@ export default class PlaylistIndexItem extends React.Component {
         <img
           src={playlist.cover_url}
           className="pi-playlist-cover"
-          width="250"
-          height="250"
+          width="200"
+          height="200"
         />
 
         <Link
