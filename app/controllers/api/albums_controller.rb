@@ -8,10 +8,9 @@ class Api::AlbumsController < ApplicationController
     when 'browse'
       @albums = Album.all
     when 'genre'
-      @albums = []
-      @albums.concat(Album.find_by(genre: 'Alternative'))
-      @albums.concat(Album.find_by(genre: 'Electronic'))
-      @albums.concat(Album.find_by(genre: 'Rock'))
+      #you can edit these genres to return the genres you want on the genre page
+      #you also need to filter the results down so you don't send up the whole DB
+      @albums = Album.where("genre IN ('Alternative', 'Electronic', 'Rock')")
     end
 
     render :index
