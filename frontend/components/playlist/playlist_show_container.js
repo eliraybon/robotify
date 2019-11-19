@@ -7,6 +7,7 @@ import {
   unlikePlaylist 
 } from '../../actions/playlist_actions';
 import { openModal } from '../../actions/modal_actions';
+import { getPlaylistSongs } from '../../reducers/selectors';
 
 const mapStateToProps = (state, ownProps) => {
   const playlistId = parseInt(ownProps.match.params.playlistId);
@@ -14,7 +15,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     playlistId, 
     playlist: state.entities.playlists[playlistId],
-    songs: Object.values(state.entities.songs),
+    // songs: Object.values(state.entities.songs),
+    songs: getPlaylistSongs(state, playlistId),
     currentUserId: state.session.currentUserId
   };
 };

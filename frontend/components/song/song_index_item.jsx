@@ -28,6 +28,7 @@ class SongIndexItem extends React.Component {
     this.pauseSong = this.pauseSong.bind(this);
     this.handleOutsideClick = this.handleOutsideClick.bind(this);
     this.menuClick = this.menuClick.bind(this);
+    this.closeAll = this.closeAll.bind(this);
   }
 
   componentDidMount() {
@@ -45,19 +46,21 @@ class SongIndexItem extends React.Component {
     document.removeEventListener("mousedown", this.handleOutsideClick);
   }
 
+  closeAll() {
+    this.setState({hover: false, menuClicked: false });
+  }
+
   handleOutsideClick() {
     this.setState({menuClicked: false });
   }
 
   likeSong() {
-    this.setState({ likeHover: false });
     this.props.likeSong(this.props.song.id).then(() => {
       this.setState({ liked: true });
     })
   }
 
   unlikeSong() {
-    this.setState({ likeHover: false });
     this.props.unlikeSong(this.props.song.id).then(() => {
       this.setState({ liked: false });
     })
@@ -85,7 +88,7 @@ class SongIndexItem extends React.Component {
 
   menuClick() {
     this.setState({ menuClicked: true });
-    document.getElementById('triple-dots').click();
+    // document.getElementById('triple-dots').click();
   }
 
   renderPlayButton() {
@@ -255,7 +258,7 @@ class SongIndexItem extends React.Component {
         >
 
           {(this.state.hover || this.state.menuClicked) && (
-            <MenuButton song={song} songId={song.id} type="song" />
+            <MenuButton song={song} songId={song.id} closeAll={this.closeAll} type="song" />
           )}
 
         </div>

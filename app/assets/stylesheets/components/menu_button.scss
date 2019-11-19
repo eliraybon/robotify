@@ -17,7 +17,8 @@
 .dropdown-menu {
   position: absolute;
   top: -20%;
-  right: 102%;
+  // right: 102%;
+  left: 102%;
   width: 150px;
   z-index: 2;
   border-radius: 5px;
@@ -32,7 +33,7 @@
     margin: 0;
 
     li {
-      padding: 5px 5px;
+      padding: 10px 5px;
     }
 
     li:hover {
@@ -54,6 +55,18 @@
       .green {
         color: $robotify-green;
       }
+    }
+  }
+}
+
+.song-dropdown {
+  ul {
+    line-height: normal;
+    padding: 0;
+    margin: 0;
+
+    li {
+      padding: 10px 5px;
     }
   }
 }

@@ -26,6 +26,9 @@ class MenuButton extends React.Component {
     this.openPlaylistHover = this.openPlaylistHover.bind(this);
     this.closePlaylistHover = this.closePlaylistHover.bind(this);
     this.deletePlaylist = this.deletePlaylist.bind(this);
+    this.likeSong = this.likeSong.bind(this);
+    this.unlikeSong = this.unlikeSong.bind(this);
+    this.addToQueue = this.addToQueue.bind(this);
   }
 
   componentDidMount() {
@@ -78,7 +81,10 @@ class MenuButton extends React.Component {
       switch(type){
         case 'song':
           green = (playlist.song_ids.includes(this.props.song.id)) ? 'green' : '';
-          action = () => this.props.addSongToPlaylist({ song_id: songId, playlist_id: playlist.id });
+          action = () => {
+            this.props.addSongToPlaylist({ song_id: songId, playlist_id: playlist.id })
+              .then(() => this.props.closeAll())
+          };
           break;
         case 'album':
           green = (this.props.album.song_ids.every(id => playlist.song_ids.includes(id))) ? 'green' : '';
@@ -98,20 +104,35 @@ class MenuButton extends React.Component {
     })
   }
 
+  unlikeSong(songId) {
+    this.props.unlikeSong(songId).then(() => this.props.closeAll());
+  }
+
+  likeSong(songId) {
+    this.props.likeSong(songId).then(() => this.props.closeAll());
+  }
+
+  addToQueue(songs) {
+    this.props.addToQueue(songs);
+    this.props.closeAll();
+    this.setState({ open: false })
+  }
+
   renderSongButton() {
     const { song } = this.props;
 
     let toggleLike;
     if (song.isLiked) {
-      toggleLike = <li onClick={() => this.props.unlikeSong(song.id)} onMouseEnter={this.closePlaylistHover}>Unlike Song</li>
+      toggleLike = <li onClick={() => this.unlikeSong(song.id)} onMouseEnter={this.closePlaylistHover}>Unlike Song</li>
     } else {
-      toggleLike = <li onClick={() => this.props.likeSong(song.id)} onMouseEnter={this.closePlaylistHover}>Like Song</li>
+      toggleLike = <li onClick={() => this.likeSong(song.id)} onMouseEnter={this.closePlaylistHover}>Like Song</li>
     }
 
     return (
       <div className="song-button">
+
         <ul>
-          <li onClick={() => this.props.addToQueue([song])} onMouseEnter={this.closePlaylistHover}>
+          <li onClick={() => this.addToQueue([song])} onMouseEnter={this.closePlaylistHover}>
             Add to Queue
           </li>
 
@@ -255,7 +276,11 @@ class MenuButton extends React.Component {
     }
 
     let id;
-    if (this.props.type === 'song') id="triple-dots";
+    let klass = "";
+    if (this.props.type === 'song') {
+      id="triple-dots";
+      klass = 'song-dropdown';
+    }
 
     return (
       <div className="menu-button-container" ref={ this.container }>
@@ -270,7 +295,7 @@ class MenuButton extends React.Component {
           id={id}
         />
         {this.state.open && (
-          <div className="dropdown-menu">
+          <div className={`dropdown-menu ${klass}`}>
             {button}
           </div>
         )}
