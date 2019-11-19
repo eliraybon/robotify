@@ -287,9 +287,6 @@ class MenuButton extends React.Component {
 
     return (
       <div className="menu-button-container" ref={ this.container }>
-        {/* <button className="menu-button" onClick={ this.handleClick }>
-          ☰
-        </button> */}
         <img 
           src={src}
           onClick={this.handleClick}

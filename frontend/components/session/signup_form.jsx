@@ -22,7 +22,7 @@ export default class SignupForm extends React.Component {
       email: 'demo-user@robotify.com',
       password: 'robotifyrocks'
     };
-    // this.state = demoUser;
+
     this.props.login(demoUser);
   }
 

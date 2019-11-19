@@ -1,5 +1,5 @@
 .album-header {
-  position: relative;
+  // position: relative;
   display: flex;
   background: $main-background;
   color: rgb(170, 168, 168);
@@ -36,37 +36,37 @@
 }
 
 .ah-album-cover {
-  position: relative;
+  // position: relative;
   margin-left: 15px;
   margin-right: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-  .ah-hover {
-    position: absolute;
-    display: inline-block;
-    top: 0; 
-    left: 0;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 2;
-    width: 200px;
-    height: 200px;
-    margin-left: 15px;
-    margin-right: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+  // .ah-hover {
+  //   position: absolute;
+  //   display: inline-block;
+  //   top: 0; 
+  //   left: 0;
+  //   background: rgba(0, 0, 0, 0.7);
+  //   z-index: 2;
+  //   width: 200px;
+  //   height: 200px;
+  //   margin-left: 15px;
+  //   margin-right: 10px;
+  //   margin-top: 10px;
+  //   margin-bottom: 10px;
 
-    .ah-hover-play {
-      width: 60px;
-      height: 60px;
-      line-height: 100px;
-      margin: 70px auto;
-      background: rgba(0, 0, 0, 0.3);
-      border: 1px solid white;
-      border-radius: 50%;
-    }
-  }
+  //   .ah-hover-play {
+  //     width: 60px;
+  //     height: 60px;
+  //     line-height: 100px;
+  //     margin: 70px auto;
+  //     background: rgba(0, 0, 0, 0.3);
+  //     border: 1px solid white;
+  //     border-radius: 50%;
+  //   }
+  // }
 
 .ah-album-tag {
   letter-spacing: 1.5px;
