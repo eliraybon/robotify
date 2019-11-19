@@ -18,11 +18,11 @@ class BrowseGenres extends React.Component {
     return (
       <div>
         <h2>Future Funk!</h2>
-        <AlbumIndex match={ this.props.match } selectAlbums={ rock } />
+        <AlbumIndex selectedAlbums={ rock } />
         <h2>Mallsoft</h2>
-        <AlbumIndex match={this.props.match} selectAlbums={ alternative } />
+        <AlbumIndex selectedAlbums={ alternative } />
         <h2>Electronic</h2>
-        <AlbumIndex match={this.props.match} selectAlbums={ electronic } />
+        <AlbumIndex selectedAlbums={ electronic } />
       </div>
     )
   }

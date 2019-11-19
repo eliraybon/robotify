@@ -13,6 +13,7 @@ const App = () => (
       <Route exact path="/" component={Splash} />
       <AuthRoute exact path="/signup" component={SignupForm} />
       <AuthRoute exact path="/login" component={LoginForm} />
+      <ProtectedRoute exact path="/explore" component={Main} />
       <ProtectedRoute path="/library" component={Main} />
       <ProtectedRoute path="/albums" component={Main} />
       <ProtectedRoute path="/playlists" component={Main} />

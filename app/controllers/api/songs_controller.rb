@@ -5,6 +5,8 @@ class Api::SongsController < ApplicationController
       @songs = current_user.liked_songs
     when 'browse'
       @songs = Song.all
+    when 'explore'
+      @songs = Song.all.take(4)
     end
     
     render :index 

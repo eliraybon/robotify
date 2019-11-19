@@ -2,12 +2,13 @@ import React from 'react';
 import PlaylistIndexItem from './playlist_index_item';
 
 export default class PlaylistIndex extends React.Component {
-  constructor(props) {
-    super(props);
-    // this.state = { loading: true };
-  }
+  // constructor(props) {
+  //   super(props);
+  //   // this.state = { loading: true };
+  // }
 
   componentDidMount() {
+    if (this.props.selectedPlaylists) return;
     let context;
     const path = this.props.match.path;
     if (path === '/explore') context = 'explore';
@@ -17,7 +18,7 @@ export default class PlaylistIndex extends React.Component {
   }
 
   render() {
-    const { playlists } = this.props;
+    const playlists = this.props.selectedPlaylists || this.props.playlists;
     // if (this.state.loading) return null; 
 
     const playlistIndexItems = playlists.map(playlist => {

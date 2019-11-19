@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import Sidebar from './sidebar';
 import { fetchPlaylists } from '../../../actions/playlist_actions';
 import { openModal } from '../../../actions/modal_actions';
+import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = state => {
   return {
@@ -17,7 +18,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(Sidebar);
+)(Sidebar));

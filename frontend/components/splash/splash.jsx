@@ -4,7 +4,7 @@
 */
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 const Splash = ({currentUser, logout}) => {
   const sessionLinks = () => {
@@ -20,10 +20,7 @@ const Splash = ({currentUser, logout}) => {
 
   const welcomeMessage = () => {
     return (
-      <section>
-        <p>Hello, { currentUser.email} </p>
-        <button onClick={ logout }>Logout</button>
-      </section>
+      <Redirect to="/explore"/>
     )
   };
 

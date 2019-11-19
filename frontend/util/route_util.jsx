@@ -7,7 +7,7 @@ const Auth = ({ component: Component, path, loggedIn, exact }) => (
     !loggedIn ? (
       <Component {...props} />
     ) : (
-        <Redirect to="/library/albums" />
+        <Redirect to="/explore" />
       )
   )} />
 );

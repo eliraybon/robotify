@@ -47,7 +47,7 @@ class SongIndexItem extends React.Component {
   }
 
   closeAll() {
-    this.setState({hover: false, menuClicked: false });
+    this.setState({ hover: false, menuClicked: false });
   }
 
   handleOutsideClick() {

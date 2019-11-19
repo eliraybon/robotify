@@ -16,9 +16,8 @@ class Api::PlaylistsController < ApplicationController
     render :show
   end
 
-  #how are you going to deal with user uploaded images?
-  def create 
 
+  def create 
     @playlist = Playlist.new(playlist_params)
     @playlist.user_id = current_user.id
 

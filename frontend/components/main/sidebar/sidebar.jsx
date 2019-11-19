@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 export default class Sidebar extends React.Component {
   componentDidMount() {
@@ -22,7 +22,7 @@ export default class Sidebar extends React.Component {
           <li key={playlist.id}>
             <Link
               to={`/playlists/${playlist.id}`}
-              className="sidebar-playlist-item"
+              className="sidebar-link sidebar-playlist-link"
             >
               {playlist.title}
             </Link>
@@ -31,25 +31,47 @@ export default class Sidebar extends React.Component {
       });
     }
 
-    //make these NavLinks and give them an activeClassName. This will allow you
-    //to give the active link a green highlight on the left 
+    const active = "active";
+    const home = (this.props.match.path === "/explore") ? active : '';
+    const browse = (this.props.match.path === "/browse") ? active : '';
+    const songs = (this.props.location.pathname === "/library/songs") ? active : '';
+    const albums = (this.props.location.pathname === "/library/albums") ? active : '';
+    const artists = (this.props.location.pathname === "/library/artists") ? active : ''; 
+  
     return (
       <div className="sidebar">
         <div className="sidebar-nav">
-          <Link
+          <div className={`sidebar-link ${home}`}>
+            <img
+              src="https://robotify-development.s3.amazonaws.com/home-nav-logo.png"
+              width="17px"
+              height="17px"
+            />
+
+            <Link
               to="/explore"
-              className="sidebar-link"
+              className="sidebar-link-text"
             >
               Home
-          </Link>
-  
+            </Link>
+          </div>
+
+          <div className={`sidebar-link ${browse}`}>
+            <img
+              src="https://robotify-development.s3.amazonaws.com/browse-nav-logo.png"
+              width="17px"
+              height="17px"
+            />
+
             <Link
               to="/browse"
-              className="sidebar-link"
+              className="sidebar-link-text"
             >
               Browse
-          </Link>
+            </Link>
+          </div>
         </div>
+
         <div className="sidebar-scrollable">
 
           <div className="sidebar-library">
@@ -58,21 +80,21 @@ export default class Sidebar extends React.Component {
 
             <Link
                 to="/library/songs"
-                className="sidebar-link"
+                className={`sidebar-link ${songs}`}
               >
                 Liked Songs
             </Link>
   
               <Link
                 to="/library/albums"
-                className="sidebar-link"
+              className={`sidebar-link ${albums}`}
               >
                 Albums
             </Link>
   
               <Link
                 to="/library/artists"
-                className="sidebar-link"
+              className={`sidebar-link ${artists}`}
               >
                 Artists
             </Link>
@@ -87,14 +109,20 @@ export default class Sidebar extends React.Component {
           </div>
         </div>
 
-        <div className="new-playlist-button">
-          <button
-            onClick={() => this.props.openModal({ type: 'create', wildcard: null})}
+        <div className="new-playlist-button-container">
+          <div 
+            className="new-playlist-button" 
+            onClick={() => this.props.openModal({ type: 'create', wildcard: null })}
           >
-            New Playlist
-        </button>
-        </div>
+            <img
+              src="https://robotify-development.s3.amazonaws.com/add-playlist.png"
+              width="20px"
+              height="20px"
+            />
 
+            <span className="new-playlist-button-text">New Playlist</span>
+          </div>
+        </div>
       </div>
     )
   }

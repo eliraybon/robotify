@@ -3,7 +3,7 @@ import AlbumIndexItem from './album_index_item';
 
 export default class AlbumIndex extends React.Component {
   componentDidMount() {
-    if (this.props.selectAlbums) return;
+    if (this.props.selectedAlbums) return;
     let context;
     const path = this.props.match.path;
     if (path === '/library/albums') context = 'library';
@@ -14,7 +14,7 @@ export default class AlbumIndex extends React.Component {
 
   render() {
     // let { albums } = this.props;
-    let albums = this.props.selectAlbums || this.props.albums;
+    let albums = this.props.selectedAlbums || this.props.albums;
 
     const albumIndexItems = albums.map(album => {
       return <AlbumIndexItem album={ album } key={ album.id } />

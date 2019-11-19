@@ -19,6 +19,7 @@ import LibrarySongs from '../library/library_songs_container';
 import LibraryArtists from '../library/library_artists_container';
 import SearchResults from '../search/search_results_container';
 import Browse from '../browse/browse';
+import Explore from '../explore/explore';
 
 const Main = (props) => (
   <div className="main">
@@ -35,6 +36,7 @@ const Main = (props) => (
       <Route path="/library/artists" component={LibraryArtists} />
       <Route path="/search" component={SearchResults} />
       <Route path="/browse" component={Browse} />
+      <Route path="/explore" component={Explore} />
     </div>
 
     <MusicPlayer />
