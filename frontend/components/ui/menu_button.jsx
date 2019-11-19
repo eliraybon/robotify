@@ -113,9 +113,12 @@ class MenuButton extends React.Component {
   }
 
   addToQueue(songs) {
-    this.props.addToQueue(songs);
-    this.props.closeAll();
-    this.setState({ open: false })
+    return e => {
+      e.stopPropagation();
+      this.props.addToQueue(songs);
+      this.props.closeAll();
+      this.setState({ open: false })
+    }
   }
 
   renderSongButton() {
@@ -132,7 +135,7 @@ class MenuButton extends React.Component {
       <div className="song-button">
 
         <ul>
-          <li onClick={() => this.addToQueue([song])} onMouseEnter={this.closePlaylistHover}>
+          <li onClick={this.addToQueue([song])} onMouseEnter={this.closePlaylistHover}>
             Add to Queue
           </li>
 
@@ -322,7 +325,6 @@ const mapStateToProps = state => {
 
 const mapDipatchToProps = dispatch => {
   return {
-    // addSongToPlaylist: playlistAdd => addSongToPlaylist(playlistAdd),
     addSongToPlaylist: playlistAdd => dispatch(addSongToPlaylist(playlistAdd)),
     removeSongFromPlaylist: (songId, playlistId) => dispatch(removeSongFromPlaylist(songId, playlistId)),
     addAlbumToPlaylist: (album, playlistId) => addAlbumToPlaylist(album, playlistId),
