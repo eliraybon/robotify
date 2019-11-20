@@ -8,6 +8,12 @@ class Api::SongsController < ApplicationController
       @songs = Song.all
     when 'explore'
       @songs = Song.all.take(4)
+    when 'radio'
+      @songs = [];
+      until @songs.length == 5 
+        song = Song.all.sample
+        @songs << song if !@songs.include?(song)
+      end
     end
 
     if !@songs && params[:context][:type] === "album"

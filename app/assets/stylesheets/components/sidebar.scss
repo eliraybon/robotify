@@ -1,7 +1,7 @@
 .sidebar {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   height:89vh;
   width: 15vw;
   min-width: 192px;
@@ -81,7 +81,8 @@
 
 .new-playlist-button-container {
   padding: 10px 0px;
-  margin-bottom: 5px;
+  // margin-bottom: 5px;
+  margin-top: auto;
   border-top: 1px solid $gray;
 }
 
@@ -104,5 +105,9 @@
 .active {
   border-left: 3px solid $robotify-green;
   opacity: 1;
+}
+
+.radio-button {
+  cursor: pointer;
 }
 

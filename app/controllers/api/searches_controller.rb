@@ -9,9 +9,9 @@ class Api::SearchesController < ApplicationController
     end
 
     #this will be very slow. Think of a better way to do this later 
-    @songs = Song.where("lower(title) LIKE ?", "#{search_term}%") || []
-    @albums = Album.where("lower(title) LIKE ?", "#{search_term}%") || []
-    @artists = Artist.where("lower(name)LIKE ?", "#{search_term}%") || []
+    @songs = Song.where("lower(title) LIKE ?", "#{search_term.downcase}%") || []
+    @albums = Album.where("lower(title) LIKE ?", "#{search_term.downcase}%") || []
+    @artists = Artist.where("lower(name)LIKE ?", "#{search_term.downcase}%") || []
 
 
     # @songs = Song.where(title: search_term) || []

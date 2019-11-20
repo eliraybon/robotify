@@ -2,8 +2,25 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
 export default class Sidebar extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.radioPlay = this.radioPlay.bind(this);
+  }
+
   componentDidMount() {
     this.props.fetchPlaylists('library');
+  }
+
+  radioPlay() {
+    this.props.fetchSongs()
+      .then(response => {
+        debugger;
+        const songs = Object.values(response.songs);
+        this.props.updateCurrentSong(songs[0]);
+        this.props.updateQueue(songs.slice(1));
+        this.props.togglePlay(true);
+      });
   }
 
   render() {
@@ -69,6 +86,18 @@ export default class Sidebar extends React.Component {
             >
               Browse
             </Link>
+          </div>
+
+          <div className={`sidebar-link radio-button`} onClick={this.radioPlay}>
+            <img
+              src="https://robotify-development.s3.amazonaws.com/radio-nav-logo.png"
+              width="17px"
+              height="17px"
+            />
+
+            <span className="sidebar-link-text">
+              Radio
+            </span>
           </div>
         </div>
 

@@ -14,7 +14,7 @@ const Splash = ({currentUser, logout, demoLogin}) => {
             <Link to="/">
             <div className="splash-main-logo">
               <img
-                src="https://robotify-development.s3.amazonaws.com/robotify-white.png"
+                src="https://robotify-development.s3.amazonaws.com/robotify-white-edit.png"
                 width="50"
                 height="50"
               />
