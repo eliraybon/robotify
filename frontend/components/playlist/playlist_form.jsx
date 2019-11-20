@@ -24,7 +24,6 @@ export default class PlaylistForm extends React.Component {
 
     this.props.closeModal();
     this.props.processForm(formData).then((payload) => {
-      debugger;
       this.props.history.push(`/playlists/${payload.playlist.id}`)
     });
   }

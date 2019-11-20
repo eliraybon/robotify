@@ -25,8 +25,13 @@ class PlayButton extends React.Component {
   }
 
   play() {
-    const { songs, queue } = this.props;
+    const { songs, queue, currentSong } = this.props;
     if (!songs.length) return;
+    if (songs.includes(currentSong)) {
+      this.props.togglePlay(true);
+      return;
+    }
+
     this.props.updateCurrentSong(songs[0]);
     if (!this.queueHelper(songs, queue)) {
       this.props.updateQueue([...songs.slice(1)]);
@@ -51,7 +56,8 @@ const mapStateToProps = state => {
   return {
     songs: Object.values(state.entities.songs),
     playing: state.music.playing,
-    queue: state.music.queue
+    queue: state.music.queue,
+    currentSong: state.music.currentSong
   };
 };
 

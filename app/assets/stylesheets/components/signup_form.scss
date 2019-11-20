@@ -3,6 +3,9 @@
 .signup {
   font-family: $sans-serif;
   // border-top: 1px solid $light-gray;
+  overflow: scroll;
+  height: 100vh;
+  padding-bottom: 100px;
 }
 
 .signup-form {

@@ -29,14 +29,12 @@ class Navbar extends React.Component {
   }
 
   toggleMenu() {
-    debugger;
     this.setState(state => {
       return { menuOpen: !state.menuOpen }
     });
   }
 
   render() {
-    debugger;
     return (
       <div className="navbar">
         <SearchBar history={ this.props.history} />

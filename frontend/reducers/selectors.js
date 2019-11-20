@@ -20,7 +20,6 @@ export const getAlbumSongs = (state, albumId) => {
 
 export const getPlaylistSongs = (state, playlistId) => {
   const playlist = state.entities.playlists[playlistId];
-  debugger;
   return Object.values(state.entities.songs)
     .filter(song => playlist.song_ids.includes(song.id));
 };

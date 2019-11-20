@@ -20,6 +20,7 @@ import { likeAlbum, unlikeAlbum } from './util/album_api_util';
 import { likePlaylist, unlikePlaylist } from './util/playlist_api_util';
 import { followArtist, unfollowArtist } from './util/artist_api_util';
 import { followUser, unfollowUser } from './util/user_api_util';
+import { fetchSongs } from './util/song_api_util';
 //
 
 
@@ -63,6 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.unfollowArtist = unfollowArtist;
   window.followUser = followUser;
   window.unfollowUser = unfollowUser;
+  window.fetchSongs = fetchSongs;
   //TESTING END
 
   const root = document.getElementById("root");

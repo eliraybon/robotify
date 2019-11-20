@@ -66,7 +66,8 @@ export default class MusicPlayer extends React.Component {
     const { currentSong, queue, songHistory } = this.props;
     if (!queue.length) {
       this.setState({ currentTime: 0, duration: 0 });
-      // this.props.togglePlay(false);   Don't know if I need this or not
+      this.props.updateCurrentSong({ title: "", song_url: ""});
+      this.props.togglePlay(false);
       return;
     }
     this.props.updateSongHistory(songHistory.concat([currentSong]));

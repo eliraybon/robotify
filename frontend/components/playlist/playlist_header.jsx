@@ -37,7 +37,7 @@ export default class PlaylistHeader extends React.Component {
 
   deletePlaylist() {
     this.props.deletePlaylist(this.props.playlist.id).then(() => {
-      this.props.history.push('/')
+      this.props.history.push('/explore')
     })
   }
 

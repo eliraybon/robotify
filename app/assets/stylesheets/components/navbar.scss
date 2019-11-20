@@ -3,6 +3,7 @@
   display: flex;
   justify-content: space-between;
   overflow: visible;
+  z-index: 100;
   top: 0;
   height: 7vh;
   background: $lighter-background;

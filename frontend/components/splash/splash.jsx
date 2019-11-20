@@ -11,8 +11,20 @@ const Splash = ({currentUser, logout, demoLogin}) => {
       <div className="home-page">
         <header className="main-header">
           <nav className="main-nav">
-            <Link to="/signup" className="nav-link">Sign Up</Link>
-            <Link to="/login" className="nav-link">Login</Link>
+            <Link to="/">
+            <div className="splash-main-logo">
+              <img
+                src="https://robotify-development.s3.amazonaws.com/robotify-white.png"
+                width="50"
+                height="50"
+              />
+              <span className="splash-logo-text">Robotify</span>
+            </div>
+            </Link>
+            <div>
+              <Link to="/signup" className="nav-link">Sign Up</Link>
+              <Link to="/login" className="nav-link">Login</Link>
+            </div>
           </nav>
         </header>
 
@@ -26,26 +38,13 @@ const Splash = ({currentUser, logout, demoLogin}) => {
             Log In as Demo User
           </button>
         </main>
-
-        <footer className="home-page-footer">
-          <img
-            src="https://robotify-development.s3.amazonaws.com/bots-balloons-pattern-cmyk.png"
-            width="100px"
-            height="100px"
-          />
-        </footer>
       </div>
     )
   };
 
   const welcomeMessage = () => {
     return (
-      // <Redirect to="/explore"/>
-
-      <section>
-        <p>Hello, {currentUser.email} </p>
-        <button onClick={logout}>Logout</button>
-      </section>
+      <Redirect to="/explore"/>
     )
   };
 

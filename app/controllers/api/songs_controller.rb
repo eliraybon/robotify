@@ -1,5 +1,6 @@
 class Api::SongsController < ApplicationController
   def index 
+
     case params[:context]
     when 'library'
       @songs = current_user.liked_songs
@@ -7,6 +8,21 @@ class Api::SongsController < ApplicationController
       @songs = Song.all
     when 'explore'
       @songs = Song.all.take(4)
+    end
+
+    if !@songs && params[:context][:type] === "album"
+      @songs = Song.where(album_id: params[:context][:album_id])
+    end
+
+    if !@songs && params[:context][:type] === "playlist"
+      playlist_songs = PlaylistSong.where(
+        playlist_id: params[:context][:playlist_id]
+      )
+
+      @songs = []
+      playlist_songs.each do |playlist_song|
+        @songs << Song.find_by(id: playlist_song.song_id)
+      end
     end
     
     render :index 

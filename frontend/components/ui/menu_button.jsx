@@ -71,9 +71,9 @@ class MenuButton extends React.Component {
   }
 
   renderPlaylistItems(type) {
-    const { playlists, addSongToPlaylist, songId } = this.props; 
-
-    return playlists.map(playlist => {
+    const { playlists, addSongToPlaylist, songId, currentUserId } = this.props; 
+    const userPlaylists = Object.values(playlists).filter(playlist => playlist.user_id === currentUserId)
+    return userPlaylists.map(playlist => {
       // const green = (playlist.song_ids.includes(this.props.song.id)) ? 'green' : '';
 
       let green; 
@@ -213,7 +213,7 @@ class MenuButton extends React.Component {
 
   deletePlaylist() {
     this.props.deletePlaylist(this.props.playlist.id).then(() => {
-      this.props.history.push('/')
+      this.props.history.push('/explore')
     });
   }
 
@@ -307,7 +307,8 @@ class MenuButton extends React.Component {
 const mapStateToProps = state => {
   return {
     //you need to make a selector to only grab the current user's playlists
-    playlists: getUsersPlaylists(state),
+    playlists: state.entities.playlists, 
+    // playlists: getUsersPlaylists(state),
     //songs if for adding an album or playlist to queue. you need to add all the songs
     songs: Object.values(state.entities.songs),
     currentUserId: state.session.currentUserId

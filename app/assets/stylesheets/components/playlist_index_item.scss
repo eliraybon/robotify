@@ -1,8 +1,15 @@
 .playlist-index-item {
   display: flex;
   flex-direction: column;
+  position: relative;
   margin: 20px;
   width: 200px;
+}
+
+.pii-cover {
+  height: 200px;
+  width: 200px;
+  margin-bottom: 15px;
 }
 
 .pi-user-email-link {
@@ -13,4 +20,58 @@
 
 .pi-playlist-cover {
   margin-bottom: 15px;
+}
+
+.pii-hover {
+  position: absolute;
+  display: inline-block;
+  top: 0; 
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 2;
+  width: 200px;
+  height: 200px;
+
+  .pii-hover-play-container {
+    z-index: 3;
+    width: 60px;
+    height: 60px;
+    line-height: 100px;
+    margin: 70px auto;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid $gray-text;
+    border-radius: 50%;
+    transition-duration: 0.3s;
+
+    .custom-play-button {
+      width: 0; 
+      height: 0; 
+      margin: 20px 24px;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      
+      border-left: 15px solid $white;
+    }
+    
+    .custom-pause-button {
+      display: flex;
+      justify-content: space-evenly;
+      width: 20px;
+      height: 20px;
+      margin: 20px 19.5px;
+      
+      .pause-button-bar {
+        background: $white;
+        width: 5px;
+        height: 20px;
+      }
+    }
+  }
+
+  .pii-hover-play-container:hover {
+    border: 1px solid $white;
+    transform: scale(1.1);
+    transition-duration: 0.3s;
+  }
+
 }
