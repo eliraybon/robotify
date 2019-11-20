@@ -1,6 +1,7 @@
 import React from 'react';
 import SongIndex from '../song/song_index';
 import AlbumIndex from '../album/album_index_container';
+import PlayButton from '../ui/play_button';
 
 
 export default class ArtistShow extends React.Component {
@@ -62,21 +63,32 @@ export default class ArtistShow extends React.Component {
 
     return (
       <section className="artist-show">
-        <h1 className="as-artist-name">{artist.name}</h1>
-        <img 
-          className="arti-profile-img"
-          src={artist.profile_img_url}
-          width="200"
-          height="200"
-        />
+        <div className="artist-show-header">
+          <div className="artist-name-and-photo">
+            <img
+              className="arti-profile-img"
+              src={"https://first-avenue.com/sites/default/files/styles/medium/public/images/performers/flaminglips-george-salisbury-1359158312627.jpg?itok=WjAIMMtF"}
+              width="200"
+              height="200"
+            />
+            <h1 className="as-artist-name">{artist.name}</h1>
+          </div>
 
-        {toggleFollow}
+          <div className="artist-show-buttons">
+            <PlayButton />
+            {toggleFollow}
+          </div>
+        </div>
 
         <h2 className="section-title">Songs</h2>
-        <SongIndex songs={ songs } />
+        <div className="artist-show-songs">
+          <SongIndex songs={songs.slice(0, 5)} />
+        </div>
  
         <h2 className="section-title">Albums</h2>
-        <AlbumIndex match={this.props.match}/>
+        <div className="artist-show-albums">
+          <AlbumIndex match={this.props.match} />
+        </div>
       </section>
     )
   }

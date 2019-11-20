@@ -9,9 +9,9 @@
   .follow-button {
     text-align: center;
     text-transform: uppercase;
-    background: $robotify-green;
-    color: $white;
-    width: 95px;
+    background:rgba(63, 63, 63, 0.7);
+    color: $robotify-green;
+    width: 150px;
     height: 32px;
     line-height: 32px;
     border-radius: 50px;
@@ -20,9 +20,43 @@
     font-weight: 500;
     letter-spacing: 1px;
     transition-duration: 0.3s;
-    margin-top: 20px;
-    margin-left: 80px;
+    margin-left: 20px;
   }
+
+  .arti-profile-img {
+    margin-top: 25px;
+  }
+
+  // .artist-name-and-photo {
+  //   display: flex;
+  //   justify-content: reverse;
+  // }
+
+  .follow-button:hover {
+    filter: brightness(150%);
+    transform: scale(1.1);
+  }
+
+  .artist-show-songs {
+    height: 200px;
+    overflow: hidden;
+  }
+
+  .artist-show-albums {
+    margin-left: 60px;
+  }
+  // .artist-show-header {
+  //   background-image: url("https://d36g5zibv7pj3i.cloudfront.net/2019/07/19142041/Screen-Shot-2019-07-19-at-15.19.54-1440x805.png");
+  //   background-size: cover;
+  //   background-repeat: no-repeat;
+  // }
+
+  .artist-show-buttons {
+    display: flex;
+    margin-left: 80px;
+    margin-bottom: 30px;
+  }
+
 }
 
 .as-artist-name {
