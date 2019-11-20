@@ -5,7 +5,8 @@ import {
   ADD_TO_QUEUE,
   TOGGLE_PLAY,
   TOGGLE_SHUFFLE,
-  TOGGLE_REPEAT 
+  TOGGLE_REPEAT,
+  UPDATE_CURRENT_PLAYLIST 
 } from '../actions/music_actions';
 
 const _defaultState = {
@@ -17,7 +18,8 @@ const _defaultState = {
   shuffle: false,
   repeat: false,
   queue: [],
-  songHistory: []
+  songHistory: [],
+  currentPlaylistId: null
 }
 
 //have actions for adding albums, playlists, and songs to the queue
@@ -39,6 +41,9 @@ const musicPlayerReducer = (state = _defaultState, action) => {
       return newMusic;
     case TOGGLE_PLAY:
       newMusic.playing = action.play;
+      return newMusic;
+    case UPDATE_CURRENT_PLAYLIST:
+      newMusic.currentPlaylistId = action.playlistId;
       return newMusic;
     default:
       return state;

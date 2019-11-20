@@ -5,6 +5,7 @@ export const UPDATE_QUEUE = "UPDATE_QUEUE";
 export const UPDATE_HISTORY = "UPDATE_HISTORY";
 export const TOGGLE_SHUFFLE = "TOGGLE_SHUFFLE";
 export const TOGGLE_REPEAT = "TOGGLE_REPEAT";
+export const UPDATE_CURRENT_PLAYLIST = "UPDATE_CURRENT_PLAYLIST";
 
 export const updateCurrentSong = song => {
   return {
@@ -51,6 +52,13 @@ export const toggleShuffle = () => {
 export const toggleRepeat = () => {
   return {
     type: TOGGLE_REPEAT
+  };
+};
+
+export const updateCurrentPlaylist = playlistId => {
+  return {
+    type: UPDATE_CURRENT_PLAYLIST,
+    playlistId
   };
 };
 

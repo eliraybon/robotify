@@ -5,7 +5,8 @@ import {
   updateCurrentSong,
   togglePlay,
   updateQueue,
-  updateHistory
+  updateHistory,
+  updateCurrentPlaylist
 } from '../../actions/music_actions';
 import { fetchSongs } from '../../util/song_api_util';
 
@@ -34,6 +35,8 @@ class PlaylistIndexItem extends React.Component {
 
   play() {
     const { playlist, currentSong } = this.props;
+    if (!playlist.song_ids.length) return;
+    this.props.updateCurrentPlaylist(playlist.id);
     if (playlist.song_ids.includes(currentSong.id)) {
       this.props.togglePlay(true);
       return;
@@ -69,13 +72,17 @@ class PlaylistIndexItem extends React.Component {
   }
 
   renderButton() {
-    return (this.props.playing) ? this.renderPause() : this.renderPlay();
+    const { playlist, playing, currentPlaylistId } = this.props;
+    if (playing && currentPlaylistId === playlist.id) {
+      return this.renderPause();
+    } else {
+      return this.renderPlay();
+    }
   }
-
 
   render() {
     const { playlist, currentSong } = this.props;
-    const green = (playlist.song_ids.includes(currentSong.id)) ? "green" : "";
+    const green = (this.props.currentPlaylistId === playlist.id) ? "green" : "";
 
     return (
       <li className="playlist-index-item">
@@ -120,7 +127,8 @@ const mapStateToProps = state => {
   return {
     currentSong: state.music.currentSong,
     playing: state.music.playing,
-    queue: state.music.queue
+    queue: state.music.queue,
+    currentPlaylistId: state.music.currentPlaylistId
   };
 };
 
@@ -130,7 +138,8 @@ const mapDispatchToProps = dispatch => {
     updateCurrentSong: song => dispatch(updateCurrentSong(song)),
     togglePlay: play => dispatch(togglePlay(play)),
     updateQueue: queue => dispatch(updateQueue(queue)),
-    updateSongHistory: history => dispatch(updateHistory(history))
+    updateSongHistory: history => dispatch(updateHistory(history)),
+    updateCurrentPlaylist: playlistId => dispatch(updateCurrentPlaylist(playlistId))
   };
 };
 
