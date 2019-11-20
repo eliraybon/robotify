@@ -16,9 +16,11 @@ export default class SearchResults extends React.Component {
       <div className="search-results">
         <h1>Search Results</h1>
 
+        <div className="text">
+          <AlbumResults albums={ albums } />
+          <ArtistResults artists={ artists } />
+        </div>
         <SongResults songs={ songs } />
-        <AlbumResults albums={ albums } />
-        <ArtistResults artists={ artists } />
       </div>
     )
   }

@@ -7,4 +7,29 @@
     font-size: 50px;
     margin: 20px;
   }
+
+  .test {
+    display: flex;
+  }
+
+  .search-category-header {
+    margin: 20px 20px;
+    font-size: 30px; 
+    width: fit-content;
+  }
+
+  // .search-category-header:after {
+  //   content: ""; 
+  //   display: block; 
+  //   margin: 0px auto; 
+  //   width: 50%; 
+  //   padding-top: 2px;
+  //   border-bottom: 2px solid $robotify-green; 
+  //   transition-duration: 0.3s;
+  // }
+
+  // .search-category-header:hover:after {
+  //   transition-duration: 0.3s;
+  //   width: 75%;
+  // }
 }

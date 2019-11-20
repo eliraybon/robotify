@@ -1,19 +1,14 @@
 import React from 'react';
+import AlbumIndex from '../album/album_index_container';
 
 const AlbumResults = ({ albums }) => {
-  if (!albums) return null;
-  const albumResultItems = albums.map(album => {
-    return (
-      <li key={album.id}>
-        {album.title}
-      </li>
-    )
-  })
-
+  debugger;
+  if (!albums.length) return null;
   return (
-    <ul>
-      {albumResultItems}
-    </ul>
+    <div className="result-block">
+      <h3 className="search-category-header">Albums</h3>
+      <AlbumIndex selectedAlbums={albums} />
+    </div>
   )
 }
 

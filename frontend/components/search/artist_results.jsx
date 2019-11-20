@@ -1,19 +1,14 @@
 import React from 'react';
+import ArtistIndex from '../artist/artist_index';
 
 const ArtistResults = ({ artists }) => {
-  if (!artists) return null;
-  const artistResultItems = artists.map(artist => {
-    return (
-      <li key={artist.id}>
-        {artist.name}
-      </li>
-    )
-  })
+  if (!artists.length) return null;
 
   return (
-    <ul>
-      {artistResultItems}
-    </ul>
+    <div className="result-block">
+      <h3 className="search-category-header">Artists</h3>
+      <ArtistIndex artists={artists} />
+    </div>
   )
 }
 
