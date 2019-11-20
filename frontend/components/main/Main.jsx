@@ -20,6 +20,7 @@ import LibraryArtists from '../library/library_artists_container';
 import SearchResults from '../search/search_results_container';
 import Browse from '../browse/browse';
 import Explore from '../explore/explore';
+import UserShow from '../user/user_show_container';
 
 const Main = (props) => (
   <div className="main">
@@ -31,6 +32,7 @@ const Main = (props) => (
       <Route path="/albums/:albumId" component={AlbumShow}/>
       <Route exact path="/playlists/:playlistId" component={PlaylistShow} />
       <Route path="/artists/:artistId" component={ArtistShow} />
+      <Route path="/users/:userId" component={UserShow} />
       <Route path="/library/songs" component={LibrarySongs} />
       <Route path="/library/albums" component={LibraryAlbums} />
       <Route path="/library/artists" component={LibraryArtists} />

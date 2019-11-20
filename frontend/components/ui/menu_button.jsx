@@ -29,6 +29,12 @@ class MenuButton extends React.Component {
     this.likeSong = this.likeSong.bind(this);
     this.unlikeSong = this.unlikeSong.bind(this);
     this.addToQueue = this.addToQueue.bind(this);
+    this.unlikeAlbum = this.unlikeAlbum.bind(this);
+    this.likeAlbum = this.likeAlbum.bind(this);
+    this.addAlbumToQueue = this.addAlbumToQueue.bind(this);
+    this.likePlaylist = this.likePlaylist.bind(this);
+    this.unlikePlaylist = this.unlikePlaylist.bind(this);
+    this.addPlaylistToQueue = this.addPlaylistToQueue.bind(this);
   }
 
   componentDidMount() {
@@ -173,20 +179,35 @@ class MenuButton extends React.Component {
     )
   }
 
+  likeAlbum(albumId) {
+    this.props.likeAlbum(albumId)
+      .then(() => this.setState({ open: false }))
+  }
+
+  unlikeAlbum(albumId) {
+    this.props.unlikeAlbum(albumId)
+      .then(() => this.setState({ open: false }));
+  }
+
+  addAlbumToQueue(songs) {
+    this.props.addToQueue(songs);
+    this.setState({ open: false });
+  }
+
   renderAlbumButton() {
     const { album } = this.props;
 
     let toggleLike;
     if (album.isLiked) {
-      toggleLike = <li onClick={() => this.props.unlikeAlbum(album.id)} onMouseEnter={this.closePlaylistHover}>Unlike Album</li>
+      toggleLike = <li onClick={() => this.unlikeAlbum(album.id)} onMouseEnter={this.closePlaylistHover}>Unlike Album</li>
     } else {
-      toggleLike = <li onClick={() => this.props.likeAlbum(album.id)} onMouseEnter={this.closePlaylistHover}>Like Album</li>
+      toggleLike = <li onClick={() => this.likeAlbum(album.id)} onMouseEnter={this.closePlaylistHover}>Like Album</li>
     }
 
     return (
       <div className="album-button">
         <ul>
-          <li onClick={() => this.props.addToQueue(this.props.songs)} onMouseEnter={this.closePlaylistHover}>
+          <li onClick={() => this.addAlbumToQueue(this.props.songs)} onMouseEnter={this.closePlaylistHover}>
             Add to Queue
           </li>
 
@@ -196,7 +217,7 @@ class MenuButton extends React.Component {
 
           {toggleLike}
 
-          <li onMouseEnter={this.openPlaylistHover}>
+          {/* <li onMouseEnter={this.openPlaylistHover}>
             Add to Playlist
             {this.state.playlistHover && (
               <div className="playlist-dropdown">
@@ -205,7 +226,7 @@ class MenuButton extends React.Component {
                 </ul>
               </div>
             )}
-          </li>
+          </li> */}
         </ul>
       </div>
     )
@@ -217,14 +238,29 @@ class MenuButton extends React.Component {
     });
   }
 
+  likePlaylist(playlistId) {
+    this.props.likePlaylist(playlistId)
+      .then(() => this.setState({ open: false }));
+  }
+
+  unlikePlaylist(playlistId) {
+    this.props.unlikePlaylist(playlistId)
+      .then(() => this.setState({ open: false }));
+  }
+
+  addPlaylistToQueue(songs) {
+    this.props.addToQueue(songs);
+    this.setState({ open: false });
+  }
+
   renderPlaylistButton() {
     const { playlist } = this.props;
 
     let toggleLike;
     if (playlist.isLiked) {
-      toggleLike = <li onClick={() => this.props.unlikePlaylist(playlist.id)} onMouseEnter={this.closePlaylistHover}>Unlike Playlist</li>
+      toggleLike = <li onClick={() => this.unlikePlaylist(playlist.id)} onMouseEnter={this.closePlaylistHover}>Unlike Playlist</li>
     } else {
-      toggleLike = <li onClick={() => this.props.likePlaylist(playlist.id)} onMouseEnter={this.closePlaylistHover}>Like Playlist</li>
+      toggleLike = <li onClick={() => this.likePlaylist(playlist.id)} onMouseEnter={this.closePlaylistHover}>Like Playlist</li>
     }
 
     return (
@@ -242,7 +278,7 @@ class MenuButton extends React.Component {
             </li>
           )}
 
-          <li onClick={() => this.props.addToQueue(this.props.songs)} onMouseEnter={this.closePlaylistHover}>
+          <li onClick={() => this.addPlaylistToQueue(this.props.songs)} onMouseEnter={this.closePlaylistHover}>
             Add to Queue
           </li>
 

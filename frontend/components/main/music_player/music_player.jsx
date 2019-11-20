@@ -33,6 +33,7 @@ export default class MusicPlayer extends React.Component {
     this.timeToString = this.timeToString.bind(this);
     this.renderShuffleButton = this.renderShuffleButton.bind(this);
     this.renderRepeatButton = this.renderRepeatButton.bind(this);
+    this.spaceBar = this.spaceBar.bind(this);
   }
 
 
@@ -40,6 +41,7 @@ export default class MusicPlayer extends React.Component {
     const player = this.refs.player;
     player.addEventListener("ended", this.nextSong);
     player.addEventListener("timeupdate", this.updateTime);
+    document.addEventListener("keydown", this.spaceBar);
   }
 
   UNSAFE_componentWillReceiveProps(nextProps) {
@@ -50,6 +52,10 @@ export default class MusicPlayer extends React.Component {
   }
 
   play() {
+    if (!this.refs.player.currentSrc && this.props.queue.length) {
+      //you added this late. Delete if it causes problems
+      this.nextSong();
+    }
     if (!this.refs.player.currentSrc && !this.props.queue.length) return;
     // if (!this.refs.player.currentSrc) this.nextSong();
     this.props.togglePlay(true);
@@ -80,6 +86,15 @@ export default class MusicPlayer extends React.Component {
     } else {
       this.props.updateCurrentSong(queue[0]);
       this.props.updateQueue(queue.slice(1));
+    }
+  }
+
+  spaceBar(e) {
+    if (e.keyCode === 32) {
+      if (!this.props.modal) {
+        e.preventDefault();
+        (this.props.playing) ? this.pause() : this.play();
+      }
     }
   }
 

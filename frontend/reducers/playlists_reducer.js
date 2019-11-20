@@ -5,10 +5,10 @@ import {
   TOGGLE_PLAYLIST_LIKE,
   RECEIVE_PLAYLIST
 } from '../actions/playlist_actions';
+import { RECEIVE_USER } from '../actions/user_actions';
 
 
 const playlistsReducer = (state = {}, action) => {
-
   Object.freeze(state);
   let playlist;
   switch (action.type) {
@@ -24,7 +24,11 @@ const playlistsReducer = (state = {}, action) => {
       playlist = action.payload.playlist;
       return Object.assign({}, state, { [playlist.id]: playlist });
     case REMOVE_PLAYLIST_AND_SONGS:
-      return {};
+      const playlists = Object.assign({}, state);
+      delete playlists[action.playlistId]
+      return playlists;
+    case RECEIVE_USER:
+      return Object.assign({}, state, action.payload.playlists);
     default:
       return state;
   };

@@ -72,7 +72,7 @@ export default class PlaylistForm extends React.Component {
               />
             </div>
             <div className="form-main">
-              <label>Title
+              <label><span className="pf-text">Title</span>
                 <input
                     type="text"
                     value={this.state.title}
@@ -80,10 +80,11 @@ export default class PlaylistForm extends React.Component {
                   />
               </label>
     
-              <label>Description
+              <label><span className="pf-text">Description</span>
                 <textarea
                   value={this.state.description}
                   onChange={this.update('description')}
+                  className="pf-description-area"
                 />
               </label>
               <button>{this.props.formType}</button>

@@ -10,11 +10,10 @@ class Api::UsersController < ApplicationController
     end
   end
 
-  #why is the param :user_id here and not :id like every other follow action?
   def follow
     @user = User.find(params[:id])
     current_user.followed_users << @user
-    render :show
+    render :follow
   end
 
   def unfollow
@@ -25,6 +24,11 @@ class Api::UsersController < ApplicationController
       followable_type: 'User'
     )
     follow.destroy
+    render :follow
+  end
+
+  def show 
+    @user = User.find(params[:id])
     render :show
   end
 

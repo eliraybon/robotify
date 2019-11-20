@@ -37,7 +37,8 @@ class PlaylistIndexItem extends React.Component {
     const { playlist, currentSong } = this.props;
     if (!playlist.song_ids.length) return;
     this.props.updateCurrentPlaylist(playlist.id);
-    if (playlist.song_ids.includes(currentSong.id)) {
+    //old conditional - playlist.song_ids.includes(currentSong.id
+    if (playlist.song_ids[0] === currentSong.id) {
       this.props.togglePlay(true);
       return;
     }

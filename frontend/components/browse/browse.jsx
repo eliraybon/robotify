@@ -59,12 +59,14 @@ export default class Browse extends React.Component {
       </div>
 
       <div className="browse-main">
+        <div className="browse-content">
         <Route exact path="/browse" render={ () => <Redirect to="/browse/albums" />} />
         <Route exact path="/browse/albums" component={BrowseAlbums} />
         <Route exact path="/browse/playlists" component={BrowsePlaylists} />
         <Route exact path="/browse/artists" component={BrowseArtists} />
         <Route exact path="/browse/songs" component={BrowseSongs} />
         <Route exact path="/browse/genres" component={BrowseGenres} />
+        </div>
       </div>
 
     </div>

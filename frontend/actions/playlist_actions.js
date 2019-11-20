@@ -22,7 +22,8 @@ export const receivePlaylist = payload => {
 
 const removePlaylistAndSongs = playlistId => {
   return {
-    type: REMOVE_PLAYLIST_AND_SONGS
+    type: REMOVE_PLAYLIST_AND_SONGS,
+    playlistId
   };
 };
 

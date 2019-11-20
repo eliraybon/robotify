@@ -8,12 +8,13 @@ import {
 } from '../../../actions/music_actions';
 
 //add repeat and shuffle here
-const mapStateToProps = ({ music }) => {
+const mapStateToProps = ({ music, ui }) => {
   return {
     currentSong: music.currentSong,
     playing: music.playing,
     queue: music.queue,
-    songHistory: music.songHistory
+    songHistory: music.songHistory,
+    modal: ui.modal.type
   };
 };
 
