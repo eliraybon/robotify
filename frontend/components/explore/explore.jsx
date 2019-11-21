@@ -28,12 +28,12 @@ class Explore extends React.Component {
 
     return (
       <div className="explore">
-        <h2 className="explore-header">Featured</h2>
+        <h2 className="explore-header">For You</h2>
         <div className="explore-music-container">
           <AlbumIndex selectedAlbums={ this.props.albums } />
         </div>
 
-        <h2 className="explore-header">This is a test</h2>
+        <h2 className="explore-header">New Playlists</h2>
         <div className="explore-music-container">
           <PlaylistIndex selectedPlaylists={this.props.playlists} />
         </div>
