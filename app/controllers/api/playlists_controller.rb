@@ -5,7 +5,13 @@ class Api::PlaylistsController < ApplicationController
       #you should also call .sort on this array to send the data in alphabetical order
       @playlists = current_user.liked_playlists + current_user.playlists
     when 'explore'
-      @playlists = Playlist.all[0..4]
+      @playlists = Playlist.all.shuffle.take(4)
+    when 'browse'
+      @playlists = Playlist.all.shuffle.take(8)
+    end
+
+    if params[:context]['type'] == 'user'
+      @playlists = Playlist.where(user_id: params[:context]['user_id'])
     end
 
     render :index 

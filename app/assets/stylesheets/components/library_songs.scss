@@ -2,13 +2,14 @@
   display: flex;
   flex-direction: column;
   width: 85vw;
-  // width: 100%;  not sure if there is a difference 
+  // width: 100%; 
   background: $main-background;
   color: $white;
   $font-family: $sans-serif;
 
   .play-button {
-    margin-left: 80px;
+    // margin-left: 80px;
+    margin-left: 6%;
     margin-bottom: 25px;
   }
 }
@@ -18,5 +19,6 @@
   font-weight: 700;
   font-family: $sans-serif;
   margin: 20px;
-  margin-left: 80px;
+  margin-left: 6%;
+  // margin-left: 80px;
 }

@@ -5,4 +5,4 @@ const BrowseAlbums = props => {
   return <AlbumIndex match={props.match} />
 }
 
-export default BrowseAlbums;
+export default BrowseAlbums; 

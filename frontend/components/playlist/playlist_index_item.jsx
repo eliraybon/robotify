@@ -113,12 +113,13 @@ class PlaylistIndexItem extends React.Component {
           {playlist.title}
         </Link>
 
-        <Link
+        <span className="pi-user-email-link">{playlist.user_email}</span>
+        {/* <Link
           to={`/library/playlists`}
           className="pi-user-email-link"
         >
           {playlist.user_email}
-        </Link>
+        </Link> */}
       </li>
     )
   }

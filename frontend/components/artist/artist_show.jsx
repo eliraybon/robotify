@@ -67,7 +67,7 @@ export default class ArtistShow extends React.Component {
           <div className="artist-name-and-photo">
             <img
               className="arti-profile-img"
-              src={"https://first-avenue.com/sites/default/files/styles/medium/public/images/performers/flaminglips-george-salisbury-1359158312627.jpg?itok=WjAIMMtF"}
+              src={artist.profile_img_url}
               width="200"
               height="200"
             />

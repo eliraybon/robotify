@@ -8,16 +8,23 @@ import { fetchPlaylists } from '../../actions/playlist_actions';
 import { fetchSongs } from '../../actions/song_actions';
 
 class Explore extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { loading: true };
+  }
+
   componentDidMount() {
     const { fetchAlbums, fetchPlaylists, fetchSongs } = this.props;
     fetchAlbums()
       .then(() => fetchPlaylists()
         .then(() => fetchSongs()))
+          .then(() => this.setState({ loading: false }))
   }
 
   render() {
     const { albums, playlists, songs } = this.props;
-    if (!(albums || songs || playlists)) return null;
+    if (this.state.loading) return null;
+    // if (!(albums || songs || playlists)) return null;
 
     return (
       <div className="explore">
@@ -29,10 +36,6 @@ class Explore extends React.Component {
         <h2 className="explore-header">This is a test</h2>
         <div className="explore-music-container">
           <PlaylistIndex selectedPlaylists={this.props.playlists} />
-        </div>
-
-        <div className="explore-music-container">
-          <SongIndex songs={this.props.songs} />
         </div>
       </div>
     )

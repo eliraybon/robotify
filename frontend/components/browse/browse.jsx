@@ -48,13 +48,13 @@ export default class Browse extends React.Component {
             </NavLink>
           </li>
 
-          <li key={5}>
+          {/* <li key={5}>
             <NavLink
               activeClassName="active-navbar-link"
               to={'/browse/genres'}
             >Genres
             </NavLink>
-          </li>
+          </li> */}
         </ul>
       </div>
 
@@ -65,7 +65,7 @@ export default class Browse extends React.Component {
         <Route exact path="/browse/playlists" component={BrowsePlaylists} />
         <Route exact path="/browse/artists" component={BrowseArtists} />
         <Route exact path="/browse/songs" component={BrowseSongs} />
-        <Route exact path="/browse/genres" component={BrowseGenres} />
+        {/* <Route exact path="/browse/genres" component={BrowseGenres} /> */}
         </div>
       </div>
 

@@ -18,6 +18,7 @@
   font-size: 16px;
   font-weight: 700;
   height: 80px;
+  // height: 20vh;
   color: white;
   transition-duration: 0.3s;
 }
@@ -33,7 +34,7 @@
 }
 
 .nav-link:last-of-type {
-  margin-right: 60px;
+  margin-right: 3vw;
 }
 
 .home-page-main {
@@ -47,7 +48,7 @@
 .home-page-header {
   font-size: 72px;
   font-weight: 700;
-  margin-top: 200px;
+  margin-top: 30vh;
   text-align: center;
 }
 

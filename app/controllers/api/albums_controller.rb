@@ -4,13 +4,13 @@ class Api::AlbumsController < ApplicationController
     when 'library'
       @albums = current_user.liked_albums
     when 'explore'
-      @albums = Album.all[0..4]
+      @albums = Album.all.shuffle.take(8)
     when 'browse'
-      @albums = Album.all
+      @albums = Album.all.shuffle.take(16)
     when 'genre'
       #you can edit these genres to return the genres you want on the genre page
       #you also need to filter the results down so you don't send up the whole DB
-      @albums = Album.where("genre IN ('Alternative', 'Electronic', 'Rock')")
+      @albums = Album.where("genre IN ('Future Funk', 'Mallsoft', 'Vaporwave')")
     end
 
     render :index

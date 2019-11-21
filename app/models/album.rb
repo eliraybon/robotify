@@ -1,5 +1,6 @@
 class Album < ApplicationRecord
   GENRES = [
+    'Mallsoft',
     'Vaporwave',
     'Synthwave',
     'Chillwave',

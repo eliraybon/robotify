@@ -2,7 +2,6 @@ import React from 'react';
 import AlbumIndex from '../album/album_index_container';
 
 const AlbumResults = ({ albums }) => {
-  debugger;
   if (!albums.length) return null;
   return (
     <div className="result-block">

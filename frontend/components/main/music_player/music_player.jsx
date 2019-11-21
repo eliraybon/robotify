@@ -91,7 +91,7 @@ export default class MusicPlayer extends React.Component {
 
   spaceBar(e) {
     if (e.keyCode === 32) {
-      if (!this.props.modal) {
+      if (!this.props.modal && this.props.match.path !== '/search') {
         e.preventDefault();
         (this.props.playing) ? this.pause() : this.play();
       }
@@ -173,6 +173,11 @@ export default class MusicPlayer extends React.Component {
     if (seconds < 10) seconds = `0${seconds}`;
     return `${minutes}:${seconds}`;
   }
+
+  // shortenSongTitle(title) {
+  //   if (title.length < 19) return title;
+  //   return title.slice(0, 17) + '...'
+  // }
 
   renderVolumeImg() {
     let src;
@@ -301,7 +306,7 @@ export default class MusicPlayer extends React.Component {
               to={`/albums/${currentSong.album_id}`}
               className="mp-song-title"
             >
-                {currentSong.title}
+                {(currentSong.title)}
             </Link>
             <Link 
               to={`/artists/${currentSong.artist_id}`}

@@ -1,7 +1,8 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { 
+import {
   updateCurrentSong,
   togglePlay,
   updateQueue,
@@ -75,14 +76,14 @@ class AlbumIndexItem extends React.Component {
       return this.renderPlay();
     }
   }
-  
+
   render() {
     const { album, currentSong } = this.props;
     const green = (album.song_ids.includes(currentSong.id)) ? "green" : "";
 
-    return ( 
+    return (
       <li className="album-index-item">
-        <div 
+        <div
           className="aii-cover"
           onMouseEnter={this.hover}
           onMouseLeave={this.leave}
@@ -108,7 +109,7 @@ class AlbumIndexItem extends React.Component {
           {album.title}
         </Link>
 
-        <Link 
+        <Link
           to={`/artists/${album.artist_id}`}
           className="ai-artist-name-link"
         >
@@ -129,7 +130,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchSongs: (albumId) => fetchSongs({type: 'album', album_id: albumId}),
+    fetchSongs: (albumId) => fetchSongs({ type: 'album', album_id: albumId }),
     updateCurrentSong: song => dispatch(updateCurrentSong(song)),
     togglePlay: play => dispatch(togglePlay(play)),
     updateQueue: queue => dispatch(updateQueue(queue)),

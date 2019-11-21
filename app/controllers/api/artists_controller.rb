@@ -5,7 +5,7 @@ class Api::ArtistsController < ApplicationController
     when 'library'
       @artists = current_user.followed_artists
     when 'browse'
-      @artists = Artist.all
+      @artists = Artist.all.shuffle.take(8)
     end
 
     render :index

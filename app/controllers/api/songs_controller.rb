@@ -5,12 +5,12 @@ class Api::SongsController < ApplicationController
     when 'library'
       @songs = current_user.liked_songs
     when 'browse'
-      @songs = Song.all
+      @songs = Song.all.shuffle.take(16)
     when 'explore'
       @songs = Song.all.take(4)
     when 'radio'
       @songs = [];
-      until @songs.length == 5 
+      until @songs.length == 10 
         song = Song.all.sample
         @songs << song if !@songs.include?(song)
       end

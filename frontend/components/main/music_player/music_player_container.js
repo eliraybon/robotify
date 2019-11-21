@@ -6,6 +6,7 @@ import {
   updateHistory,
   togglePlay 
 } from '../../../actions/music_actions';
+import { withRouter } from 'react-router-dom';
 
 //add repeat and shuffle here
 const mapStateToProps = ({ music, ui }) => {
@@ -28,7 +29,7 @@ const mapDispatchToProps = dispatch => {
 };
 
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(MusicPlayer);
+)(MusicPlayer));

@@ -13,7 +13,8 @@ export default class UserShow extends React.Component {
 
   componentDidMount() {
     this.props.fetchUser(this.props.userId).then(() => {
-      this.setState({ followed: this.props.user.isFollowed });
+      this.props.fetchPlaylists({ type: 'user', user_id: this.props.userId})
+        .then(() => this.setState({ followed: this.props.user.isFollowed }));
     })
   }
 
@@ -40,7 +41,6 @@ export default class UserShow extends React.Component {
   render() {
     const { user } = this.props;
     if (!user) return null;
-
     const playlists = this.props.playlists.filter(playlist => {
       return playlist.user_id === user.id
     })

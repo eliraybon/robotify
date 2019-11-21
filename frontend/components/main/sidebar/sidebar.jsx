@@ -15,8 +15,7 @@ export default class Sidebar extends React.Component {
   radioPlay() {
     this.props.fetchSongs()
       .then(response => {
-        debugger;
-        const songs = Object.values(response.songs);
+        const songs = Object.values(response);
         this.props.updateCurrentSong(songs[0]);
         this.props.updateQueue(songs.slice(1));
         this.props.togglePlay(true);
@@ -61,8 +60,12 @@ export default class Sidebar extends React.Component {
           <div className={`sidebar-link ${home}`}>
             <img
               src="https://robotify-development.s3.amazonaws.com/home-nav-logo.png"
-              width="17px"
-              height="17px"
+              // width="10%"
+              // height="8%"
+              // width="17px"
+              // height="17px"
+              // width="20vw"
+              // height="20vh"
             />
 
             <Link
@@ -76,8 +79,8 @@ export default class Sidebar extends React.Component {
           <div className={`sidebar-link ${browse}`}>
             <img
               src="https://robotify-development.s3.amazonaws.com/browse-nav-logo.png"
-              width="17px"
-              height="17px"
+              // width="10%"
+              // height="8%"
             />
 
             <Link
@@ -91,8 +94,8 @@ export default class Sidebar extends React.Component {
           <div className={`sidebar-link radio-button`} onClick={this.radioPlay}>
             <img
               src="https://robotify-development.s3.amazonaws.com/radio-nav-logo.png"
-              width="17px"
-              height="17px"
+              // width="10%"
+              // height="8%"
             />
 
             <span className="sidebar-link-text">
@@ -145,8 +148,8 @@ export default class Sidebar extends React.Component {
           >
             <img
               src="https://robotify-development.s3.amazonaws.com/add-playlist.png"
-              width="20px"
-              height="20px"
+              width="11%"
+              height="9%"
             />
 
             <span className="new-playlist-button-text">New Playlist</span>

@@ -5,13 +5,17 @@
   overflow: visible;
   z-index: 100;
   top: 0;
-  height: 7vh;
+  // height: 7vh;
+  // height: 7%;
+  height: 50px;
+  // min-height: 35px;
   background: $lighter-background;
 
   .navbar-menu-container {
-    line-height: 7vh;
-    margin-top: 2px;
-    margin-right: 20px;
+    // line-height: 7vh;
+    // margin-top: 2px;
+    // margin-right: 20px;
+    margin: auto 20px;
   } 
 
   .navbar-menu {
@@ -25,9 +29,11 @@
     width: 150px;
     top: 40px;
     right: 10px;
+    height: 100px;
+    height: auto;
 
     .navbar-menu-item {
-      padding-left: 10px;
+      padding: 10px;
       font-size: 14px;
       cursor: pointer;
     }
@@ -41,9 +47,14 @@
 
 .search-bar {
   background: $white;
-  margin: 10px;
-  height: 20px;
-  line-height: 7vh;
+  // margin: 5px;
+  // margin: 0.4%;
+  margin: auto 8px;
+  // height: 20px;
+  // height: 70%;
+  height: 25px;
+  // line-height: 7vh;
+  // line-height: 100%;
   padding: 12px 10px;
   border-radius: 20px;
   font-family: $sans-serif;
