@@ -1,8 +1,12 @@
 <p align="center">
-  <img height="200px" src="https://github.com/eliraybon/robotify/blob/master/app/assets/images/robotify.png">
+  <a href="http://robotifymusic.herokuapp.com/">
+    <img height="200px" src="https://github.com/eliraybon/robotify/blob/master/app/assets/images/robotify.png">
+  </a>
 </p>
 
 # <h1 align="center">Robotify</h1>
+
+[Live Link](http://robotifymusic.herokuapp.com/)
 
 Robotify is a Spotify clone with a focus on sci-fi and retro-futuristic music. It was built with React/Redux and Rails. 
 
