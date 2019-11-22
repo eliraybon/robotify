@@ -281,10 +281,6 @@ hit_vibes.songs.create(title: 'Around', runtime: '3:02')
 hit_vibes.songs.create(title: 'Skylar Spence', runtime: '3:38')
 hit_vibes.songs.create(title: 'Interlude', runtime: '1:15')
 hit_vibes.songs.create(title: 'I Tried', runtime: '2:40')
-hit_vibes.songs.create(title: 'Strawberry Lemonade', runtime: '3:55')
-hit_vibes.songs.create(title: 'Fantasy', runtime: '3:34')
-hit_vibes.songs.create(title: 'Miss You', runtime: '4:08')
-hit_vibes.songs.create(title: 'Outro', runtime: '1:02')
 
 vibes_cover = open('https://robotify-development.s3.amazonaws.com/hit_vibes/cover.png')
 hit_vibes.cover.attach(io: vibes_cover, filename: 'cover.png')
@@ -316,18 +312,6 @@ hit_vibes.songs[7].track.attach(io: vibes_8, filename: 'SAINT+PEPSI+-+Hit+Vibes+
 vibes_9 = open('https://robotify-development.s3.amazonaws.com/hit_vibes/SAINT+PEPSI+-+Hit+Vibes+-+09+I+Tried.mp3')
 hit_vibes.songs[8].track.attach(io: vibes_9, filename: 'SAINT+PEPSI+-+Hit+Vibes+-+09+I+Tried.mp3')
 
-vibes_10 = open('https://robotify-development.s3.amazonaws.com/hit_vibes/SAINT+PEPSI+-+Hit+Vibes+-+10+Strawberry+Lemonade.mp3')
-hit_vibes.songs[8].track.attach(io: vibes_10, filename: 'SAINT+PEPSI+-+Hit+Vibes+-+10+Strawberry+Lemonade.mp3')
-
-vibes_11 = open('https://robotify-development.s3.amazonaws.com/hit_vibes/SAINT+PEPSI+-+Hit+Vibes+-+11+Fantasy.mp3')
-hit_vibes.songs[8].track.attach(io: vibes_11, filename: 'SAINT+PEPSI+-+Hit+Vibes+-+11+Fantasy.mp3')
-
-vibes_12 = open('https://robotify-development.s3.amazonaws.com/hit_vibes/SAINT+PEPSI+-+Hit+Vibes+-+12+Miss+You.mp3')
-hit_vibes.songs[8].track.attach(io: vibes_12, filename: 'SAINT+PEPSI+-+Hit+Vibes+-+12+Miss+You.mp3')
-
-vibes_13 = open('https://robotify-development.s3.amazonaws.com/hit_vibes/SAINT+PEPSI+-+Hit+Vibes+-+13+Outro.mp3')
-hit_vibes.songs[8].track.attach(io: vibes_13, filename: 'SAINT+PEPSI+-+Hit+Vibes+-+13+Outro.mp3')
-
 lux = Artist.create(name: 'Luxury Elite')
 lux_profile = open('https://robotify-development.s3.amazonaws.com/artists/luxury.jpg')
 lux.profile_img.attach(io: lux_profile, filename: 'luxury.jpg')
@@ -345,13 +329,6 @@ world_class.songs.create(title: 'Attitude', runtime: '3:18')
 world_class.songs.create(title: 'To Bruce', runtime: '2:54')
 world_class.songs.create(title: 'Crystal', runtime: '2:07')
 world_class.songs.create(title: 'Upscale', runtime: '1:58')
-world_class.songs.create(title: 'Blush', runtime: '2:42')
-world_class.songs.create(title: 'Express', runtime: '1:55')
-world_class.songs.create(title: 'Strut', runtime: '1:51')
-world_class.songs.create(title: 'Marble', runtime: '1:41')
-world_class.songs.create(title: 'Cool', runtime: '3:01')
-world_class.songs.create(title: 'Forever', runtime: '2:55')
-world_class.songs.create(title: 'Signal', runtime: '2:54')
 
 world_cover = open('https://robotify-development.s3.amazonaws.com/world_class/cover.png')
 world_class.cover.attach(io: world_cover, filename: 'cover.png')
