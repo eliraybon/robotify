@@ -5,7 +5,7 @@ import { withRouter, Link } from 'react-router-dom';
 import { likeSong, unlikeSong } from '../../actions/song_actions';
 import { likeAlbum, unlikeAlbum } from '../../actions/album_actions';
 import { likePlaylist, unlikePlaylist, deletePlaylist } from '../../actions/playlist_actions';
-import { 
+import {
   // addSongToPlaylist,
   addAlbumToPlaylist
 } from '../../util/playlist_song_api_util';
@@ -66,7 +66,7 @@ class MenuButton extends React.Component {
 
   openPlaylistHover() {
     this.setState(state => {
-      return { playlistHover: true};
+      return { playlistHover: true };
     });
   }
 
@@ -77,14 +77,14 @@ class MenuButton extends React.Component {
   }
 
   renderPlaylistItems(type) {
-    const { playlists, addSongToPlaylist, songId, currentUserId } = this.props; 
+    const { playlists, addSongToPlaylist, songId, currentUserId } = this.props;
     const userPlaylists = Object.values(playlists).filter(playlist => playlist.user_id === currentUserId)
     return userPlaylists.map(playlist => {
       // const green = (playlist.song_ids.includes(this.props.song.id)) ? 'green' : '';
 
-      let green; 
+      let green;
       let action;
-      switch(type){
+      switch (type) {
         case 'song':
           green = (playlist.song_ids.includes(this.props.song.id)) ? 'green' : '';
           action = () => {
@@ -96,14 +96,14 @@ class MenuButton extends React.Component {
           green = (this.props.album.song_ids.every(id => playlist.song_ids.includes(id))) ? 'green' : '';
           action = () => this.props.addAlbumToPlaylist(this.props.album, playlist.id)
           break;
-        default: 
+        default:
           green = "";
           break;
       }
       return <li
         className={`dropdown-item ${green}`}
-        key={ playlist.id }
-        onClick={ action }
+        key={playlist.id}
+        onClick={action}
       >
         {playlist.title}
       </li>
@@ -167,7 +167,7 @@ class MenuButton extends React.Component {
           </li>
 
           {(this.props.match.path === "/playlists/:playlistId") && (
-            <li 
+            <li
               onClick={() => this.props.removeSongFromPlaylist(song.id, this.props.match.params.playlistId)}
               onMouseEnter={this.closePlaylistHover}
             >
@@ -216,17 +216,6 @@ class MenuButton extends React.Component {
           </li>
 
           {toggleLike}
-
-          {/* <li onMouseEnter={this.openPlaylistHover}>
-            Add to Playlist
-            {this.state.playlistHover && (
-              <div className="playlist-dropdown">
-                <ul>
-                  {this.renderPlaylistItems('album')}
-                </ul>
-              </div>
-            )}
-          </li> */}
         </ul>
       </div>
     )
@@ -267,7 +256,7 @@ class MenuButton extends React.Component {
       <div className="playlist-button">
         <ul>
           {this.props.currentUserId === playlist.user_id && (
-            <li onClick={() => this.props.openModal({type: 'update', wildCard: playlist.id})}>  
+            <li onClick={() => this.props.openModal({ type: 'update', wildCard: playlist.id })}>
               Edit Playlist Details
             </li>
           )}
@@ -287,13 +276,13 @@ class MenuButton extends React.Component {
       </div>
     )
   }
-  
+
   render() {
     let button;
     let src;
     let width;
     let height;
-    switch(this.props.type) {
+    switch (this.props.type) {
       case 'song':
         button = this.renderSongButton();
         src = "https://robotify-development.s3.amazonaws.com/sii-dots.png";
@@ -301,29 +290,29 @@ class MenuButton extends React.Component {
         height = "4px";
         break;
       case 'album':
-        button =  this.renderAlbumButton();
+        button = this.renderAlbumButton();
         src = "https://robotify-development.s3.amazonaws.com/header-menu-edit.png";
-        width = "30px";
-        height = "30px";
+        // width = "30px";
+        // height = "30px";
         break
       case 'playlist':
         button = this.renderPlaylistButton();
         src = "https://robotify-development.s3.amazonaws.com/header-menu-edit.png";
-        width = "30px";
-        height = "30px";
+        // width = "30px";
+        // height = "30px";
         break;
     }
 
     let id;
     let klass = "";
     if (this.props.type === 'song') {
-      id="triple-dots";
+      id = "triple-dots";
       klass = 'song-dropdown';
     }
 
     return (
-      <div className="menu-button-container" ref={ this.container }>
-        <img 
+      <div className="menu-button-container" ref={this.container}>
+        <img
           src={src}
           onClick={this.handleClick}
           width={width}
@@ -343,7 +332,7 @@ class MenuButton extends React.Component {
 const mapStateToProps = state => {
   return {
     //you need to make a selector to only grab the current user's playlists
-    playlists: state.entities.playlists, 
+    playlists: state.entities.playlists,
     // playlists: getUsersPlaylists(state),
     //songs if for adding an album or playlist to queue. you need to add all the songs
     songs: Object.values(state.entities.songs),
@@ -374,7 +363,7 @@ const mapDipatchToProps = dispatch => {
   };
 };
 
-export default withRouter(connect (
+export default withRouter(connect(
   mapStateToProps,
   mapDipatchToProps
 )(MenuButton));

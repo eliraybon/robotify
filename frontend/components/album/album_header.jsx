@@ -46,46 +46,39 @@ export default class AlbumHeader extends React.Component {
 
   render() {
     const { album } = this.props;
-    const artistLink = <Link 
+    const artistLink = <Link
       className="ah-artist-link"
       to={`/artists/${album.artist_id}`}>
-        {album.artist_name}
-      </Link>
+      {album.artist_name}
+    </Link>
 
     let toggleLike;
     if (this.state.liked) {
       toggleLike = (
-        <img 
-          onClick={this.unlikeAlbum} 
-          className="liked"
-          width="30px"
-          height="30px"
+        <img
+          onClick={this.unlikeAlbum}
+          className="like-unlike-heart liked"
           src="https://robotify-development.s3.amazonaws.com/header-liked-edit.png"
         />
-          
+
       )
     } else {
       toggleLike = (
         <img
           onClick={this.likeAlbum}
-          className="unliked"
-          width="30px"
-          height="30px"
+          className="like-unlike-heart unliked"
           src="https://robotify-development.s3.amazonaws.com/header-unliked-edit.png"
         />
       )
-    } 
+    }
 
     return (
       <div className="album-header">
-        
+
         <div className="ah-album-cover" onMouseEnter={this.hover} onMouseLeave={this.leave}>
           <img
             src={album.cover_url}
-            width="200"
-            height="200"
-            className="ah-album-cover">
-          </img>
+          />
 
           {this.state.hover && (
             <span className="ah-hover">
@@ -95,7 +88,7 @@ export default class AlbumHeader extends React.Component {
             </span>
           )}
         </div>
-        
+
         <div className="ah-meta-data">
 
           <span className="ah-album-tag">Album</span>
@@ -111,7 +104,7 @@ export default class AlbumHeader extends React.Component {
             <span className="ah-song-count">{album.song_ids.length} Songs</span>
           </span>
           <div className="buttons">
-            <PlayButton  />
+            <PlayButton />
             {toggleLike}
             <MenuButton album={album} type="album" />
           </div>

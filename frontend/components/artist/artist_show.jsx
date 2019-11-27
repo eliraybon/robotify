@@ -43,19 +43,19 @@ export default class ArtistShow extends React.Component {
   render() {
     const { artist, albums, songs } = this.props;
     if (!artist) return null;
-  
-    const albumItems = albums.map(album => <li key={ album.id }>{album.title}</li> )
+
+    const albumItems = albums.map(album => <li key={album.id}>{album.title}</li>)
 
     let toggleFollow;
     if (this.state.followed) {
       toggleFollow = (
-        <button className="follow-button" onClick={ this.unfollowArtist }>
+        <button className="follow-button" onClick={this.unfollowArtist}>
           Unfollow
         </button>
       )
     } else {
       toggleFollow = (
-        <button className="follow-button" onClick={ this.followArtist }>
+        <button className="follow-button" onClick={this.followArtist}>
           Follow
         </button>
       )
@@ -64,27 +64,25 @@ export default class ArtistShow extends React.Component {
     return (
       <section className="artist-show">
         <div className="artist-show-header">
-          <div className="artist-name-and-photo">
-            <img
-              className="arti-profile-img"
-              src={artist.profile_img_url}
-              width="200"
-              height="200"
-            />
-            <h1 className="as-artist-name">{artist.name}</h1>
-          </div>
+          <img
+            className="arti-profile-img"
+            src={artist.profile_img_url}
+          />
 
-          <div className="artist-show-buttons">
-            <PlayButton />
-            {toggleFollow}
+          <div className="name-and-buttons">
+            <h1 className="as-artist-name">{artist.name}</h1>
+            <div className="artist-show-buttons">
+              <PlayButton />
+              {toggleFollow}
+            </div>
           </div>
         </div>
 
-        <h2 className="section-title">Songs</h2>
+        {/* <h2 className="section-title st-songs">Songs</h2> */}
         <div className="artist-show-songs">
           <SongIndex songs={songs.slice(0, 5)} />
         </div>
- 
+
         <h2 className="section-title">Albums</h2>
         <div className="artist-show-albums">
           <AlbumIndex match={this.props.match} />

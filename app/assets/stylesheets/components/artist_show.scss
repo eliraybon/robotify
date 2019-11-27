@@ -1,9 +1,39 @@
 .artist-show {
   background: $main-background;
   color: $white;
+  margin: 0;
+  padding: 0;
+
+  .artist-show-header {
+    display: flex; 
+    justify-content: flex-start;
+    align-items: flex-end;
+    margin: 2% 0;
+    width: 90%;
+    margin: 2% auto;
+  }
 
   .arti-profile-img {
-    margin-left: 80px;
+    width: 20%;
+    max-width: 400px;
+    min-width: 200px;
+    height: auto;
+    // margin-left: 15px;
+    // margin-right: 15px;
+    // margin-top: 15px;
+    // margin-bottom: 10px;
+    margin: 1%;
+  }
+
+  .name-and-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .artist-show-buttons {
+    display: flex;
+    justify-content: center;
   }
 
   .follow-button {
@@ -23,15 +53,6 @@
     margin-left: 20px;
   }
 
-  .arti-profile-img {
-    margin-top: 25px;
-  }
-
-  // .artist-name-and-photo {
-  //   display: flex;
-  //   justify-content: reverse;
-  // }
-
   .follow-button:hover {
     filter: brightness(150%);
     transform: scale(1.1);
@@ -42,35 +63,130 @@
     overflow: hidden;
   }
 
-  .artist-show-albums {
-    margin-left: 60px;
-  }
-  // .artist-show-header {
-  //   background-image: url("https://d36g5zibv7pj3i.cloudfront.net/2019/07/19142041/Screen-Shot-2019-07-19-at-15.19.54-1440x805.png");
-  //   background-size: cover;
-  //   background-repeat: no-repeat;
-  // }
-
   .artist-show-buttons {
     display: flex;
-    margin-left: 80px;
+    justify-content: flex-start;
     margin-bottom: 30px;
   }
 
 }
 
 .as-artist-name {
-  font-size: 50px;
+  font-size: 2.5vw;
   font-family: $sans-serif;
   font-weight: bolder;
-  margin-left: 80px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .section-title {
+  margin: 35px auto;
+  margin-bottom: 15px;
   font-family: $sans-serif;
-  font-size: 30px; 
+  // font-size: 30px; 
+  font-size: 2vw;
   font-weight: 700;
-  margin: 20px;
-  margin-left: 80px;
+  text-align: center;
 }
+
+// .st-songs {
+//   text-align: start;
+//   width: 90%;
+
+// }
+
+
+@media screen and (max-width: 1800px) {
+  .artist-show {
+
+    .follow-button {
+      width: 150px;
+      height: 32px;
+      line-height: 32px;
+      font-size: 12px;
+      margin-left: 20px;
+    }
+
+    .arti-profile-img{
+      width: 200px;
+      height: 200px;
+    }
+
+    .artist-show-songs {
+      height: 220px;
+    }
+
+    .artist-show-buttons {
+      margin-bottom: 30px;
+    }
+
+    .as-artist-name {
+      font-size: 50px;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      // margin: 35px auto;
+      // margin: 0 0;
+      margin-bottom: 15px;
+      font-size: 30px;
+    }
+  }
+}
+
+@media screen and (min-width: 2200px) {
+  .artist-show {
+
+    .as-artist-name {
+      font-size: 4vw;
+    }
+
+    .follow-button {
+      width: 139.207px;
+      height: 38.736px;
+      line-height: 38.736px;
+      font-size: 14px;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .artist-show {
+    .arti-profile-img {
+      min-width: 20px;
+      // width: 40%;
+      // height: auto;
+      width: 180px;
+      height: 180px;
+    }
+
+    .artist-show-header {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .name-and-buttons {
+      align-items: center;
+    }
+
+    .as-artist-name {
+      font-size: 9vw;
+      // margin-left: 10px;
+    }
+
+    .artist-show-buttons {
+      // margin-left: 10px;
+      justify-content: center;
+    }
+
+    .follow-button {
+      font-size: 10px;
+      width: 80px;
+    }
+
+    .section-title {
+      margin: 0;
+    }
+
+  }
+}
+

@@ -7,8 +7,15 @@
 }
 
 .artists-header {
-  font-size: 40px; 
+  font-size: 2.2vw; 
   font-weight: 700;
   margin: 20px;
-  margin-left: 80px;
+  text-align: center;
+}
+
+@media screen and (max-width: 2200px) {
+  .artists-header {
+    font-size: 40px;
+    margin: 20px 0;
+  }
 }

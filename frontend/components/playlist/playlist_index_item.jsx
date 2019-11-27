@@ -95,8 +95,6 @@ class PlaylistIndexItem extends React.Component {
           <img
             src={playlist.cover_url}
             className="pi-playlist-cover"
-            width="200"
-            height="200"
           />
 
           {this.state.coverHover && (

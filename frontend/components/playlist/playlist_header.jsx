@@ -49,9 +49,7 @@ export default class PlaylistHeader extends React.Component {
       toggleLike = (
         <img
           onClick={this.unlikePlaylist}
-          className="liked"
-          width="30px"
-          height="30px"
+          className="like-unlike-heart liked"
           src="https://robotify-development.s3.amazonaws.com/header-liked-edit.png"
         />
 
@@ -60,17 +58,15 @@ export default class PlaylistHeader extends React.Component {
       toggleLike = (
         <img
           onClick={this.likePlaylist}
-          className="unliked"
-          width="30px"
-          height="30px"
+          className="like-unlike-heart unliked"
           src="https://robotify-development.s3.amazonaws.com/header-unliked-edit.png"
         />
       )
     }
     let deleteButton;
-    if (playlist.user_id === currentUserId) { 
+    if (playlist.user_id === currentUserId) {
       deleteButton = (
-        <button onClick={ this.deletePlaylist }>
+        <button onClick={this.deletePlaylist}>
           Delete
         </button>
       )
@@ -85,8 +81,6 @@ export default class PlaylistHeader extends React.Component {
 
         <img
           src={playlist.cover_url}
-          width="200"
-          height="200"
           className="ph-playlist-cover">
         </img>
 

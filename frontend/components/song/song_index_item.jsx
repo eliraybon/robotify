@@ -3,19 +3,19 @@ import MenuButton from '../ui/menu_button';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { likeSong, unlikeSong } from '../../actions/song_actions';
-import { 
-  updateCurrentSong, 
+import {
+  updateCurrentSong,
   addToQueue,
-  togglePlay 
+  togglePlay
 } from '../../actions/music_actions';
 
 class SongIndexItem extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { 
-      hover: false, 
+    this.state = {
+      hover: false,
       liked: false,
-      playHover: false, 
+      playHover: false,
       likeHover: false,
       menuClicked: false
     };
@@ -51,7 +51,7 @@ class SongIndexItem extends React.Component {
   }
 
   handleOutsideClick() {
-    this.setState({menuClicked: false });
+    this.setState({ menuClicked: false });
   }
 
   likeSong() {
@@ -95,10 +95,10 @@ class SongIndexItem extends React.Component {
   renderPlayButton() {
     const { song, currentSongId } = this.props;
 
-    if (this.state.hover 
-        && ((this.props.playing && song.id !== currentSongId)
-          || (!this.props.playing))
-        ) {
+    if (this.state.hover
+      && ((this.props.playing && song.id !== currentSongId)
+        || (!this.props.playing))
+    ) {
       return (
         <img
           src="https://robotify-development.s3.amazonaws.com/sii-play.png"
@@ -110,7 +110,7 @@ class SongIndexItem extends React.Component {
           className="sii-play"
         />
       )
-    } 
+    }
 
     if (this.props.playing && song.id === currentSongId && this.state.playHover) {
       return (
@@ -125,7 +125,7 @@ class SongIndexItem extends React.Component {
         />
       )
     }
-    
+
     if (song.id === currentSongId) {
       if (this.state.hover /* && !this.state.playHover*/) {
         return (
@@ -150,7 +150,7 @@ class SongIndexItem extends React.Component {
           />
         )
       }
-    } 
+    }
   }
 
   renderLikeButton() {
@@ -218,17 +218,33 @@ class SongIndexItem extends React.Component {
 
   render() {
     const { song } = this.props;
-  
+
     const nowPlaying = (song.id === this.props.currentSongId) ? "playing" : "";
 
+    let mobilePlaySrc;
+    let mobilePlayAction;
+
+    if (this.props.playing && nowPlaying) {
+      mobilePlaySrc = "https://robotify-development.s3.amazonaws.com/pause-button-image.png";
+      mobilePlayAction = this.pauseSong;
+    } else {
+      mobilePlaySrc = "https://robotify-development.s3.amazonaws.com/play-button-image.png";
+      mobilePlayAction = this.playSong;
+    }
+
     return (
-      <li  className={`song-index-item ${nowPlaying}`}
+      <li className={`song-index-item ${nowPlaying}`}
         onMouseOver={this.mouseOver}
         onMouseLeave={this.mouseLeave}
       >
-        
+
         <div className="sii-play-button-container">
           {this.renderPlayButton()}
+          <img
+            className="mobile-play"
+            src={mobilePlaySrc}
+            onClick={mobilePlayAction}
+          />
         </div>
 
         <div className="sii-like-container">
@@ -253,8 +269,8 @@ class SongIndexItem extends React.Component {
           </Link>
         </div>
 
-        <div 
-          className="sii-menu-button-container" 
+        <div
+          className="sii-menu-button-container"
           onClick={this.menuClick}
         >
 
@@ -268,7 +284,7 @@ class SongIndexItem extends React.Component {
       </li>
     )
   }
-}  
+}
 
 const mapStateToProps = state => {
   return {

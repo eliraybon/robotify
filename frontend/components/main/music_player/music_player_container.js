@@ -1,14 +1,14 @@
 import { connect } from 'react-redux';
 import MusicPlayer from './music_player';
-import { 
-  updateCurrentSong, 
-  updateQueue, 
+import {
+  updateCurrentSong,
+  updateQueue,
   updateHistory,
-  togglePlay 
+  togglePlay
 } from '../../../actions/music_actions';
 import { withRouter } from 'react-router-dom';
 
-//add repeat and shuffle here
+
 const mapStateToProps = ({ music, ui }) => {
   return {
     currentSong: music.currentSong,

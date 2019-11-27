@@ -1,9 +1,11 @@
 .playlist-header {
-  // position: relative;
+  width: 90%;
+  margin: 2% auto;
   display: flex;
+  align-items: flex-end;
   background: $main-background;
   color: rgb(170, 168, 168);
-  font-size: 14px;
+  font-size: 1vw;
   font-family: $sans-serif;
   font-weight: 300;
 
@@ -32,15 +34,20 @@
 .ph-other-info {
   display: flex;
   flex-direction: column;
-  margin-top: 50px;
+  justify-content: flex-end;
 }
 
 .ph-playlist-cover {
-  // position: relative;
-  margin-left: 30px;
-  margin-right: 20px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  width: 15%;
+  height: auto;
+  // height: 100%;
+  position: relative;
+  margin-right: 2%;
+
+  img {
+    width: 100%;
+    height: 15%;
+  }
 }
 
 .ph-description {
@@ -56,13 +63,121 @@
 }
 
 .ph-playlist-title {
-  font-size: 40px;
+  font-size: 2vw;
   font-weight: 700;
   margin-bottom: 10px;
   color: $white;
   overflow: hidden;
 }
 
-// .ps-song-index {
-//   padding-bottom: 250px;
-// }
+@media screen and (max-width: 1800px) {
+  .playlist-header {
+    font-size: 14px;
+  }
+
+  .ph-playlist-cover {
+    width: 200px;
+    height: 200px;
+    margin-left: 15px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    img { 
+      width: 200px;
+      height: 200px;
+    }
+  }
+
+  .ph-other-info {
+    margin-bottom: 8px;
+    margin-left: 10px;
+  }
+
+  .ph-playlist-title { 
+    font-size: 40px;
+  }
+
+  .buttons {
+    margin-top: 35px;
+
+    .play-button {
+      margin-right: 15px;
+    }
+
+    img {
+      margin-right: 15px;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .playlist-header {
+  width: 90%; 
+  margin: 3px 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  background: $main-background;
+  color: rgb(170, 168, 168);
+  // font-size: 18px;
+  font-size: 5vw;
+  font-family: $sans-serif;
+  font-weight: 300;
+
+    .buttons {
+      display: flex;
+      margin-top: 12px;
+  
+      .play-button {
+        margin-right: 15px;
+      }
+
+      img {
+        margin-right: 15px;
+        transition-duration: 0.2;
+        opacity: 0.7;
+      }
+  
+      img:hover {
+        transform: scale(1.1);
+        opacity: 1;
+        transition-duration: 0.2;
+      }
+    }
+
+
+    .ph-other-info {
+      font-size: 3vw;
+    
+      .ph-description {
+        font-size: 3vw;
+      } 
+
+      .ph-playlist-title {
+        font-size: 5vw;
+      }
+
+      .ph-playlist-tag {
+        font-size: 3vw;
+      }
+
+      .ph-user {
+        font-size: 3vw;
+      }
+
+      .ph-user-link {
+        font-size: 3vw;
+      }
+    }
+
+    .ph-playlist-cover {
+      width: 150px;
+      height: 150px;
+      position: relative;
+      margin-right: 2%;
+    }
+  }
+
+
+}

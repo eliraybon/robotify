@@ -12,6 +12,7 @@ class Navbar extends React.Component {
 
     this.toggleMenu = this.toggleMenu.bind(this);
     this.handleOutsideClick = this.handleOutsideClick.bind(this);
+    this.toggleMobileSidebar = this.toggleMobileSidebar.bind(this);
   }
 
   componentDidMount() {
@@ -34,13 +35,31 @@ class Navbar extends React.Component {
     });
   }
 
+  toggleMobileSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    if (sidebar.classList.contains('menu-active')) {
+      sidebar.classList.remove('menu-active');
+    } else {
+      sidebar.classList.add('menu-active');
+    }
+  }
+
   render() {
     return (
       <div className="navbar">
-        <SearchBar history={ this.props.history} />
+        <div className="mobile-menu-and-search">
+          <img
+            className="mobile-hamburger-menu"
+            src="https://robotify-development.s3.amazonaws.com/hamburger.png"
+            onClick={this.toggleMobileSidebar}
+          />
+
+          <SearchBar history={this.props.history} />
+
+        </div>
 
         <div className="navbar-menu-container" ref={this.container}>
-          <div 
+          <div
             className="navbar-arrow-container"
             onClick={this.toggleMenu}
           >

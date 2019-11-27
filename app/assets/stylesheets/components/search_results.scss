@@ -4,32 +4,26 @@
   font-weight: 500;
 
   h1 {
-    font-size: 50px;
-    margin: 20px;
-  }
-
-  .test {
-    display: flex;
+    display: none;
+    font-size: 2vw;
+    margin: 20px auto;
   }
 
   .search-category-header {
-    margin: 20px 20px;
-    font-size: 30px; 
-    width: fit-content;
+    margin: 20px 0;
+    font-size: 1.5vw; 
+    text-align: center;
   }
+}
 
-  // .search-category-header:after {
-  //   content: ""; 
-  //   display: block; 
-  //   margin: 0px auto; 
-  //   width: 50%; 
-  //   padding-top: 2px;
-  //   border-bottom: 2px solid $robotify-green; 
-  //   transition-duration: 0.3s;
-  // }
+@media screen and (max-width: 1800px) {
+  .search-results {
+    h1 {
+      font-size: 50px;
+    }
 
-  // .search-category-header:hover:after {
-  //   transition-duration: 0.3s;
-  //   width: 75%;
-  // }
+    .search-category-header {
+      font-size: 30px;
+    }
+  }
 }

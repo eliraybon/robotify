@@ -5,18 +5,22 @@
   overflow: visible;
   z-index: 100;
   top: 0;
-  // height: 7vh;
-  // height: 7%;
   height: 50px;
-  // min-height: 35px;
   background: $lighter-background;
 
   .navbar-menu-container {
-    // line-height: 7vh;
-    // margin-top: 2px;
-    // margin-right: 20px;
     margin: auto 20px;
   } 
+
+  .mobile-hamburger-menu {
+    display: none;
+  }
+
+  .mobile-menu-and-search {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+  }
 
   .navbar-menu {
     position: absolute;
@@ -26,15 +30,14 @@
     color: $sidebar-text;
     font-family: $sans-serif;
     font-weight: 300;
-    width: 150px;
+    width: 10vw;
+    min-width: 70px;
     top: 40px;
     right: 10px;
-    height: 100px;
-    height: auto;
 
     .navbar-menu-item {
-      padding: 10px;
-      font-size: 14px;
+      padding: 8px;
+      font-size: 1.5vw;
       cursor: pointer;
     }
 
@@ -47,16 +50,26 @@
 
 .search-bar {
   background: $white;
-  // margin: 5px;
-  // margin: 0.4%;
   margin: auto 8px;
-  // height: 20px;
-  // height: 70%;
   height: 25px;
-  // line-height: 7vh;
-  // line-height: 100%;
   padding: 12px 10px;
   border-radius: 20px;
   font-family: $sans-serif;
+}
+
+@media screen and (max-width: 1000px) {
+  .navbar .navbar-menu .navbar-menu-item {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    .mobile-hamburger-menu {
+      display: block;
+      width: 30px;
+      height: 30px;
+    }
+  }
 }
 

@@ -19,3 +19,19 @@
   transform: scale(1.1);
   transition-duration: 0.3s;
 }
+
+@media screen and (min-width: 2200px) {
+  .play-button {
+    width: 115px;
+    height: 38.736px;
+    line-height: 38.736px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .play-button {
+    width: 70px;
+    font-size: 10px;
+  }
+}

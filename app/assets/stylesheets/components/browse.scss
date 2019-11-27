@@ -3,22 +3,22 @@
   font-family: $sans-serif;
 
   .browse-header {
-    font-size: 42px; 
     font-weight: 700;
+    // font-size: 42px; 
+    // margin: 20px;
+    // margin-left: 40px;
+    // margin-bottom: 25px;
+    font-size: 2vw;
+    margin: 1.5% 0;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 2100px) {
+  .browse .browse-header {
+    font-size: 42px; 
     margin: 20px;
     margin-left: 40px;
     margin-bottom: 25px;
   }
-
-  .browse-main {
-    margin-left: 55px;
-    width: 90%;
-    margin: 0px auto;
-
-  }
-
-  .browse-content {
-    margin: 0px auto;
-  }
-
 }

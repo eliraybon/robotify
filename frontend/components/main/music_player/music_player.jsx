@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 export default class MusicPlayer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { 
-      currentTime: 0, 
-      duration: 0, 
-      volume: 100, 
+    this.state = {
+      currentTime: 0,
+      duration: 0,
+      volume: 100,
       muted: false,
       repeat: false,
       shuffle: false
@@ -72,7 +72,7 @@ export default class MusicPlayer extends React.Component {
     const { currentSong, queue, songHistory } = this.props;
     if (!queue.length) {
       this.setState({ currentTime: 0, duration: 0 });
-      this.props.updateCurrentSong({ title: "", song_url: ""});
+      this.props.updateCurrentSong({ title: "", song_url: "" });
       this.props.togglePlay(false);
       return;
     }
@@ -82,7 +82,7 @@ export default class MusicPlayer extends React.Component {
       this.props.updateCurrentSong(queue[idx]);
       this.props.updateQueue(
         queue.slice(0, idx).concat(queue.slice(idx + 1, queue.length)
-      ));
+        ));
     } else {
       this.props.updateCurrentSong(queue[0]);
       this.props.updateQueue(queue.slice(1));
@@ -104,7 +104,7 @@ export default class MusicPlayer extends React.Component {
   }
 
   repeatOff() {
-    this.refs.player.loop = false; 
+    this.refs.player.loop = false;
     this.setState({ repeat: false });
   }
 
@@ -160,7 +160,7 @@ export default class MusicPlayer extends React.Component {
   }
 
   unMute() {
-    this.setState({muted: false, volume: 100 });
+    this.setState({ muted: false, volume: 100 });
     this.refs.player.volume = 1;
   }
 
@@ -186,8 +186,6 @@ export default class MusicPlayer extends React.Component {
       return (
         <img
           src={src}
-          width="35px"
-          height="35px"
           onClick={this.unMute}
           onMouseOver={() => this.setState({ volumeImgHover: true })}
           onMouseOut={() => this.setState({ volumeImgHover: false })}
@@ -199,8 +197,6 @@ export default class MusicPlayer extends React.Component {
       return (
         <img
           src={src}
-          width="35px"
-          height="35px"
           onClick={this.mute}
           onMouseOver={() => this.setState({ volumeImgHover: true })}
           onMouseOut={() => this.setState({ volumeImgHover: false })}
@@ -212,16 +208,12 @@ export default class MusicPlayer extends React.Component {
 
   renderMainButton() {
     let src;
-    let width = '34px';
-    let height = '34px';
     if (this.props.playing) {
       src = "https://robotify-development.s3.amazonaws.com/pause_hover.png"
       return (
         <img
           onClick={this.pause}
           src={src}
-          height={height}
-          width={width}
           className="main-button"
         />
       )
@@ -231,8 +223,6 @@ export default class MusicPlayer extends React.Component {
         <img
           onClick={this.play}
           src={src}
-          height={height}
-          width={width}
           className="main-button"
         />
       )
@@ -245,8 +235,6 @@ export default class MusicPlayer extends React.Component {
         <img
           onClick={this.shuffleOff}
           src="https://robotify-development.s3.amazonaws.com/shuffle_on.png"
-          width="16px"
-          height="13px"
           className="special-button-on"
         />
       )
@@ -255,8 +243,6 @@ export default class MusicPlayer extends React.Component {
         <img
           onClick={this.shuffleOn}
           src="https://robotify-development.s3.amazonaws.com/shuffle.png"
-          width="16px"
-          height="13px"
           className="special-button"
         />
       )
@@ -269,8 +255,6 @@ export default class MusicPlayer extends React.Component {
         <img
           onClick={this.repeatOff}
           src="https://robotify-development.s3.amazonaws.com/repeat_on.png"
-          width="16px"
-          height="13px"
           className="special-button-on"
         />
       )
@@ -279,8 +263,6 @@ export default class MusicPlayer extends React.Component {
         <img
           onClick={this.repeatOn}
           src="https://robotify-development.s3.amazonaws.com/repeat.png"
-          width="16px"
-          height="13px"
           className="special-button"
         />
       )
@@ -291,24 +273,22 @@ export default class MusicPlayer extends React.Component {
     const { currentSong, playing } = this.props;
     return (
       <div className="music-player">
-        <div className="song-display"> 
+        <div className="song-display">
           {currentSong.cover_url && (
             <img
               src={currentSong.cover_url}
-              width="50px"
-              height="50px"
               className="current-song-img"
             />
           )}
 
           <div className="song-info">
-            <Link 
+            <Link
               to={`/albums/${currentSong.album_id}`}
               className="mp-song-title"
             >
-                {(currentSong.title)}
+              {(currentSong.title)}
             </Link>
-            <Link 
+            <Link
               to={`/artists/${currentSong.artist_id}`}
               className="mp-artist-name"
             >
@@ -324,8 +304,6 @@ export default class MusicPlayer extends React.Component {
             <img
               onClick={this.prevSong}
               src="https://robotify-development.s3.amazonaws.com/prev_hover.png"
-              width="12px"
-              height="13px"
               className="song-select"
             />
 
@@ -334,8 +312,6 @@ export default class MusicPlayer extends React.Component {
             <img
               onClick={this.nextSong}
               src="https://robotify-development.s3.amazonaws.com/next_hover.png"
-              width="12px"
-              height="13px"
               className="song-select"
             />
 
@@ -345,6 +321,7 @@ export default class MusicPlayer extends React.Component {
 
           <div className="progress-bar-container">
             <p className="time-display">{this.timeToString(this.state.currentTime)}</p>
+
             <input
               type="range"
               min={0}
@@ -357,13 +334,13 @@ export default class MusicPlayer extends React.Component {
             />
             <p className="time-display">{this.timeToString(this.state.duration)}</p>
           </div>
-          
+
         </div>
 
         <div className="volume-control">
           {this.renderVolumeImg()}
 
-          <input 
+          <input
             type="range"
             min={0}
             max={100}
@@ -374,9 +351,9 @@ export default class MusicPlayer extends React.Component {
         </div>
 
         <audio
-          src={currentSong.song_url} 
+          src={currentSong.song_url}
           ref="player"
-          autoPlay={playing}> 
+          autoPlay={playing}>
         </audio>
       </div>
     )

@@ -35,6 +35,10 @@
     // height: auto;
   }
 
+  .mobile-play {
+    display: none;
+  }
+
   .sii-play:hover {
     transform: scale(1.1);
   }
@@ -83,4 +87,57 @@
   width: 10%;
   text-align: left;
   overflow: hidden;
+}
+
+
+@media screen and (max-width: 1024px) {
+  .song-index-item {
+    .sii-play-button-container {
+      .sii-play {
+        display: none;
+      }
+
+      .mobile-play {
+        display: block;
+        margin-top: 12px;
+        width: 15px;
+        height: 15px;
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 500px) {
+  .song-index-item {
+
+    .sii-like-container {
+      display: none;
+    }
+
+    .sii-play { 
+      display: none;
+    }
+
+    .sii-album-title {
+      display: none;
+    }
+
+    .sii-menu-button-container {
+      display: none;
+    }
+
+    .sii-runtime {
+      display: none;
+    }
+
+    .sii-song-title {
+      width: 100%;
+    }
+
+    .sii-artist-name {
+      display: none;
+    }
+
+  }
 }

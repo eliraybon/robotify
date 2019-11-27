@@ -46,7 +46,7 @@
 }
 
 .home-page-header {
-  font-size: 72px;
+  font-size: 5vw;;
   font-weight: 700;
   margin-top: 30vh;
   text-align: center;
@@ -62,5 +62,11 @@
     margin-left: 10px;
     font-size: 25px;
     margin-top: 15px;
+  }
+}
+
+@media screen and (max-width: 1800px) {
+  .home-page-header {
+    font-size: 72px;
   }
 }

@@ -18,7 +18,13 @@
   margin-top: 5px;
 }
 
+.ai-album-title-link {
+  font-size: 16px;
+}
+
 .ai-album-cover {
+  width: 200px;
+  height: 200px;
   margin-bottom: 15px;
 }
 
@@ -79,4 +85,109 @@
 
 .green {
   color: $robotify-green;
+}
+
+// @media screen and (min-width: 1400px) {
+//   .album-index-item {
+//     width: 300px;
+//   }
+
+//   .aii-cover {
+//     width: 300px;
+//     height: 300px;
+//   }
+
+//   .ai-album-cover {
+//     width: 300px;
+//     height: 300px;
+//   }
+
+//   .aii-hover {
+//     width: 300px;
+//     height: 300px;;
+//   }
+
+// }
+
+
+@media screen and (min-width: 1800px) {
+  .album-index-item {
+    width: 400px;
+  }
+
+  .aii-cover {
+    width: 400px;
+    height: 400px;
+  }
+
+  .ai-album-cover {
+    width: 400px;
+    height: 400px;
+  }
+
+  .aii-hover {
+    width: 400px;
+    height: 400px;;
+
+    .aii-hover-play-container {
+      z-index: 3;
+      width: 120px;
+      height: 120px;
+      margin: 0 auto;
+      margin-top: 140px;
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid $gray-text;
+      border-radius: 50%;
+      transition-duration: 0.3s;
+
+      .custom-play-button {
+        width: 0; 
+        height: 0; 
+        margin-top: 33px;
+        margin-left: 46px;
+        border-top: 27px solid transparent;
+        border-bottom: 27px solid transparent;
+        
+        border-left: 36px solid $white;
+      }
+
+    .custom-pause-button {
+      display: flex;
+      justify-content: space-evenly;
+      width: 42px;
+      height: 46px;
+      margin: 0 auto;
+      margin-top: 40px;
+      
+      .pause-button-bar {
+        background: $white;
+        width: 10px;
+        height: 40px;
+      }
+    }
+  }
+
+  }
+
+  .aii-hover-play-container:hover {
+    border: 1px solid $white;
+    transform: scale(1.1);
+    transition-duration: 0.3s;
+  }
+
+  .ai-artist-name-link {
+    color: $gray;
+    font-size: 0.8vw;
+    margin-top: 1%;
+  }
+
+  .ai-album-title-link {
+    font-size: 1vw;
+  }
+
+
+}
+
+@media screen and (max-width: 500px) {
+  
 }

@@ -25,12 +25,12 @@ export default class Sidebar extends React.Component {
   render() {
     const { playlists } = this.props;
     let userPlaylists;
-    let playlistItems; 
+    let playlistItems;
 
     if (!playlists.length) {
       userPlaylists = null;
     } else {
-     userPlaylists = playlists.filter(playlist => {
+      userPlaylists = playlists.filter(playlist => {
         return playlist.user_id === this.props.currentUserId || playlist.isLiked
       });
       playlistItems = userPlaylists.map(playlist => {
@@ -52,20 +52,14 @@ export default class Sidebar extends React.Component {
     const browse = (this.props.match.path === "/browse") ? active : '';
     const songs = (this.props.location.pathname === "/library/songs") ? active : '';
     const albums = (this.props.location.pathname === "/library/albums") ? active : '';
-    const artists = (this.props.location.pathname === "/library/artists") ? active : ''; 
-  
+    const artists = (this.props.location.pathname === "/library/artists") ? active : '';
+
     return (
-      <div className="sidebar">
+      <div className="sidebar" id="sidebar">
         <div className="sidebar-nav">
           <div className={`sidebar-link ${home}`}>
             <img
               src="https://robotify-development.s3.amazonaws.com/home-nav-logo.png"
-              // width="10%"
-              // height="8%"
-              // width="17px"
-              // height="17px"
-              // width="20vw"
-              // height="20vh"
             />
 
             <Link
@@ -79,8 +73,8 @@ export default class Sidebar extends React.Component {
           <div className={`sidebar-link ${browse}`}>
             <img
               src="https://robotify-development.s3.amazonaws.com/browse-nav-logo.png"
-              // width="10%"
-              // height="8%"
+            // width="10%"
+            // height="8%"
             />
 
             <Link
@@ -94,8 +88,8 @@ export default class Sidebar extends React.Component {
           <div className={`sidebar-link radio-button`} onClick={this.radioPlay}>
             <img
               src="https://robotify-development.s3.amazonaws.com/radio-nav-logo.png"
-              // width="10%"
-              // height="8%"
+            // width="10%"
+            // height="8%"
             />
 
             <span className="sidebar-link-text">
@@ -111,24 +105,24 @@ export default class Sidebar extends React.Component {
             <div className="sidebar-section-text">Your Library</div>
 
             <Link
-                to="/library/songs"
-                className={`sidebar-link ${songs}`}
-              >
-                Liked Songs
+              to="/library/songs"
+              className={`sidebar-link ${songs}`}
+            >
+              Liked Songs
             </Link>
-  
-              <Link
-                to="/library/albums"
+
+            <Link
+              to="/library/albums"
               className={`sidebar-link ${albums}`}
-              >
-                Albums
+            >
+              Albums
             </Link>
-  
-              <Link
-                to="/library/artists"
+
+            <Link
+              to="/library/artists"
               className={`sidebar-link ${artists}`}
-              >
-                Artists
+            >
+              Artists
             </Link>
           </div>
 
@@ -142,8 +136,8 @@ export default class Sidebar extends React.Component {
         </div>
 
         <div className="new-playlist-button-container">
-          <div 
-            className="new-playlist-button" 
+          <div
+            className="new-playlist-button"
             onClick={() => this.props.openModal({ type: 'create', wildcard: null })}
           >
             <img

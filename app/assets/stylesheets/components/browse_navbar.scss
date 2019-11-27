@@ -3,16 +3,19 @@
   justify-content: space-between;
   color: rgb(163, 159, 159);
   font-family: $sans-serif;
-  font-size: 12px;
   letter-spacing: 2px;
   text-transform: uppercase;
   text-decoration: italic;
   font-weight: 500;
-  margin-left: 40px;
-  margin-bottom: 40px;
+  width: 70%;
   // width: 600px;
-  width: 100%;
-  max-width: 500px;
+  margin: 0 auto;
+
+  font-size: 1vw;
+  margin-bottom: 1%;
+  // margin-left: 40px;
+  // margin-bottom: 40px;
+  // max-width: 500px;
 
   a:hover {
     color: $white;
@@ -38,3 +41,27 @@
   }
 
 }
+
+@media screen and (max-width: 2100px) {
+  .browse-navbar-links {
+    font-size: 12px;
+  }
+
+  .browse-navbar-links {
+    a {
+      margin: 0 5px;
+    }
+
+    a:first-of-type {
+      margin-left: 0;
+      margin-right: 5px;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .browse-navbar-links {
+    width: 90%;
+  }
+}
+

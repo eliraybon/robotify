@@ -11,8 +11,6 @@ export default class ArtistIndexItem extends React.Component {
         <img
           src={artist.profile_img_url}
           className="arti-profile-img"
-          width="200px"
-          height="200px"
         />
 
         <Link

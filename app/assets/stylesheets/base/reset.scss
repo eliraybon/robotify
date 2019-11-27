@@ -17,9 +17,11 @@ span, article, footer, time, small {
   -webkit-font-smoothing: antialiased;
 }
 
+
+//this is making it where you can't scroll up to reveal whitespace under the music player
 body {
-  padding-bottom: 70px;
   overflow: hidden;
+  max-height: 100%;
 }
 
 ul {

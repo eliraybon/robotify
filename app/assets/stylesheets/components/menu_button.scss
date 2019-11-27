@@ -1,6 +1,16 @@
 .menu-button-container {
   position: relative;
   display: inline-block;
+
+  img { 
+    width: 30px;
+    height: 30px;
+  }
+
+  #triple-dots {
+    width: 16px;
+    height: 4px;
+  }
 }
 
 .menu-button {
@@ -71,6 +81,23 @@
 
     li {
       padding: 10px 5px;
+    }
+  }
+}
+
+@media screen and (min-width: 2200px) {
+  .menu-button-container {
+    img {
+      width: 38.736px;;
+      height: 38.736px;;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .menu-button-container {
+    img {
+      display: none;
     }
   }
 }

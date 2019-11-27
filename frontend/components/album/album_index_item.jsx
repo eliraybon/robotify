@@ -91,8 +91,8 @@ class AlbumIndexItem extends React.Component {
           <img
             src={album.cover_url}
             className="ai-album-cover"
-            width="200"
-            height="200"
+          // width="200"
+          // height="200"
           />
 
           {this.state.coverHover && (

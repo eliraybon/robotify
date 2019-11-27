@@ -7,14 +7,15 @@
 }
 
 .albums-header {
-  font-size: 40px; 
+  font-size: 2.2vw;
   font-weight: 700;
-  margin: 20px;
-  margin-left: 80px;
-  // margin-left: 6%;
+  margin: 20px 0;
+  text-align: center;
 }
 
-.library-albums-container {
-  margin-left: 60px;
-  // margin-left: 4%;
+@media screen and (max-width: 2200px) {
+  .albums-header {
+    font-size: 40px;
+    margin: 20px 0;
+  }
 }
