@@ -179,7 +179,7 @@
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media only screen and (max-width: 1100px) {
   .music-player {
     justify-content: center;
 
@@ -193,6 +193,26 @@
 
     .mp-main {
       width: 90%;
+    }
+  }
+
+  .music-player {
+    .control-buttons {
+      .main-button {
+        min-height: 5px;
+      } 
+
+      .song-select {
+        min-height: 5px;
+      }
+
+      .special-button {
+        min-height: 5px;
+      }
+
+      .special-button-on {
+        min-height: 5px;
+      }
     }
   }
 }
