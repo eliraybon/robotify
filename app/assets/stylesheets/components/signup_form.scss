@@ -145,3 +145,17 @@
   opacity: 0.7;
   transition-duration: 0.3s;
 }
+
+@media screen and (max-width: 500px) {
+  .signup-form {
+    width: 300px;
+  }
+
+  .month {
+    width: 90px;
+  }
+
+  .year {
+    width: 70px;
+  }
+}

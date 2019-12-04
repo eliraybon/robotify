@@ -126,3 +126,13 @@
 .session-errors {
   color: $errors;
 }
+
+@media screen and (max-width: 500px) {
+  .login-form {
+    width: 300px;
+  }
+
+  .signup-link {
+    padding: 15px 50px;
+  }
+}
