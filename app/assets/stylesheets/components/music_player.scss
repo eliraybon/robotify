@@ -196,32 +196,32 @@
     }
   }
 
-  .music-player {
-    .control-buttons {
-      .main-button {
-        min-height: 5px;
-      } 
+  // .music-player {
+  //   .control-buttons {
+  //     .main-button {
+  //       min-height: 5px;
+  //     } 
 
-      img.song-select {
-        min-height: 5px;
-      }
+  //     img.song-select {
+  //       min-height: 5px;
+  //     }
 
-      img.special-button {
-        min-height: 5px;
-      }
+  //     img.special-button {
+  //       min-height: 5px;
+  //     }
 
-      img.special-button-on {
-        min-height: 5px;
-      }
-    }
-  }
+  //     img.special-button-on {
+  //       min-height: 5px;
+  //     }
+  //   }
+  // }
 }
 
 @media screen and (max-width: 500px) {
   .music-player {
     .control-buttons {
       .main-button {
-        height: 25px;
+        height: 30px;
         min-height: 5px;
       } 
 
