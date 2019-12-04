@@ -55,6 +55,7 @@
   padding: 12px 10px;
   border-radius: 20px;
   font-family: $sans-serif;
+  line-height: 25px; //i added this to try to center text on mobile
 }
 
 @media screen and (max-width: 1000px) {
