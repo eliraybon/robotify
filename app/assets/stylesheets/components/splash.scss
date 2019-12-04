@@ -65,12 +65,18 @@
   }
 }
 
-@media screen and (max-width: 1800px) {
+@media screen and (max-width: 1400px) {
   .home-page {
     height: 100%;
   }
 
   .home-page-header {
     font-size: 72px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .home-page-header {
+    margin-top: 180px;
   }
 }

@@ -11,3 +11,10 @@
   height: 89vh;
   background: $main-background;
 }
+
+@media screen and (max-width: 1200px) {
+  .main-content {
+    padding-bottom: 150px;
+  }
+}
+
