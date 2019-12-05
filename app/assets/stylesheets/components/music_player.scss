@@ -169,6 +169,37 @@
 
 }
 
+@media not all and (min-resolution:.001dpcm) { 
+  .music-player {
+    .control-buttons {
+      .main-button {
+        height: 33px;
+        width: auto;
+      }
+
+      img.song-select {
+        height: 15px;
+        width: auto;
+      }
+
+      img.special-button {
+        height: 15px;
+        width: auto;
+      }
+
+      img.special-button-on {
+        height: 15px;
+        width: auto;
+      }
+    }
+
+    .current-song-img {
+      height: 60px;
+      width: auto;
+    }
+  }
+}
+
 @media screen and (max-height: 1100px) {
   .music-player .mp-song-title {
     font-size: 15px;
@@ -195,33 +226,14 @@
       width: 90%;
     }
   }
-
-  // .music-player {
-  //   .control-buttons {
-  //     .main-button {
-  //       min-height: 5px;
-  //     } 
-
-  //     img.song-select {
-  //       min-height: 5px;
-  //     }
-
-  //     img.special-button {
-  //       min-height: 5px;
-  //     }
-
-  //     img.special-button-on {
-  //       min-height: 5px;
-  //     }
-  //   }
-  // }
 }
 
 @media screen and (max-width: 500px) {
   .music-player {
     .control-buttons {
       .main-button {
-        height: 30px;
+        //updated from 33px to 35px
+        height: 35px;
         min-height: 5px;
       } 
 
