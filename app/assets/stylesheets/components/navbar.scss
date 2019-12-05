@@ -64,7 +64,8 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+//the original value of this query was 768px
+@media screen and (max-width: 800px) {
   .navbar {
     .mobile-hamburger-menu {
       display: block;
