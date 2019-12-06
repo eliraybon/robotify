@@ -169,6 +169,7 @@
 
 }
 
+//media query for safari
 @media not all and (min-resolution:.001dpcm) { 
   .music-player {
     .control-buttons {
@@ -198,6 +199,38 @@
       width: auto;
     }
   }
+}
+
+//media query for big screen safari
+@media not all and (min-resolution:.001dpcm) { 
+    .music-player {
+      .control-buttons {
+        .main-button {
+          height: 4vh;
+          width: auto;
+        }
+  
+        img.song-select {
+          height: 2vh;
+          width: auto;
+        }
+  
+        img.special-button {
+          height: 2vh;
+          width: auto;
+        }
+  
+        img.special-button-on {
+          height: 2vh;
+          width: auto;
+        }
+      }
+  
+      .current-song-img {
+        height: 8vh;
+        width: auto;
+      }
+    }
 }
 
 @media screen and (max-height: 1100px) {
