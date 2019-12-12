@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { likeSong, unlikeSong } from '../../actions/song_actions';
 import {
   updateCurrentSong,
-  addToQueue,
+  updateQueue,
   togglePlay
 } from '../../actions/music_actions';
 
@@ -78,6 +78,14 @@ class SongIndexItem extends React.Component {
 
   playSong() {
     this.props.updateCurrentSong(this.props.song);
+    //find index of this.props.song in the state
+    let currentSongIndex;
+    this.props.songs.forEach((song, i) => {
+      if (song.id === this.props.song.id) {
+        currentSongIndex = i;
+      }
+    })
+    this.props.updateQueue(this.props.songs.slice(currentSongIndex + 1, this.props.songs.length));
     this.props.togglePlay(true);
   }
 
@@ -288,8 +296,10 @@ class SongIndexItem extends React.Component {
 
 const mapStateToProps = state => {
   return {
+    songs: Object.values(state.entities.songs),
     currentSongId: state.music.currentSong.id,
-    playing: state.music.playing
+    playing: state.music.playing,
+    queue: state.music.queue,
   };
 };
 
@@ -298,7 +308,7 @@ const mapDispatchToProps = dispatch => {
     likeSong: songId => dispatch(likeSong(songId)),
     unlikeSong: songId => dispatch(unlikeSong(songId)),
     updateCurrentSong: song => dispatch(updateCurrentSong(song)),
-    addToQueue: queue => dispatch(addToQueue(queue)),
+    updateQueue: queue => dispatch(updateQueue(queue)),
     togglePlay: play => dispatch(togglePlay(play))
   };
 };

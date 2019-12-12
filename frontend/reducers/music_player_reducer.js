@@ -37,7 +37,7 @@ const musicPlayerReducer = (state = _defaultState, action) => {
       newMusic.queue = newMusic.queue.concat(action.songs);
       return newMusic;
     case UPDATE_HISTORY:
-      newMusic.songHistory = newMusic.songHistory.concat(action.songHistory);
+      newMusic.songHistory = newMusic.songHistory = action.songHistory;
       return newMusic;
     case TOGGLE_PLAY:
       newMusic.playing = action.play;
