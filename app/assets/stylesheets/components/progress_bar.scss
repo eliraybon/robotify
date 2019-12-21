@@ -26,17 +26,38 @@
     
     input[type='range']::-webkit-slider-thumb {
       -webkit-appearance: none;
-      // width: 6px;
-      // height: 6px;
-      // width: 1.67%;
-      // height: 100%;
-      width: 1vh;
-      height: 1vh;
+      //width and height changed from 1.0 to 1.1 in update
+      // width: fit-content;
+      height: 1.1vh;
+      width: 1.1%;
+      // height: auto;
       background: $white;
       border-radius: 50%;
       box-shadow: -1003px 0 0 1000px $robotify-green;
     }
 
-
+    input[type='range'].volume-slider::-webkit-slider-thumb {
+      width: 1.0vh;
+      height: 1.0vh;
+    }
 }
+
+@media  not all and (min-resolution:.001dpcm) {
+      input[type='range']::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 1.0vh;
+      height: 1.0vh;
+      background: $white;
+      border-radius: 50%;
+      box-shadow: -1003px 0 0 1000px $robotify-green;
+    }
+
+    input[type='range'].volume-slider::-webkit-slider-thumb {
+      // box-shadow: none;
+      width: 1vh;
+      height: 1vh;
+    }
+}
+
+
 
