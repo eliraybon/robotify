@@ -89,6 +89,7 @@ class Navbar extends React.Component {
   }
 }
 
+
 const mapDispatchToProps = dispatch => {
   return {
     logout: () => dispatch(logout())
