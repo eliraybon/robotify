@@ -76,7 +76,7 @@ class Navbar extends React.Component {
                 <a href="https://github.com/eliraybon">Github</a>
               </li>
               <li className="navbar-menu-item">
-                <a href="https://linkedin.com">LinkedIn</a>
+                <a href="https://www.linkedin.com/in/eli-raybon-8473a319b/">LinkedIn</a>
               </li>
               <li className="navbar-menu-item" onClick={this.props.logout}>
                 Logout
