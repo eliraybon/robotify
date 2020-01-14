@@ -14,6 +14,18 @@ Robotify is a Spotify clone with a focus on sci-fi and retro-futuristic music. I
   <img src="https://github.com/eliraybon/robotify/blob/master/app/assets/images/splash.png">
 </p>
 
+
+## Technologies 
+-  Javascript (React/Redux)
+-  Ruby/Rails
+-  PostgresSQL
+-  HTML
+-  SCSS
+-  jQuery (for AJAX requests)
+-  jBuilder (for formatting JSON)
+-  BCrypt (for user authentication)
+-  AWS S3
+
 ## Features
 -  A fully-featured music player
 -  Creating and editing your own playlists 
@@ -60,13 +72,3 @@ json.isLiked !!Like.find_by(
 Instead of looping over all the user's liked songs, I'm using the Rails ```find_by``` method to make a SQL query directly in the ```likes``` table. I already had an index on this combination of columns (to add a uniqueness constraint on likes), so this query runs in logarithmic time. A simple change, but one that has major impacts on performance at scale.
 
 
-## Technologies 
--  Javascript (React/Redux)
--  Ruby/Rails
--  PostgresSQL
--  HTML
--  SCSS
--  jQuery (for AJAX requests)
--  jBuilder (for formatting JSON)
--  BCrypt (for user authentication)
--  AWS S3
