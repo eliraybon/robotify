@@ -82,6 +82,10 @@
   padding-bottom: 40px;
 }
 
+.sidebar-scrollable::-webkit-scrollbar {
+    display: none;
+}
+
 .sidebar-section-text {
   // font-size: 14px;
   font-size: 1.1vw;
