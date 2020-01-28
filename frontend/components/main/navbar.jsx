@@ -73,10 +73,10 @@ class Navbar extends React.Component {
           {this.state.menuOpen && (
             <ul className="navbar-menu">
               <li className="navbar-menu-item">
-                <a href="https://github.com/eliraybon">Github</a>
+                <a target="_blank" href="https://github.com/eliraybon">Github</a>
               </li>
               <li className="navbar-menu-item">
-                <a href="https://www.linkedin.com/in/eli-raybon-8473a319b/">LinkedIn</a>
+                <a target="_blank" href="https://www.linkedin.com/in/eli-raybon-8473a319b/">LinkedIn</a>
               </li>
               <li className="navbar-menu-item" onClick={this.props.logout}>
                 Logout
